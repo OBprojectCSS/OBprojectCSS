@@ -106,61 +106,8 @@
 <body>
 
 
-	<!-- Navigation -->
-	<nav
-		class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="main.jsp">나랑 놀자</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link"
-						href="controller?type=search">전체검색</a></li>
-					<li class="nav-item"><a class="nav-link" href="services.html">이벤트</a>
-					</li>
-
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#"
-						id="navbarDropdownMoreoption" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false"> 더보기 </a>
-						<div class="dropdown-menu dropdown-menu-right"
-							aria-labelledby="navbarDropdownMoreoption">
-							<a class="dropdown-item" href="portfolio-1-col.html">공지 사항</a> <a
-								class="dropdown-item" href="portfolio-2-col.html">자주 묻는 질문</a> <a
-								class="dropdown-item" href="portfolio-3-col.html">문의 사항</a> <a
-								class="dropdown-item" href="portfolio-4-col.html">프리미엄 후기</a> <a
-								class="dropdown-item" href="portfolio-item.html">약관 및 동의사항</a>
-						</div></li>
-					<!--  -->
-					<c:if test="${empty sessionScope.uservo}">
-						<li class="nav-item"><a class="nav-link"
-							href="controller?type=login">로그인</a></li>
-					</c:if>
-
-					<!--  -->
-					<c:if test="${not empty sessionScope.uservo}">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarDropdownMypage" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"> 마이페이지 </a>
-							<div class="dropdown-menu dropdown-menu-right"
-								aria-labelledby="navbarDropdownBlog">
-								<a class="dropdown-item" href="full-width.html">회원정보수정</a> <a
-									class="dropdown-item" href="controller?type=logout">로그아웃</a>
-								<c:if test="${sessionScope.uservo.getAccount() == 'admin'}">
-									<a class="dropdown-item" href="pricing.html">관리자모드</a>
-								</c:if>
-							</div></li>
-					</c:if>
-				</ul>
-			</div>
-		</div>
-	</nav>
+  <jsp:include page="header.jsp"></jsp:include>
+  
 	<!-- Page Content -->
 	<div class="container">
 
@@ -212,13 +159,8 @@
 	<!-- /.container -->
 
 	<!-- Footer -->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2018</p>
-		</div>
-		<!-- /.container -->
-	</footer>
+	 <jsp:include page="footer.jsp"></jsp:include>
+	 
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
