@@ -2,30 +2,29 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-#hotel table {
-	width: 580px;
-	margin-left: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	font-size: 14px;
-}
 
-#hotel table th, #hotel table td {
-	text-align: center;
-	border: 1px solid black;
-	padding: 4px 10px;
-}
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-.title {
-	background-color: lightsteelblue;
-}
+<title></title>
 
-/******* 페이지 표시 부분 스타일(시작) *****/
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/modern-business.css" rel="stylesheet">
+
+<style>
+#imgsize {
+	width: 200px;
+	height: 250px;
+}
 .paging {
 	list-style: none;
 }
@@ -62,93 +61,126 @@
 	color: white;
 	font-weight: bold;
 }
-
-/******* 페이지 표시 부분 스타일(종료) ***/
 #imgsize {
-	width: 200px;
+	width: 350px;
 	height: 250px;
 }
-
-.title {
-	background-color: lightsteelblue;
-}
 </style>
-
 </head>
-
 <body>
-	<c:if test="${not empty getRoomimp }">
-		<div id="hotel">
-			<table style="width: 100%">
-				<thead>
-					<tr class="title">
-						<th>사진</th>
-						<th style="width: 17%">호텔이름</th>
-						<th style="width: 10%">위치</th>
-						<th style="width: 10%;">방번호</th>
-						<th style="width: 10%;">타입</th>
-						<th style="width: 18%;">하루 숙박요금</th>
-						<th style="width: 10%;">수용인원</th>
-						<th style="width: 30%;">간단 설명</th>
-						<th style="width: 10%;">테마</th>
-						<th style=""></th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:choose>
-						<c:when test="${empty getRoomimp  }">
-							<tr>
-								<td colspan="10"><h2>검색 조건이 없습니다</h2></td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-							<form method="post">
-								<!--데이타 있는 경우 tr 태그 작성 -->
-								<c:forEach var="roomlist" items="${getRoomimp }">
+
+
+
+	<!-- Page Content -->
+	<div class="container">
+
+
+
+		<div class="row">
+
+			<c:forEach var="roomlist" items="${getRoomimp }">
+				<div class="col-lg-4 col-sm-6 portfolio-item">
+					<div class="card h-100">
+						<a href="controller?type=reservation&room_id=${roomlist.room_id }"><img
+							class="card-img-top" src="imgs/${roomlist.filename}" id="imgsize" alt="이미지사진"></a>
+						<div class="card-body">
+							<h4 class="card-title">
+								<a
+									href="controller?type=reservation&room_id=${roomlist.room_id }">${roomlist.room_name }</a>
+							</h4>
+							<div class="card-text">
+								<table>
 									<tr>
-										<td><a href="controller?type=reservation&room_id=${roomlist.room_id }" title="이미지사진"> <img id="imgsize"
-												src="imgs/${roomlist.filename}"
-												alt="${roomlist.room_name }"></a></td>
-										<td><a href="controller?type=reservation&room_id=${roomlist.room_id }">${roomlist.room_name }</a></td>
+										<th>위치</th>
+									</tr>
+									<tr>
 										<td>${roomlist.room_address1 }&nbsp;
 											${roomlist.room_address2 }</td>
+									</tr>
+									<tr>
+										<th>방번호</th>
+									</tr>
+									<tr>
 										<td>${roomlist.room_num }</td>
+									</tr>
+									<tr>
+										<th>방 타입</th>
+									</tr>
+									<tr>
 										<td>${roomlist.room_type }</td>
+									</tr>
+									<tr>
+										<th>가격 하루당</th>
+									</tr>
+									<tr>
 										<td>${roomlist.cost }원</td>
+									</tr>
+									<tr>
+										<th>수용인원</th>
+									</tr>
+									<tr>
 										<td>${roomlist.max_pax }명</td>
+									</tr>
+									<tr>
+										<th>내용</th>
+									</tr>
+									<tr>
 										<td>${roomlist.room_content }</td>
+									</tr>
+									<tr>
+										<th>테마</th>
+									</tr>
+									<tr>
 										<td>${roomlist.room_theme }</td>
 
-										<td><input type="button" value="예약하기"
-											onclick="controller?type=reservation&room_id=${roomlist.room_id }"></td>
-
 									</tr>
-									<input type="hidden" name="room_id" value="${roomlist.room_id}"> 
-									<input type="hidden" name="room_type_id" value="${roomlist.room_type_id}"> 
-									<input type="hidden" name="room_name" value="${roomlist.room_name}"> 
-									<input type="hidden" name="room_num" value="${roomlist.room_num}"> 
-									<input type="hidden" name="room_content" value="${roomlist.room_content}"> 
-									<input type="hidden" name="room_address1" value="${roomlist.room_address1}"> 
-									<input type="hidden" name="room_address2" value="${roomlist.room_address2}"> 
-									<input type="hidden" name="room_theme" value="${roomlist.room_theme }"> 
-									
-								</c:forEach>
-							</form>
-						</c:otherwise>
-					</c:choose>
+									<tr>
+										<td><input type="hidden" name="room_id"
+											value="${roomlist.room_id}"> <input type="hidden"
+											name="room_type_id" value="${roomlist.room_type_id}">
+											<input type="hidden" name="room_name"
+											value="${roomlist.room_name}"> <input type="hidden"
+											name="room_num" value="${roomlist.room_num}"> <input
+											type="hidden" name="room_content"
+											value="${roomlist.room_content}"> <input
+											type="hidden" name="room_address1"
+											value="${roomlist.room_address1}"> <input
+											type="hidden" name="room_address2"
+											value="${roomlist.room_address2}"> <input
+											type="hidden" name="room_theme"
+											value="${roomlist.room_theme }"></td>
+									</tr>
 
-				</tbody>
-				<tfoot>
-					<tr>
-						<td colspan="10">
-							<ol class="paging">
-								<%--[이전으로]에 대한 사용여부 처리 --%>
+
+
+
+								</table>
+
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+
+
+
+
+
+
+		</div>
+
+		<!-- Pagination -->
+		<div id="center">
+			<table style="margin-left: auto; margin-right: auto;">
+				<tr>
+					<td colspan="4">
+						<ol class="paging">
 								<c:choose>
-									<%-- 사용불가(disable) : 첫번째 블록인 경우 --%>
 									<c:when test="${pvo.beginPage == 1 }">
 										<li class="disable">이전으로</li>
 									</c:when>
-									<%--사용가능(enable) : 두번째 이상(첫번째 아닌경우) --%>
 									<c:otherwise>
 										<li><a
 											href="controller?type=search_list&cPage=${pvo.beginPage - 1 }">이전으로</a>
@@ -156,7 +188,6 @@
 									</c:otherwise>
 								</c:choose>
 
-								<%-- 블록내에 표시할 페이지 반복처리(시작페이지~끝페이지)--%>
 								<c:forEach var="k" begin="${pvo.beginPage }"
 									end="${pvo.endPage }">
 									<c:choose>
@@ -169,13 +200,10 @@
 									</c:choose>
 								</c:forEach>
 
-								<%--[다음으로]에 대한 사용여부 처리 --%>
 								<c:choose>
-									<%--사용불가(disable) : endPage가 전체페이지수 보다 크거나 같으면 --%>
 									<c:when test="${pvo.endPage >= pvo.totalPage }">
 										<li class="disable">다음으로</li>
 									</c:when>
-									<%--사용가능(enable) --%>
 									<c:otherwise>
 										<li><a
 											href="controller?type=search_list&cPage=${pvo.endPage + 1 }">다음으로</a>
@@ -183,15 +211,25 @@
 									</c:otherwise>
 								</c:choose>
 							</ol>
-						</td>
+					</td>
 
 
-
-					</tr>
-				</tfoot>
+				</tr>
 			</table>
 		</div>
-	</c:if>
+
+
+
+	</div>
+	<!-- /.container -->
+
+
+
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
