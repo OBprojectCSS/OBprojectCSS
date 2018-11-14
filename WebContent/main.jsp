@@ -13,7 +13,7 @@
 
     <title>나랑놀자</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS1 -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
