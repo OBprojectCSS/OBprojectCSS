@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.ob.mybatis.DBService;
 import com.ob.vo.BoardplusVO;
+import com.ob.vo.BoardreplyVO;
 import com.ob.vo.DaehoonVO;
 import com.ob.vo.ReservationVO;
 import com.ob.vo.RoomTABLEVO;
@@ -221,5 +222,25 @@ public class DAO {
 	public static int insertReservation(ReservationVO resvo) {
 		return getSql().insert("insertReservation", resvo);
 	}
+
+	
+	//------------------ 조회수 관련
+	public static int updateHit(int id) {
+		return getSql().update("hit", id);
+	}
+
+	public static List<BoardreplyVO> getCommList(String id) {
+		return getSql().selectList("commList", id);
+	}
+
+	public static int replyInsert(BoardreplyVO replyVO) {
+		
+		return getSql().insert("replyInsert", replyVO);
+		
+	}
+	
+	
+//-----------------------
+	
  	
 }

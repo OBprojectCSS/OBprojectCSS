@@ -441,4 +441,28 @@
 		VALUES (OBHOTEL_RESERVATION_SEQ.NEXTVAL, #{user_id}, #{room_id}, #{s_date},
 		#{e_date}, SYSDATE, #{pax}, 0, #{total_cost})
 	</insert>
+	
+	<!-- 조회수 1증가 -->
+	<update id="hit" parameterType="int">
+		UPDATE OBHOTEL_BOARD SET read_count = read_count + 1
+		WHERE ID = #{id}
+	</update>
+	
+	<!-- 게시글에 연결된 댓글 조회 -->
+	<select id="commList" resultType="com.ob.vo.BoardreplyVO"
+		parameterType="String">
+		SELECT *
+		FROM OBHOTEL_BOARD_REPLY
+		WHERE BOARD_ID = #{id}
+		ORDER BY
+		id DESC
+	</select>
+	
+	
+	<insert id="replyInsert"
+		parameterType="com.ob.vo.BoardreplyVO">
+		INSERT INTO OBHOTEL_BOARD_REPLY (ID, BOARD_ID, USER_ID, CONTENT, WRITE_DATE, WRITER)
+		VALUES (obhotel_board_reply_seq.nextval, #{board_id},#{user_id},#{content} ,SYSDATE, #{writer})
+	</insert>
+	
 </mapper>
