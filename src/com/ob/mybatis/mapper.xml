@@ -225,7 +225,7 @@
 
 	<!-- ********문의사항 게시판********* -->
 
-	<!-- 게시문 보기 셀렉문 -->
+	<!-- 게시문 보기 -->
 	<select id="queSelOne" resultType="com.ob.vo.DaehoonVO">
 		SELECT *
 		FROM (SELECT ROWNUM R_NUM, h.*
@@ -240,6 +240,15 @@
 		) h
 		)
 	</select>
+	
+	<insert id="queInsert" parameterType="com.ob.vo.DaehoonVO">
+		INSERT INTO
+		OBHOTEL_BOARD B
+		(ID, BOARD_TYPE, TITLE, CONTENT, WRITE_DATE, READ_COUNT)
+		VALUES
+		(OBHOTEL_BOARD_SEQ.NEXTVAL, #{board_type}, #{title}, #{content}, SYSDATE, 0)
+	</insert>
+	
 
 	<!-- <!!! 갔다와서하기 -->
 	<select id="quelist" resultType="com.ob.vo.DaehoonVO"
@@ -260,7 +269,17 @@
 		BETWEEN #{begin} AND
 		#{end}
 	</select>
-
+	
+	<!-- 문의사항 수정 -->
+	
+	<update id="queUp" parameterType="com.ob.vo.DaehoonVO">
+		UPDATE OBHOTEL_BOARD B SET
+		BOARD_TYPE = #{board_type},
+		TITLE = #{title},
+		CONTENT = #{content}, WRITE_DATE = SYSDATE,
+		READ_COUNT = 0
+		WHERE ID = #{id}
+	</update>
 
 	<!-- ******이벤트 게시판 ******** -->
 

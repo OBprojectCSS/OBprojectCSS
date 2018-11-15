@@ -125,18 +125,20 @@ public class DAO {
 		getSql().commit();
 		return result;
 	}
-
+	
+	/*****************문의사항 게시판***************************/
+	
+	//문의사항 게시물 작성
+	public static int queInsert(DaehoonVO vo) {
+		int result = getSql().insert("queInsert", vo);
+		getSql().commit();
+		return result;
+	}
+	 
 	// 문의사항 게시물 보기
 	public static List<DaehoonVO> queSelect(Map<String, Integer> map) {
 		List<DaehoonVO> list = getSql().selectList("quelist", map);
 		return list;
-	}
-
-	// 문의사항 게시물 작성
-	public static int queInsert(BoardplusVO vo) {
-		int result = getSql().insert("queInsert", vo);
-		getSql().commit();
-		return result;
 	}
 
 	// 문의사항 게시물보기
@@ -144,7 +146,22 @@ public class DAO {
 		 
 		return getSql().selectOne("queSelOne", id);
 	}
-
+	
+	//문의사항 게시물 삭제
+	public static int quedel(String id) {
+		int result = getSql().delete("quedel", id);
+		getSql().commit();
+		return result;
+	}
+	
+	// 문의사항 수정
+	public static int queUp(DaehoonVO vo) {
+		int result = getSql().update("queUp", vo);
+		getSql().commit();
+		return result;
+	}
+	
+	/**********************이벤트 게시판******************************/
 	// boardVOplus 모든 이벤트 데이터값 불러오기
 	public static List<BoardplusVO> getEventALLList(Map<String, Integer> map) {
 		return getSql().selectList("getEventALLcol", map);
