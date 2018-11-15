@@ -53,6 +53,27 @@
    margin-left: 10px;
 }
 </style>
+<script>
+      function modify_go() {
+         frm.action = "controller?type=noticeModi&board_type=1&id=${BPVO.id}";
+         frm.submit();
+      }
+      function delete_go() {
+         var isDeleteOk = confirm("정말 삭제하시겠습니까?");
+         
+         if (isDeleteOk) {
+            frm.action = "controller?type=noticeDel&board_type=1&id=${BPVO.id}";
+            frm.submit();
+         } else {
+            alert("취소되었습니다.");
+         }
+      } 
+      function list_go() {
+         frm.action = "controller?type=notice&board_type=1";
+         frm.submit();
+      }
+      
+</script>
 </head>
 
 <body>

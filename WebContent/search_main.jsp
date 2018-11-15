@@ -24,7 +24,7 @@
 </head>
 <style>
 .btn-group .button {
-	background-color: #4CAF50; /* Green */
+	background-color: #4CAF50; /* Green */ /* #dc3545 */
 	border: 1px solid green;
 	color: white;
 	padding: 15px 32px;
