@@ -1,25 +1,34 @@
 package com.ob.vo;
 
 public class RoomfileVO {
-	String id,room_type_id,	filename;
+	String room_id, room_file_id, room_type_id, filename;
 
 	public RoomfileVO() {
 		super();
 	}
 
-	public RoomfileVO(String id, String room_type_id, String filename) {
+	public RoomfileVO(String room_id, String room_file_id, String room_type_id, String filename) {
 		super();
-		this.id = id;
+		this.room_id = room_id;
+		this.room_file_id = room_file_id;
 		this.room_type_id = room_type_id;
 		this.filename = filename;
 	}
 
-	public String getId() {
-		return id;
+	public String getRoom_id() {
+		return room_id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setRoom_id(String room_id) {
+		this.room_id = room_id;
+	}
+
+	public String getRoom_file_id() {
+		return room_file_id;
+	}
+
+	public void setRoom_file_id(String room_file_id) {
+		this.room_file_id = room_file_id;
 	}
 
 	public String getRoom_type_id() {
@@ -36,6 +45,12 @@ public class RoomfileVO {
 
 	public void setFilename(String filename) {
 		this.filename = filename;
+	}
+
+	@Override
+	public String toString() {
+		return "RoomfileVO [room_id=" + room_id + ", room_file_id=" + room_file_id + ", room_type_id=" + room_type_id
+				+ ", filename=" + filename + "]";
 	}
 	
 }

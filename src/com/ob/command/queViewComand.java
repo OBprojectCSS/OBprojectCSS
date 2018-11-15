@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ob.dao.DAO;
-import com.ob.vo.BoardplusVO;
+import com.ob.vo.DaehoonVO;
 
 public class queViewComand implements Command {
 
@@ -12,13 +12,14 @@ public class queViewComand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
 		
-		BoardplusVO vo = DAO.queSelOne(id);
+		DaehoonVO vo = DAO.queSelOne(id);
+		
+		System.out.println("queViewCommand 에서 값" +vo);
 		
 		request.getSession().setAttribute("Bovo", vo);
 		
-		String path = "queView.jsp";
 		
-		return path;
+		return "queView.jsp";
 	}
 
 }

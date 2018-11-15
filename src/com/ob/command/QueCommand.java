@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest; 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ob.dao.DAO;
 import com.ob.mybatis.PagingQue;
-import com.ob.vo.BoardplusVO;
+import com.ob.vo.DaehoonVO;
 public class QueCommand implements Command {
 
 	@Override
@@ -19,13 +19,14 @@ public class QueCommand implements Command {
 		//***페이징 처리***
 		PagingQue p = new PagingQue();
 		
+		
+		p.setTotalRecord(DAO.totalCount(board_type));
+		p.setTotalPage();
+		
 		String quePage = request.getParameter("quePage");
 		if (quePage != null) {
 			p.setNowPage(Integer.parseInt(quePage));
 		}
-		
-		p.setTotalRecord(DAO.totalCount(board_type));
-		p.setTotalPage();
 		
 		p.setEnd(p.getNowPage() * p.getNumPerPage());
 		p.setBegin(p.getEnd() - p.getNumPerPage() + 1);
@@ -44,9 +45,9 @@ public class QueCommand implements Command {
 		
 		System.out.println("QueCommand.java에서 board_type = : "+request.getParameter("board_type"));
 
-		List<BoardplusVO> list = DAO.queSelect(map);
+		List<DaehoonVO> list = DAO.queSelect(map);
 		
-		request.setAttribute("list", list);
+		request.setAttribute("quelist", list);
 		request.setAttribute("quePage", quePage);
 		request.setAttribute("quePvo", p);
 	

@@ -48,8 +48,13 @@
 	<!-- Page Content -->
 	<div class="container">
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-	
-	<h3>개인 정보 수정을 위한 비밀번호 입력</h3>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3 >개인 정보 수정을 위한 비밀번호 입력</h3>
 	<form method="POST" name="frm" id="frm">
 	<input type="password" name="inputPwd">
 	<input type="button" name="button" value="확인" onclick="myPage_go()">

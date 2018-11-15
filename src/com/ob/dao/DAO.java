@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.ob.mybatis.DBService;
 import com.ob.vo.BoardplusVO;
+import com.ob.vo.DaehoonVO;
 import com.ob.vo.ReservationVO;
 import com.ob.vo.RoomTABLEVO;
 import com.ob.vo.RoomfileVO;
@@ -127,8 +128,8 @@ public class DAO {
 	}
 
 	// 문의사항 게시물 보기
-	public static List<BoardplusVO> queSelect(Map<String, Integer> map) {
-		List<BoardplusVO> list = getSql().selectList("queList", map);
+	public static List<DaehoonVO> queSelect(Map<String, Integer> map) {
+		List<DaehoonVO> list = getSql().selectList("quelist", map);
 		return list;
 	}
 
@@ -140,9 +141,9 @@ public class DAO {
 	}
 
 	// 문의사항 게시물보기
-	public static BoardplusVO queSelOne(String id) {
-		BoardplusVO vo = getSql().selectOne("queSelOne", id);
-		return vo;
+	public static DaehoonVO queSelOne(String id) {
+		 
+		return getSql().selectOne("queSelOne", id);
 	}
 
 	// boardVOplus 모든 이벤트 데이터값 불러오기
