@@ -42,6 +42,11 @@ function cancel(frm) {
 	<!-- Page Content -->
 	<div class="container">
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+		<br>
+	<br>
+	<br>
+	<br>
+	
 	
 	<h2>회원 정보 수정</h2>
 			<form id="frm" method="POST" name="frm">
