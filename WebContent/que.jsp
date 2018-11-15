@@ -52,6 +52,42 @@
 #setting {
 	margin-left: 10px;
 }
+.paging {
+	list-style: none;
+}
+
+.paging li {
+	float: left;
+	margin-right: 8px;
+}
+
+.paging li a {
+	text-decoration: none;
+	display: block;
+	padding: 3px 7px;
+	border: 1px solid #00B3DC;
+	font-weight: bold;
+	color: black;
+}
+
+.paging li a:hover {
+	background-color: #00B3DC;
+	color: white;
+}
+
+.paging .disable {
+	padding: 3px 7px;
+	border: 1px solid silver;
+	color: silver;
+}
+
+.paging .now {
+	padding: 3px 7px;
+	border: 1px solid #ff4aa5;
+	background-color: #ff4aa5;
+	color: white;
+	font-weight: bold;
+}
 </style>
 </head>
 
@@ -95,10 +131,9 @@
 
 
 
-				<div id="que_bbs">
+				<div id="bbs_view">
 
 					<table border="1">
-						<caption>문 의 사 항</caption>
 						<thead>
 							<tr class="title">
 								<th class="no">번호</th>
@@ -133,7 +168,7 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="4">
+								<td colspan="5">
 									<ol class="paging">
 										<%-- [이전으로]에 대한 사용 여부를 처리 --%>
 										<c:choose>
@@ -180,9 +215,10 @@
 										</c:choose>
 									</ol>
 								</td>
-
-								<td><input type="button" value="작성하기"
-									onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'"></td>
+								<c:if test="${not empty uservo}">
+									<td><input type="button" value="작성하기"
+										onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'"></td>
+								</c:if>
 							</tr>
 						</tfoot>
 					</table>
