@@ -105,7 +105,7 @@
 				<br> <label>이름</label> <input type="text" name="name"
 					placeholder="이름"><br>
 				<br> <label>휴대폰 번호</label> <input type="text" name="tel"
-					placeholder="휴대폰번호"><br>
+					placeholder="휴대폰번호" maxlength="11"><br>
 				<br> <label>주소</label> <input type="text" name="zipcode"
 					id="zipcode" placeholder="우편번호" maxlength="6"><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"
