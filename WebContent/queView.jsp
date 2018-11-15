@@ -55,14 +55,14 @@
 </style>
 <script>
       function modify_go() {
-         frm.action = "controller?type=noticeModi&board_type=3&id=${Bovo.id}";
+         frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
          frm.submit();
       }
       function delete_go() {
          var isDeleteOk = confirm("정말 삭제하시겠습니까?");
          
          if (isDeleteOk) {
-            frm.action = "controller?type=noticeDel&board_type=1&id=${BPVO.id}";
+            frm.action = "controller?type=noticeDel&board_type=3&id=${Bovo.id}";
             frm.submit();
          } else {
             alert("취소되었습니다.");
