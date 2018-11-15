@@ -20,6 +20,76 @@
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
 
+<style type="text/css">
+#bbs_view table {
+	width: 580px;
+	margin-left: 10px;
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+#bbs_view table caption {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#bbs_view table th {
+	text-align: center;
+	border: 1px solid black;
+	padding: 4px 10px;
+	width: 30%;
+	background-color: lightsteelblue;
+}
+
+#bbs_view table td {
+	text-align: left;
+	border: 1px solid black;
+	padding: 4px 10px;
+}
+
+#setting {
+	margin-left: 10px;
+}
+.paging {
+	list-style: none;
+}
+
+.paging li {
+	float: left;
+	margin-right: 8px;
+}
+
+.paging li a {
+	text-decoration: none;
+	display: block;
+	padding: 3px 7px;
+	border: 1px solid #00B3DC;
+	font-weight: bold;
+	color: black;
+}
+
+.paging li a:hover {
+	background-color: #00B3DC;
+	color: white;
+}
+
+.paging .disable {
+	padding: 3px 7px;
+	border: 1px solid silver;
+	color: silver;
+}
+
+.paging .now {
+	padding: 3px 7px;
+	border: 1px solid #ff4aa5;
+	background-color: #ff4aa5;
+	color: white;
+	font-weight: bold;
+}
+</style>
+
 </head>
 
 <body>
@@ -59,9 +129,10 @@
 			<div class="col-lg-9 mb-4">
 				<h4>문의 사항</h4>
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳! start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-				<div id="que_bbs">
+				<div id="bbs_view">
 
 					<table class="table table-striped">
+					
 						<thead>
 							<tr class="title">
 								<th class="no" style="padding-left: 9px;">번호</th>
@@ -96,7 +167,7 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="4">
+								<td colspan="5">
 									<ol class="paging">
 										<%-- [이전으로]에 대한 사용 여부를 처리 --%>
 										<c:choose>
@@ -143,9 +214,10 @@
 										</c:choose>
 									</ol>
 								</td>
-
-								<td><input type="button" value="작성하기"
-									onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'"></td>
+								<c:if test="${not empty uservo}">
+									<td><input type="button" value="작성하기"
+										onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'"></td>
+								</c:if>
 							</tr>
 						</tfoot>
 					</table>

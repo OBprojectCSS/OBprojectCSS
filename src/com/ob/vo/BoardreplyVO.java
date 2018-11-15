@@ -1,19 +1,20 @@
 package com.ob.vo;
 
 public class BoardreplyVO {
-	String id, board_id, user_id, content, write_date;
+	String id, board_id, user_id, content, write_date, writer ;
 
 	public BoardreplyVO() {
 		super();
 	}
 
-	public BoardreplyVO(String id, String board_id, String user_id, String content, String write_date) {
+	public BoardreplyVO(String id, String board_id, String user_id, String content, String write_date, String writer) {
 		super();
 		this.id = id;
 		this.board_id = board_id;
 		this.user_id = user_id;
 		this.content = content;
 		this.write_date = write_date;
+		this.writer = writer;
 	}
 
 	public String getId() {
@@ -54,6 +55,20 @@ public class BoardreplyVO {
 
 	public void setWrite_date(String write_date) {
 		this.write_date = write_date;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	@Override
+	public String toString() {
+		return "BoardreplyVO [id=" + id + ", board_id=" + board_id + ", user_id=" + user_id + ", content=" + content
+				+ ", write_date=" + write_date + ", writer=" + writer + "]";
 	}
 
 }
