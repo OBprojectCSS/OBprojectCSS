@@ -33,7 +33,7 @@
 	<div class="container">
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">약곤 및 동의사항</h1>
+		<h1 class="mt-4 mb-3">약관 및 동의사항</h1>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="main.jsp">Home</a></li>

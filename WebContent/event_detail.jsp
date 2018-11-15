@@ -37,7 +37,7 @@
 
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
-			Contact <small>Subheading</small>
+			Event <small>detail</small>
 		</h1>
 
 		<ol class="breadcrumb">

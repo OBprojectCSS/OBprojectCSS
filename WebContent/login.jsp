@@ -59,7 +59,7 @@
 		</h1>
 
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+			<li class="breadcrumb-item"><a href="main.jsp">Home</a></li>
 			<li class="breadcrumb-item active">Login</li>
 		</ol>
 
@@ -80,7 +80,7 @@
 							<input type="button" value="회원가입" class="btn btn-primary"
 							onclick="join_go(this.form)"></li>
 						<li class="list-group-item"><input type="button" value="돌아가기"
-							class="btn btn-primary" onclick="login_go(this.form)"></li>
+							class="btn btn-primary" onclick="back_go(this.form)"></li>
 					</ul>
 				</div>
 			</div>

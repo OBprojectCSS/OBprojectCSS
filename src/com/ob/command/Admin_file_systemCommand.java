@@ -22,7 +22,10 @@ public class Admin_file_systemCommand implements Command {
 	//	String path = request.getServletContext().getRealPath("/imgs");
 	//	String path = request.getSession().getServletContext().getRealPath("/imgs");  
 	//	String path = request.getSession().getServletContext().getRealPath("C:/Users/hb5016/git/newobproject/WebContent/imgs");
-		String path = "C:/Users/hb5016/git/newobproject/WebContent/imgs";
+	//	String path = "C:/Users/hb5016/git/newobproject/WebContent/imgs";
+			//String path =  "C:/OBrealProject/OBrealProject/WebContent/imgs"; //ㅁㄴㅇ
+			String path =  "C:/Users/hb5016/git/OBprojectCSS/WebContent/imgs"; //ㅁㄴㅇ
+			
 		MultipartRequest mr = null;
 		try {
 

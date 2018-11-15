@@ -64,7 +64,8 @@
                 	마이페이지
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="full-width.html">회원정보수정</a>
+                <a class="dropdown-item" href="controller?type=myPage">내 정보수정</a>
+                <a class="dropdown-item"href="controller?type=revList">내 예약(숙박)내역</a>
                 <a class="dropdown-item" href="controller?type=logout">로그아웃</a>
                 <c:if test="${sessionScope.uservo.getAccount() == 'admin'}">
                 <a class="dropdown-item" href="controller?type=admin_system">관리자모드</a>
