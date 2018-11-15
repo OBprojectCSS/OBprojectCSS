@@ -33,7 +33,6 @@ public class Admin_systemCommand implements Command {
 			vo.setRead_count(count);			
 			
 		int result	= DAO.noticeInsert(vo);
-		System.out.println(vo.getBoard_id());
 
 		if(result>=1)
 			System.out.println("정상적으로  입력 처리 되었습니다.");
