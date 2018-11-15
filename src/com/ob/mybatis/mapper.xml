@@ -490,4 +490,19 @@
 		VALUES (obhotel_board_reply_seq.nextval, #{board_id},#{user_id},#{content} ,SYSDATE, #{writer})
 	</insert>
 	
+	<update id="replyUpdate"  parameterType="com.ob.vo.BoardreplyVO" >
+	
+	UPDATE OBHOTEL_BOARD_REPLY
+		SET Content = #{comm_content}
+		WHERE ID = #{comm_id}
+	
+	</update>
+	
+	<delete id="replyDelete" parameterType="String">
+	DELETE FROM OBHOTEL_BOARD_REPLY
+		WHERE ID = #{comm_id}
+	
+	
+	</delete>
+	
 </mapper>

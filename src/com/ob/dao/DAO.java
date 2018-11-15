@@ -245,6 +245,18 @@ public class DAO {
 		return getSql().insert("replyInsert", replyVO);
 		
 	}
+
+	public static int replyUpdate(BoardreplyVO replyVO) {
+		
+		return getSql().update("replyUpdate", replyVO);
+		
+	}
+
+	public static int replyDelete(String comm_id) {
+		int result = getSql().delete("replyDelete", comm_id);
+		return result;
+		
+	}
 	
 	
 //-----------------------

@@ -32,6 +32,7 @@
 <body>
 
 	   <jsp:include page="header.jsp"></jsp:include>
+	   <br>
 
 	<!-- Page Content -->
 	<div class="container">
@@ -39,6 +40,7 @@
 	
 	<h2>관리자: 게시판별 추가 페이지</h2>
 <hr>
+
 <p><a href="controller?type=main">메인으로 가기</a></p>
 <form method="post">
 
