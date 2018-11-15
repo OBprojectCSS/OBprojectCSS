@@ -25,6 +25,7 @@
 	width: 200px;
 	height: 250px;
 }
+
 .paging {
 	list-style: none;
 }
@@ -61,114 +62,135 @@
 	color: white;
 	font-weight: bold;
 }
+
 #imgsize {
 	width: 350px;
 	height: 250px;
 }
+
+a:link, a:hover, a:visited {
+	color: inherit;
+	text-decoration: none;
+	cursor: default;
+}
+
+a:link:active, a:visited:active {
+	color: inherit;
+	text-decoration: none;
+	cursor: default;
+}
+#buttonbox{
+	background-color:white;
+	border:none;
+}
 </style>
+<script>
+	function reservationGo(frm) {
+		alert("reservationGo()실행");
+		alert("frm" + frm);
+		frm.action = "controller?type=reservation";
+		frm.submit();
+	}
+</script>
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
+
+
+	<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
 	<div class="container">
-
-
-
 		<div class="row">
-
-			<c:forEach var="roomlist" items="${getRoomimp }">
 				<div class="col-lg-4 col-sm-6 portfolio-item">
-					<div class="card h-100">
-						<a href="controller?type=reservation&room_id=${roomlist.room_id }"><img
-							class="card-img-top" src="imgs/${roomlist.filename}" id="imgsize" alt="이미지사진"></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a
-									href="controller?type=reservation&room_id=${roomlist.room_id }">${roomlist.room_name }</a>
-							</h4>
-							<div class="card-text">
-								<table>
-									<tr>
-										<th>위치</th>
-									</tr>
-									<tr>
-										<td>${roomlist.room_address1 }&nbsp;
-											${roomlist.room_address2 }</td>
-									</tr>
-									<tr>
-										<th>방번호</th>
-									</tr>
-									<tr>
-										<td>${roomlist.room_num }</td>
-									</tr>
-									<tr>
-										<th>방 타입</th>
-									</tr>
-									<tr>
-										<td>${roomlist.room_type }</td>
-									</tr>
-									<tr>
-										<th>가격 하루당</th>
-									</tr>
-									<tr>
-										<td>${roomlist.cost }원</td>
-									</tr>
-									<tr>
-										<th>수용인원</th>
-									</tr>
-									<tr>
-										<td>${roomlist.max_pax }명</td>
-									</tr>
-									<tr>
-										<th>내용</th>
-									</tr>
-									<tr>
-										<td>${roomlist.room_content }</td>
-									</tr>
-									<tr>
-										<th>테마</th>
-									</tr>
-									<tr>
-										<td>${roomlist.room_theme }</td>
-
-									</tr>
-									<tr>
-										<td><input type="hidden" name="room_id"
-											value="${roomlist.room_id}"> <input type="hidden"
-											name="room_type_id" value="${roomlist.room_type_id}">
-											<input type="hidden" name="room_name"
-											value="${roomlist.room_name}"> <input type="hidden"
-											name="room_num" value="${roomlist.room_num}"> <input
-											type="hidden" name="room_content"
-											value="${roomlist.room_content}"> <input
-											type="hidden" name="room_address1"
-											value="${roomlist.room_address1}"> <input
-											type="hidden" name="room_address2"
-											value="${roomlist.room_address2}"> <input
-											type="hidden" name="room_theme"
-											value="${roomlist.room_theme }"></td>
-									</tr>
-
-
-
-
-								</table>
-
-
+					<c:forEach var="roomlist" items="${getRoomimp }">
+						<form id="hidden" method="post" action="controller">
+						<!-- <a href='javascript:reservationGo($("form#hidden"))'> -->
+						<%-- <a href='javascript:reservationGo(${roomlist})'> --%>
+						<button type="submit" id="buttonbox">
+						<!--<a href='#' onclick="reservationGo(this.form)"> -->
+							<div class="card h-100">
+								<img class="card-img-top" src="imgs/${roomlist.filename}"
+									id="imgsize" alt="이미지사진">
+								<div class="card-body">
+									<h4 class="card-title">${roomlist.room_name }</h4>
+									<div class="card-text">
+										<table>
+											<tr>
+												<th>위치</th>
+											</tr>
+											<tr>
+												<td>${roomlist.room_address1 }&nbsp;
+													${roomlist.room_address2 }</td>
+											</tr>
+											<tr>
+												<th>방번호</th>
+											</tr>
+											<tr>
+												<td>${roomlist.room_num }</td>
+											</tr>
+											<tr>
+												<th>방 타입</th>
+											</tr>
+											<tr>
+												<td>${roomlist.room_type }</td>
+											</tr>
+											<tr>
+												<th>가격 하루당</th>
+											</tr>
+											<tr>
+												<td>${roomlist.cost }원</td>
+											</tr>
+											<tr>
+												<th>수용인원</th>
+											</tr>
+											<tr>
+												<td>${roomlist.max_pax }명</td>
+											</tr>
+											<tr>
+												<th>내용</th>
+											</tr>
+											<tr>
+												<td>${roomlist.room_content }</td>
+											</tr>
+											<tr>
+												<th>테마</th>
+											</tr>
+											<tr>
+												<td>${roomlist.room_theme }</td>
+											</tr>
+											<tr>
+												<td>
+												<input type="hidden" name="type" value="reservation"> 
+												<input type="hidden" name="room_id" value="${roomlist.room_id}">
+											    <input type="hidden" name="filename" value="${roomlist.filename}">
+												<input type="hidden" name="room_name" value="${roomlist.room_name}">
+												 <input type="hidden" name="room_address1" value="${roomlist.room_address1}">
+													<input type="hidden" name="room_address2"
+													value="${roomlist.room_address2}"> <input
+													type="hidden" name="room_num" value="${roomlist.room_num}">
+													<input type="hidden" name="room_type_id"
+													value="${roomlist.room_type_id}"> <input
+													type="hidden" name="room_type"
+													value="${roomlist.room_type}"> <input type="hidden"
+													name="cost" value="${roomlist.cost}"> <input
+													type="hidden" name="max_pax" value="${roomlist.max_pax}">
+													<input type="hidden" name="room_content"
+													value="${roomlist.room_content}"> <input
+													type="hidden" name="room_theme"
+													value="${roomlist.room_theme }">
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
 							</div>
-
-						</div>
-					</div>
+						<!-- </a> -->
+						</button>
+						<!-- </a> -->
+						</form>
+					</c:forEach>
 				</div>
-			</c:forEach>
-
-
-
-
-
-
 		</div>
 
 		<!-- Pagination -->
@@ -177,45 +199,46 @@
 				<tr>
 					<td colspan="4">
 						<ol class="paging">
+							<c:choose>
+								<c:when test="${pvo.beginPage == 1 }">
+									<li class="disable">이전으로</li>
+								</c:when>
+								<c:otherwise>
+									<li><a
+										href="controller?type=search_list&cPage=${pvo.beginPage - 1 }">이전으로</a>
+									</li>
+								</c:otherwise>
+							</c:choose>
+
+							<c:forEach var="k" begin="${pvo.beginPage }"
+								end="${pvo.endPage }">
 								<c:choose>
-									<c:when test="${pvo.beginPage == 1 }">
-										<li class="disable">이전으로</li>
+									<c:when test="${k == pvo.nowPage }">
+										<li class="now">${k }</li>
 									</c:when>
 									<c:otherwise>
-										<li><a
-											href="controller?type=search_list&cPage=${pvo.beginPage - 1 }">이전으로</a>
-										</li>
+										<li><a href="controller?type=search_list&cPage=${k }">${k }</a></li>
 									</c:otherwise>
 								</c:choose>
+							</c:forEach>
 
-								<c:forEach var="k" begin="${pvo.beginPage }"
-									end="${pvo.endPage }">
-									<c:choose>
-										<c:when test="${k == pvo.nowPage }">
-											<li class="now">${k }</li>
-										</c:when>
-										<c:otherwise>
-											<li><a href="controller?type=search_list&cPage=${k }">${k }</a></li>
-										</c:otherwise>
-									</c:choose>
-								</c:forEach>
-
-								<c:choose>
-									<c:when test="${pvo.endPage >= pvo.totalPage }">
-										<li class="disable">다음으로</li>
-									</c:when>
-									<c:otherwise>
-										<li><a
-											href="controller?type=search_list&cPage=${pvo.endPage + 1 }">다음으로</a>
-										</li>
-									</c:otherwise>
-								</c:choose>
-							</ol>
+							<c:choose>
+								<c:when test="${pvo.endPage >= pvo.totalPage }">
+									<li class="disable">다음으로</li>
+								</c:when>
+								<c:otherwise>
+									<li><a
+										href="controller?type=search_list&cPage=${pvo.endPage + 1 }">다음으로</a>
+									</li>
+								</c:otherwise>
+							</c:choose>
+						</ol>
 					</td>
 
 
 				</tr>
 			</table>
+
 		</div>
 
 

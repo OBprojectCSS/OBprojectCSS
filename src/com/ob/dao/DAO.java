@@ -11,6 +11,7 @@ import com.ob.vo.BoardreplyVO;
 import com.ob.vo.DaehoonVO;
 import com.ob.vo.ReservationVO;
 import com.ob.vo.RoomTABLEVO;
+import com.ob.vo.RoomfileVO;
 import com.ob.vo.Si_GuVO;
 import com.ob.vo.UserVO;
 
@@ -186,11 +187,17 @@ public class DAO {
 		return siguCount;
 	}
 
-	public static List<RoomTABLEVO> getROOMALL(Map<String, String> map) {
-
+	/* ****************************************************************/
+	//방 전체검색 출력용(전체방 리스트 & 파일)
+	public static List<RoomTABLEVO> get_room(Map<String, String> map) {
 		return getSql().selectList("get_room", map);
 	}
-
+	
+	public static List<RoomfileVO> get_room_file(){
+		return getSql().selectList("get_room_file");
+	}
+	/* ****************************************************************/
+	
 	public static List<String> gettheme() {
 		return getSql().selectList("gettheme");
 	}
