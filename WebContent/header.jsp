@@ -24,14 +24,15 @@
  <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="main.jsp">나랑 놀자</a>
+       <a class="navbar-brand" href="main.jsp"><img alt="logo" src="imgs/logo1.jpg"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="controller?type=search">전체검색</a>
+            <a class="nav-link" href="controller?type=search">전체검색</a>
+            
             </li>
             <li class="nav-item">
               <a class="nav-link" href="controller?type=event_roomALL&board_type=2">이벤트</a>
@@ -39,7 +40,7 @@
            
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMoreoption" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                더보기
+         		       더보기
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMoreoption">
                 <a class="dropdown-item" href="controller?type=notice&board_type=1">공지 사항</a>
@@ -60,7 +61,7 @@
             <c:if test="${not empty sessionScope.uservo}">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMypage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                마이페이지
+                	마이페이지
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="full-width.html">회원정보수정</a>
