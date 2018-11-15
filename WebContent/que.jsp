@@ -20,39 +20,6 @@
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
 
-<style type="text/css">
-#bbs_view table {
-	width: 580px;
-	margin-left: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	font-size: 14px;
-}
-
-#bbs_view table caption {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#bbs_view table th {
-	text-align: center;
-	border: 1px solid black;
-	padding: 4px 10px;
-	width: 30%;
-	background-color: lightsteelblue;
-}
-
-#bbs_view table td {
-	text-align: left;
-	border: 1px solid black;
-	padding: 4px 10px;
-}
-
-#setting {
-	margin-left: 10px;
-}
-</style>
 </head>
 
 <body>
@@ -92,19 +59,15 @@
 			<div class="col-lg-9 mb-4">
 				<h4>문의 사항</h4>
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳! start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
-
-
 				<div id="que_bbs">
 
-					<table border="1">
-						<caption>문 의 사 항</caption>
+					<table class="table table-striped">
 						<thead>
 							<tr class="title">
-								<th class="no">번호</th>
-								<th class="title">제목</th>
-								<th class="writer">작성자</th>
-								<th class="write_date">작성일</th>
+								<th class="no" style="padding-left: 9px;">번호</th>
+								<th class="title" style="padding-left: 80px;">제목</th>
+								<th class="writer" style="padding-left:33px;">작성자</th>
+								<th class="write_date" style="padding-left: 28px;">작성일</th>
 								<th class="read_count">조회수</th>
 							</tr>
 						</thead>
@@ -187,10 +150,6 @@
 						</tfoot>
 					</table>
 				</div>
-
-
-
-
 
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳!!!!end!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 			</div>

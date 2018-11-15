@@ -20,39 +20,6 @@
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
 
-<style type="text/css">
-#bbs_view table {
-   width: 580px;
-   margin-left: 10px;
-   border: 1px solid black;
-   border-collapse: collapse;
-   font-size: 14px;
-}
-
-#bbs_view table caption {
-   font-size: 20px;
-   font-weight: bold;
-   margin-bottom: 10px;
-}
-
-#bbs_view table th {
-   text-align: center;
-   border: 1px solid black;
-   padding: 4px 10px;
-   width: 30%;
-   background-color: lightsteelblue;
-}
-
-#bbs_view table td {
-   text-align: left;
-   border: 1px solid black;
-   padding: 4px 10px;
-}
-
-#setting {
-   margin-left: 10px;
-}
-</style>
 <script>
       function modify_go() {
          frm.action = "controller?type=noticeModi&board_type=1&id=${BPVO.id}";
@@ -116,7 +83,7 @@
             <div id="bbs_view">
                <%-- 게시글 내용 표시 --%>
                <form method="post" name="frm">
-                  <table>
+                  <table class="table table-striped">
                      <tbody>
                         <tr>
                            <th>제목</th>
@@ -132,12 +99,15 @@
                         </tr>
                      </tbody>
                   </table>
-                  <div id="setting">
-                     <br>
+                  <div id="setting" style="padding-left:330px;">
                      <c:if test="${sessionScope.uservo.getAccount() == 'admin' }">
-                        <input type="button" value="수  정" onclick="modify_go()">
-                        <input type="button" value="삭  제" onclick="delete_go()">
-                        <input type="button" value="목  록" onclick="list_go()">
+                     <button type="submit" class="btn btn-danger" onclick="modify_go()">수정</button>
+                     <button type="submit" class="btn btn-danger" onclick="delete_go()">삭제</button>
+                     
+<!--                         <input type="button" value="수  정" onclick="modify_go()"> -->
+<!--                         <input type="button" value="삭  제" onclick="delete_go()"> -->
+<!--                         <input type="button" value="목  록" onclick="list_go()"> -->
+
                         <input type="hidden" name="delete_chk" value="chk">
                         <input type="hidden" name="delete_id" value="${BPVO.id}">
                      </c:if>
