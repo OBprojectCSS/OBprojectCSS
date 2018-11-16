@@ -88,8 +88,6 @@
 						class="list-group-item">프리미엄 후기</a> <a
 						href="controller?type=agree" class="list-group-item">약관 및 동의
 						사항</a>
-
-
 				</div>
 			</div>
 			<!-- Content Column -->

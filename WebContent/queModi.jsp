@@ -20,35 +20,6 @@
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
 
-<style>
-#bbs_modi table {
-    width:580px;
-    margin-left:10px;
-    border:1px solid black;
-    border-collapse:collapse;
-    font-size:14px;
-}
-#bbs_modi table caption {
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-#bbs_modi table th {
-    text-align:center;
-    border:1px solid black;
-    padding:4px 10px;
-    width: 30%;
-    background-color: lightsteelblue;
-}
-#bbs_modi table td {
-    text-align:left;
-    border:1px solid black;
-    padding:4px 10px;
-}
-#setting {
-	margin-left: 10px;
-}
-</style>
 <script>
 	function save_go() {
 	    frm.action = "controller?type=queModi&board_type=3";
@@ -60,60 +31,85 @@
 	 }
 </script>
 </head>
-<body>
-	<jsp:include page="header.jsp"></jsp:include>
-	<header>
-		<h2>문의사항</h2>
-	</header>
-	<section>
-		<nav>
-			<ul>
-				<li><a href="controller?type=notice&board_type=3">공지사항</a></li>
-				<li><a href="controller?type=moreQue">자주 묻는 질문</a></li>
-				<li id="li1">문의사항</li>
-				<li><a href="controller?type=premium&board_type=4">프리미엄 후기</a></li>
-				<li><a href="controller?type=agree">약관 및 동의사항</a></li>
-			</ul>
-		</nav>
 
-		<article>
-			<div id="bbs_modi">
-				<form method="post" name="frm">
-					<table>
-						<caption>문의사항 수정하기</caption>
-						<tbody>
-							<tr>
-								<th>제목</th>
-								<td><input type="text" name="title" value="${Bovo.title }"></td>
-							</tr>
-							<tr>
-								<th>작성자</th>
-								<td><b>${Bovo.nickname}</b></td>
-							</tr>
-							<tr>
-								<th>내용</th>
-								<td><input type="text" name="content" value="${Bovo.content}"
-									style="width:300px; height:50px;"></td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<input type="button" value="수 정 완 료" onclick="save_go()">
-									<input type="reset" value="초 기 화">
-									<input type="button" value="목  록" onclick="list_go()">
-									
-									<input type="hidden" name="update_id" value="${Bovo.id}">
-									<input type="hidden" name="update_chk" value="chk">
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</form>
+<body>
+
+   <jsp:include page="header.jsp"></jsp:include>
+
+   <!-- Page Content -->
+	<div class="container">
+
+		<!-- Page Heading/Breadcrumbs -->
+		<h1 class="mt-4 mb-3">문의사항</h1>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="main.jsp">Home</a></li>
+			<li class="breadcrumb-item active">문의사항</li>
+		</ol>
+
+		<!-- Content Row -->
+		<div class="row">
+			<!-- Sidebar Column -->
+			<div class="col-lg-3 mb-4">
+				<div class="list-group">
+					<a href="main.jsp" class="list-group-item">Home</a>
+					<a href="controller?type=notice&board_type=1" class="list-group-item">공지사항</a>
+				    <a href="controller?type=moreQue" class="list-group-item">자주 묻는 질문</a> 
+				    <a href="controller?type=que&board_type=3" class="list-group-item active">문의사항</a>
+				    <a href="controller?type=premium&board_type=4" class="list-group-item">프리미엄 후기</a>
+				    <a href="controller?type=agree" class="list-group-item">약관 및 동의 사항</a>
+
+
+				</div>
 			</div>
-		</article>
-	</section>
-	
-	<footer>
-		<jsp:include page="footer.jsp"></jsp:include>
-	</footer>
+			<!-- Content Column -->
+			<div class="col-lg-9 mb-4">
+				<h4>문의사항</h4>
+				<div id="bbs_view">
+					<%-- 게시글 내용 표시 --%>
+					<div id="bbs_modi">
+						<form method="post" name="frm">
+							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<th>제목</th>
+										<td><input type="text" name="title"
+											value="${Bovo.title}"></td>
+									</tr>
+									<tr>
+										<th>작성자</th>
+										<td><b>${Bovo.nickname}</b></td>
+									</tr>
+									<tr>
+									<th>내용</th>
+									<td><textarea name="content" rows="8" cols="80">${Bovo.content}</textarea></td>
+									<%--<td><input type="text" name="content" value="${Bovo.content}" --%>
+									<!-- 									style="width:300px; height:50px;"></td> -->
+									</tr>
+								</tbody>
+							</table>
+							<div id="setting">
+								<br> <input type="button" value="수  정" onclick="save_go()">
+								<input type="reset" value="초 기 화"> <input type="button"
+									value="목  록" onclick="list_go()"> <input type="hidden"
+									name="update_id" value="${Bovo.id}"> <input
+									type="hidden" name="update_chk" value="chk">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+      <jsp:include page="footer.jsp"></jsp:include>
+
+
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

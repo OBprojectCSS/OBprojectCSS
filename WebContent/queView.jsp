@@ -19,13 +19,14 @@
 
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">	</script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".hhhh").click(function() {
-
-			/* $("#new").css("display", "block");
-			$("#ori").css("display", "none"); */
 
 			var myparent = $(this).parent();
 			$(".ori", myparent).each(function() {
@@ -39,6 +40,10 @@
 
 	});
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 <script>
 	function modify_go(frm) {
 		frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
@@ -65,9 +70,9 @@
 		frm.action = "controller?type=queComments";
 		frm.submit();
 	}
+	
 	function reply_update_go(frm) {
 		var answer = confirm("댓글을 수정 하시겠습니까?");
-
 		if (answer) {
 			frm.action = "controller?type=reply_update_delete&chk=1";
 			frm.submit();
@@ -83,14 +88,17 @@
 			frm.action = "controller?type=reply_update_delete&chk=2";
 			frm.submit();
 		} else {
+			return;
 		}
+	}	
 
-	}
+
+
+
 </script>
 </head>
 
 <body>
-
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
@@ -122,12 +130,13 @@
 			</div>
 			<!-- Content Column -->
 			<div class="col-lg-9 mb-4">
-				<h4>문의 사항</h4>
+				<h4>문의사항</h4>
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳! start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 
-				<div id="bbs_view">
-					<form method="post">
+				<div id="bbs_view">=
+					<form method="post" name = "frm">
+
 						<table class="table table-striped">
 							<tbody>
 								<tr>
@@ -151,12 +160,21 @@
 									<td><pre>${Bovo.content}</pre></td>
 								</tr>
 								<tr>
+<<<<<<< HEAD
 									<td colspan="5"><input type="button" value="수  정"
 										onclick="modify_go(this.form)"> <input type="button"
 										value="삭  제" onclick="delete_go(this.form)"> <input
 										type="button" value="목  록" onclick="view_go(this.form)">
 										<input type="hidden" name="delete_chk" value="chk"> <input
 										type="hidden" name="delete_id" value="${Bovo.id}"></td>
+=======
+									<td colspan="5">
+									<input type="button" value="수  정" onclick="modify_go(this.form)"> 
+									<input type="button" value="삭  제" onclick="delete_go(this.form)"> 
+									<input type="button" value="목  록" onclick="view_go(this.form)">
+									<input type="hidden" name="delete_chk" value="chk"> 
+									<input type="hidden" name="delete_id" value="${Bovo.id}"></td>
+>>>>>>> refs/remotes/origin/master
 								</tr>
 							</tbody>
 						</table>
