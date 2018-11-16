@@ -48,74 +48,75 @@
 </script>
 
 <body>
-
+	
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
-<!-- 	<div class="container"> -->
+	<!-- 	<div class="container"> -->
 
-		<!-- Page Heading/Breadcrumbs -->
-<!-- 		<h1 class="mt-4 mb-3"> -->
-<!-- 			로그인 <small>login</small> -->
-<!-- 		</h1> -->
+	<!-- Page Heading/Breadcrumbs -->
+	<!-- 		<h1 class="mt-4 mb-3"> -->
+	<!-- 			로그인 <small>login</small> -->
+	<!-- 		</h1> -->
 
-<!-- 		<ol class="breadcrumb"> -->
-<!-- 			<li class="breadcrumb-item"><a href="main.jsp">Home</a></li> -->
-<!-- 			<li class="breadcrumb-item active">Login</li> -->
-<!-- 		</ol> -->
+	<!-- 		<ol class="breadcrumb"> -->
+	<!-- 			<li class="breadcrumb-item"><a href="main.jsp">Home</a></li> -->
+	<!-- 			<li class="breadcrumb-item active">Login</li> -->
+	<!-- 		</ol> -->
 
-<!-- 		<form method="post" name="frm"> -->
-<!-- 			<div class="col-lg-4 mb-4"> -->
-<!-- 				<div class="card card-outline-primary h-100"> -->
-<!-- 					<h3 class="card-header bg-primary text-white">Login</h3> -->
+	<!-- 		<form method="post" name="frm"> -->
+	<!-- 			<div class="col-lg-4 mb-4"> -->
+	<!-- 				<div class="card card-outline-primary h-100"> -->
+	<!-- 					<h3 class="card-header bg-primary text-white">Login</h3> -->
 
 
-<!-- 					<ul class="list-group list-group-flush"> -->
-<!-- 						<li class="list-group-item"><label>User ID</label> <br> -->
-<!-- 						<input name="id" type="text"></li> -->
-<!-- 						<li class="list-group-item"><label>Password</label><br> -->
-<!-- 							<input name="pwd" type="password"></li> -->
+	<!-- 					<ul class="list-group list-group-flush"> -->
+	<!-- 						<li class="list-group-item"><label>User ID</label> <br> -->
+	<!-- 						<input name="id" type="text"></li> -->
+	<!-- 						<li class="list-group-item"><label>Password</label><br> -->
+	<!-- 							<input name="pwd" type="password"></li> -->
 
-<!-- 						<li class="list-group-item">
+	<!-- 						<li class="list-group-item">
 							<input type="button" value="로그인" class="btn btn-primary" onclick="login_go(this.form)">&nbsp;&nbsp; -->
-<!-- 							<input type="button" value="회원가입" class="btn btn-primary" -->
-<!-- 							onclick="join_go(this.form)"></li> -->
-<!-- 						<li class="list-group-item"><input type="button" value="돌아가기" -->
-<!-- 							class="btn btn-primary" onclick="back_go(this.form)"></li> -->
-<!-- 					</ul> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</form> -->
+	<!-- 							<input type="button" value="회원가입" class="btn btn-primary" -->
+	<!-- 							onclick="join_go(this.form)"></li> -->
+	<!-- 						<li class="list-group-item"><input type="button" value="돌아가기" -->
+	<!-- 							class="btn btn-primary" onclick="back_go(this.form)"></li> -->
+	<!-- 					</ul> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 		</form> -->
 
-<!-- 	</div> -->
+	<!-- 	</div> -->
 	<!-- /.row -->
-	
-	<div class="container">
-	
-	<form class="form-signin" method="POST" name="frm">
-	<img class="mb-4" src="imgs/loginlogo.png">
-      <h1 class="h3 mb-3 font-weight-normal" style="text-align:center">회원 로그인</h1>
-      
-      <label for="inputId" class="sr-only">아이디</label>
-      <input type="text" name="id" id="inputId" class="form-control" placeholder="아이디" required autofocus>
-      
-      <label for="inputPassword" class="sr-only">비밀번호</label>
-      <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="비밀번호" required>
-      
-      <button class="btn btn-lg btn-danger btn-block" type="submit" class="submit" onclick="login_go(this.form)">로그인</button>
-      <button class="btn btn-lg btn-danger btn-block" type="submit" class="submit" onclick="join_go(this.form)">회원가입</button>
-      
-      <p class="mt-5 mb-3 text-muted" style="text-align:center">&copy; 2017-2018</p>
-	</form>
-	</div>
-	
-	
-	<!-- /.container -->
-	 <!-- Footer -->
-	 
-	 
-		<jsp:include page="footer.jsp"></jsp:include>
+	<div class="container d-flex flex-column">
 
+		<form class="form-signin" method="POST" name="frm">
+			<img class="mb-4" src="imgs/loginlogo.png">
+			<h1 class="h3 mb-3 font-weight-normal" style="text-align: center">회원
+				로그인</h1>
+
+			<label for="inputId" class="sr-only">아이디</label> <input type="text"
+				name="id" id="inputId" class="form-control" placeholder="아이디"
+				required autofocus> <label for="inputPassword"
+				class="sr-only">비밀번호</label> <input type="password" name="pwd"
+				id="inputPassword" class="form-control" placeholder="비밀번호" required>
+
+			<button class="btn btn-lg btn-danger btn-block" type="submit"
+				class="submit" onclick="login_go(this.form)">로그인</button>
+			<button class="btn btn-lg btn-danger btn-block" type="submit"
+				class="submit" onclick="join_go(this.form)">회원가입</button>
+
+			<p class="mt-5 mb-3 text-muted" style="text-align: center">&copy;
+				2017-2018</p>
+		</form>
+	</div>
+
+	<!-- /.container -->
+	<!-- Footer -->
+	
+		<!-- The content of your page would go here. -->
+	 <jsp:include page="footer.jsp"></jsp:include> 
 
 
 	<!-- Bootstrap core JavaScript -->
