@@ -244,9 +244,10 @@
 	<insert id="queInsert" parameterType="com.ob.vo.DaehoonVO">
 		INSERT INTO
 		OBHOTEL_BOARD B
-		(ID, BOARD_TYPE, TITLE, CONTENT, WRITE_DATE, READ_COUNT)
+		(ID, BOARD_TYPE, TITLE, CONTENT, WRITE_DATE, READ_COUNT, USER_ID)
 		VALUES
-		(OBHOTEL_BOARD_SEQ.NEXTVAL, #{board_type}, #{title}, #{content}, SYSDATE, 0)
+		(OBHOTEL_BOARD_SEQ.NEXTVAL, #{board_type}, #{title}, #{content}, SYSDATE, 0, #{user_id})
+		
 	</insert>
 	
 

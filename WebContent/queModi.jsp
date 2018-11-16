@@ -101,7 +101,7 @@
 									<input type="reset" value="초 기 화">
 									<input type="button" value="목  록" onclick="list_go()">
 									
-									<input type="hidden" name="update_id" value="${BPVO.id}">
+									<input type="hidden" name="update_id" value="${Bovo.id}">
 									<input type="hidden" name="update_chk" value="chk">
 								</td>
 							</tr>

@@ -32,7 +32,7 @@ public class QueWriteCommand implements Command {
 		} else {
 			DaehoonVO vo = new DaehoonVO();
 			
-		
+			vo.setUser_id(uId1);
 			vo.setBoard_type(bType);
 			vo.setTitle(title);
 			vo.setContent(content);

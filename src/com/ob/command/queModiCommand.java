@@ -36,7 +36,8 @@ public class queModiCommand implements Command {
 			
 			DAO.queUp(vo);
 			
-			path = "controller?type=que&board_type=3&id=";
+			path = "controller?type=queView&board_type=3&id=" + id;
+
 		}
 		return path;
 	}

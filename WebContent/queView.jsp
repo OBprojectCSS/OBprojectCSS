@@ -58,11 +58,12 @@
 }
 </style>
 <script>
-<<<<<<< HEAD
+
       function modify_go(frm) {
          frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
          frm.submit();
       }
+      
       function delete_go(frm) {
          var isDeleteOk = confirm("정말 삭제하시겠습니까?");
          
@@ -73,34 +74,11 @@
             alert("취소되었습니다.");
          }
       } 
+      
       function view_go(frm) {
          frm.action = "controller?type=que&board_type=3";
          frm.submit();
       }
-      
-      function sendData_go(frm) {
-			frm.action="controller?type=queComments";
-			frm.submit();
-=======
-	function modify_go() {
-		frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
-		frm.submit();
->>>>>>> refs/remotes/origin/master
-	}
-	function delete_go() {
-		var isDeleteOk = confirm("정말 삭제하시겠습니까?");
-
-		if (isDeleteOk) {
-			frm.action = "controller?type=noticeDel&board_type=3&id=${Bovo.id}";
-			frm.submit();
-		} else {
-			alert("취소되었습니다.");
-		}
-	}
-	function list_go() {
-		frm.action = "controller?type=notice&board_type=1";
-		frm.submit();
-	}
 
 	function sendData_go(frm) {
 		frm.action = "controller?type=queComments";
