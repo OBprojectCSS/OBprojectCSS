@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ob.dao.DAO;
+import com.ob.vo.RoomfileVO;
 import com.ob.vo.Si_GuVO;
 
 public class SearchCommand implements Command {
@@ -23,6 +24,11 @@ public class SearchCommand implements Command {
 		// 테마구하기
 		List<String> theme = DAO.gettheme();
 		request.getSession().setAttribute("theme", theme);
+
+		//전체 파일 담기
+		List<RoomfileVO> rfList = DAO.get_room_file();
+		System.out.println("rfList : " + rfList);
+		request.getSession().setAttribute("rfList", rfList);
 		
 
 		return "search_main.jsp";

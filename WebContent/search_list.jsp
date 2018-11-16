@@ -68,17 +68,6 @@
 	height: 250px;
 }
 
-a:link, a:hover, a:visited {
-	color: inherit;
-	text-decoration: none;
-	cursor: default;
-}
-
-a:link:active, a:visited:active {
-	color: inherit;
-	text-decoration: none;
-	cursor: default;
-}
 #buttonbox{
 	background-color:white;
 	border:none;
@@ -95,104 +84,97 @@ a:link:active, a:visited:active {
 </head>
 <body>
 
-
-
-	<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row">
-				<div class="col-lg-4 col-sm-6 portfolio-item">
-					<c:forEach var="roomlist" items="${getRoomimp }">
-						<form id="hidden" method="post" action="controller">
-						<!-- <a href='javascript:reservationGo($("form#hidden"))'> -->
-						<%-- <a href='javascript:reservationGo(${roomlist})'> --%>
-						<button type="submit" id="buttonbox">
-						<!--<a href='#' onclick="reservationGo(this.form)"> -->
-							<div class="card h-100">
-								<img class="card-img-top" src="imgs/${roomlist.filename}"
-									id="imgsize" alt="이미지사진">
-								<div class="card-body">
-									<h4 class="card-title">${roomlist.room_name }</h4>
-									<div class="card-text">
-										<table>
-											<tr>
-												<th>위치</th>
-											</tr>
-											<tr>
-												<td>${roomlist.room_address1 }&nbsp;
-													${roomlist.room_address2 }</td>
-											</tr>
-											<tr>
-												<th>방번호</th>
-											</tr>
-											<tr>
-												<td>${roomlist.room_num }</td>
-											</tr>
-											<tr>
-												<th>방 타입</th>
-											</tr>
-											<tr>
-												<td>${roomlist.room_type }</td>
-											</tr>
-											<tr>
-												<th>가격 하루당</th>
-											</tr>
-											<tr>
-												<td>${roomlist.cost }원</td>
-											</tr>
-											<tr>
-												<th>수용인원</th>
-											</tr>
-											<tr>
-												<td>${roomlist.max_pax }명</td>
-											</tr>
-											<tr>
-												<th>내용</th>
-											</tr>
-											<tr>
-												<td>${roomlist.room_content }</td>
-											</tr>
-											<tr>
-												<th>테마</th>
-											</tr>
-											<tr>
-												<td>${roomlist.room_theme }</td>
-											</tr>
-											<tr>
-												<td>
-												<input type="hidden" name="type" value="reservation"> 
-												<input type="hidden" name="room_id" value="${roomlist.room_id}">
-											    <input type="hidden" name="filename" value="${roomlist.filename}">
-												<input type="hidden" name="room_name" value="${roomlist.room_name}">
-												 <input type="hidden" name="room_address1" value="${roomlist.room_address1}">
-													<input type="hidden" name="room_address2"
-													value="${roomlist.room_address2}"> <input
-													type="hidden" name="room_num" value="${roomlist.room_num}">
-													<input type="hidden" name="room_type_id"
-													value="${roomlist.room_type_id}"> <input
-													type="hidden" name="room_type"
-													value="${roomlist.room_type}"> <input type="hidden"
-													name="cost" value="${roomlist.cost}"> <input
-													type="hidden" name="max_pax" value="${roomlist.max_pax}">
-													<input type="hidden" name="room_content"
-													value="${roomlist.room_content}"> <input
-													type="hidden" name="room_theme"
-													value="${roomlist.room_theme }">
-												</td>
-											</tr>
-										</table>
-									</div>
+			<div class="col-lg-4 col-sm-6 portfolio-item">
+				<c:forEach var="roomlist" items="${getRoomimp }">
+					<form id="hidden" method="post" action="controller">
+					<!-- <a href='javascript:reservationGo($("form#hidden"))'> -->
+					<%-- <a href='javascript:reservationGo(${roomlist})'> --%>
+					<button type="submit" id="buttonbox">
+					<!--<a href='#' onclick="reservationGo(this.form)"> -->
+						<div class="card h-100">
+							<img class="card-img-top" src="imgs/${roomlist.filename}"
+								id="imgsize" alt="이미지사진">
+							<div class="card-body">
+								<h4 class="card-title">${roomlist.room_name }</h4>
+								<div class="card-text">
+									<table>
+										<tr>
+											<th>위치</th>
+										</tr>
+										<tr>
+											<td>${roomlist.room_address1 }&nbsp;
+												${roomlist.room_address2 }</td>
+										</tr>
+										<tr>
+											<th>방번호</th>
+										</tr>
+										<tr>
+											<td>${roomlist.room_num }</td>
+										</tr>
+										<tr>
+											<th>방 타입</th>
+										</tr>
+										<tr>
+											<td>${roomlist.room_type }</td>
+										</tr>
+										<tr>
+											<th>가격 하루당</th>
+										</tr>
+										<tr>
+											<td>${roomlist.cost }원</td>
+										</tr>
+										<tr>
+											<th>수용인원</th>
+										</tr>
+										<tr>
+											<td>${roomlist.max_pax }명</td>
+										</tr>
+										<tr>
+											<th>내용</th>
+										</tr>
+										<tr>
+											<td>${roomlist.room_content }</td>
+										</tr>
+										<tr>
+											<th>테마</th>
+										</tr>
+										<tr>
+											<td>${roomlist.room_theme }</td>
+										</tr>
+										<tr>
+											<td>
+											<input type="hidden" name="type" value="reservation"> 
+											<input type="hidden" name="room_id" value="${roomlist.room_id}">
+										    <input type="hidden" name="filename" value="${roomlist.filename}">
+											<input type="hidden" name="room_name" value="${roomlist.room_name}">
+											<input type="hidden" name="room_address1" value="${roomlist.room_address1}">
+											<input type="hidden" name="room_address2" value="${roomlist.room_address2}"> 
+											<input type="hidden" name="room_num" value="${roomlist.room_num}">
+											<input type="hidden" name="room_type_id" value="${roomlist.room_type_id}"> 
+											<input type="hidden" name="room_type" value="${roomlist.room_type}"> 
+											<input type="hidden" name="cost" value="${roomlist.cost}"> 
+											<input type="hidden" name="max_pax" value="${roomlist.max_pax}">
+											<input type="hidden" name="room_content" value="${roomlist.room_content}"> 
+											<input type="hidden" name="room_theme" value="${roomlist.room_theme }">
+											</td>
+										</tr>
+									</table>
 								</div>
 							</div>
-						<!-- </a> -->
-						</button>
-						<!-- </a> -->
-						</form>
-					</c:forEach>
-				</div>
+						</div>
+					<!-- </a> -->
+					</button>
+					<!-- </a> -->
+					</form>
+				</c:forEach>
+			</div>
 		</div>
-
+	
 		<!-- Pagination -->
 		<div id="center">
 			<table style="margin-left: auto; margin-right: auto;">
@@ -209,7 +191,7 @@ a:link:active, a:visited:active {
 									</li>
 								</c:otherwise>
 							</c:choose>
-
+	
 							<c:forEach var="k" begin="${pvo.beginPage }"
 								end="${pvo.endPage }">
 								<c:choose>
@@ -221,7 +203,7 @@ a:link:active, a:visited:active {
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
-
+	
 							<c:choose>
 								<c:when test="${pvo.endPage >= pvo.totalPage }">
 									<li class="disable">다음으로</li>
@@ -234,20 +216,11 @@ a:link:active, a:visited:active {
 							</c:choose>
 						</ol>
 					</td>
-
-
 				</tr>
 			</table>
-
 		</div>
-
-
-
 	</div>
 	<!-- /.container -->
-
-
-
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
