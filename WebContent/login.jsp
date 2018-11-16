@@ -16,9 +16,9 @@
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/signin.css" rel="stylesheet">
+<!-- <link href="css/signin.css" rel="stylesheet"> -->
 <!-- Custom styles for this template -->
-<!-- <link href="css/modern-business.css" rel="stylesheet"> -->
+<link href="css/modern-business.css" rel="stylesheet">
 <!-- <link href="dist/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <script>
@@ -46,7 +46,14 @@
 		frm.submit();
 	}
 </script>
-
+<style>
+.innerContainer{
+	width:30%;
+	min-width:500px;
+	padding:none;
+	margin:auto;
+}
+</style>
 <body>
 
 	<jsp:include page="header.jsp"></jsp:include>
@@ -91,7 +98,7 @@
 	<!-- /.row -->
 	
 	<div class="container">
-	
+	<div class="innerContainer">
 	<form class="form-signin" method="POST" name="frm">
 	<img class="mb-4" src="imgs/loginlogo.png">
       <h1 class="h3 mb-3 font-weight-normal" style="text-align:center">회원 로그인</h1>
@@ -108,6 +115,7 @@
       <p class="mt-5 mb-3 text-muted" style="text-align:center">&copy; 2017-2018</p>
 	</form>
 	</div>
+	</div>
 	
 	
 	<!-- /.container -->
@@ -115,7 +123,6 @@
 	 
 	 
 		<jsp:include page="footer.jsp"></jsp:include>
-
 
 
 	<!-- Bootstrap core JavaScript -->
