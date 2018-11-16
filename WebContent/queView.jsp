@@ -159,8 +159,10 @@
 								</tr>
 								<tr>
 									<td colspan="5">
+									<c:if test="${writer_chk==1}">
 									<input type="button" value="수  정" onclick="modify_go(this.form)"> 
 									<input type="button" value="삭  제" onclick="delete_go(this.form)"> 
+									</c:if>
 									<input type="button" value="목  록" onclick="view_go(this.form)">
 									<input type="hidden" name="delete_chk" value="chk"> 
 									<input type="hidden" name="delete_id" value="${Bovo.id}"></td>
