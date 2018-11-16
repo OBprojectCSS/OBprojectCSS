@@ -536,8 +536,8 @@
 	<update id="replyUpdate"  parameterType="com.ob.vo.BoardreplyVO" >
 	
 	UPDATE OBHOTEL_BOARD_REPLY
-		SET Content = #{comm_content}
-		WHERE ID = #{comm_id}
+		SET content = #{content}
+		WHERE ID = #{id}
 	
 	</update>
 	
