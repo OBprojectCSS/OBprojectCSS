@@ -93,5 +93,5 @@ public class PagingQue {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
-	
+
 }

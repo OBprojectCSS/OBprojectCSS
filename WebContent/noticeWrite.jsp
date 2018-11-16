@@ -82,11 +82,11 @@
 							<tr>
 								<th>내용</th>
 								<td>
-									<textarea name="content" rows="8" cols="50" title="내용"></textarea>
+									<textarea name="content" rows="8" cols="80" title="내용"></textarea>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2" style="padding-right: 0px; padding-left: 535px;">
+								<td colspan="2" style="padding-left:330px;">
 <!-- 								<input class="btn btn-default" type="reset" value="다시작성"> -->
 								<button type="submit" class="btn btn-danger" onclick="sendData()">저장</button>
 <!-- 								<input class="btn btn-default" type="submit" value="저장" onclick="sendData()"> -->

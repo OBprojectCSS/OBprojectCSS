@@ -64,20 +64,21 @@
 				<h4>약관 및 동의사항</h4>
 				<!-- -------------------------------------------------------------------- -->
 				<div class="terms">
-					<ul>
-						<li>이용약관</li>
-						<li><a href="controller?type=loca" class="loca">위치기반 서비스
-								이용약관</a></li>
-						<li><a href="controller?type=priv" class="priv">개인정보 처리방침</a></li>
-					</ul>
-				</div>
+						<ul class="nav nav-tabs">
+							<li role="presentation" class="active">이용약관</li>
+							<li role="presentation"><a href="controller?type=loca" class="loca">위치기반 서비스
+									이용약관</a></li>
+							<li role="presentation"><a href="controller?type=priv" class="priv">개인정보 처리방침</a></li>
+						</ul>
+				</div><br>
+				
 				<div id="cont_area">
-					<h3>나랑놀자 이용약관</h3>
+					<h3>나랑놀자 이용약관</h3><br>
 					<!-- 본문 콘텐츠-->
 					<div class="cont_inner" id="policy_page">
 						<h3>
 							<span>서비스 이용약관</span>
-						</h3>
+						</h3><br>
 						<div class="cont" style="clear: both">
 							<div class="inner">
 								<strong>제 1 장 총 칙</strong><br> <br> 제 1 조 (목적) <br>

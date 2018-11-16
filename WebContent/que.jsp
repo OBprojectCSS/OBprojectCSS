@@ -89,6 +89,7 @@
 	font-weight: bold;
 }
 </style>
+
 </head>
 
 <body>
@@ -128,18 +129,16 @@
 			<div class="col-lg-9 mb-4">
 				<h4>문의 사항</h4>
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳! start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-
-
-
 				<div id="bbs_view">
 
-					<table border="1">
+					<table class="table table-striped">
+					
 						<thead>
 							<tr class="title">
-								<th class="no">번호</th>
-								<th class="title">제목</th>
-								<th class="writer">작성자</th>
-								<th class="write_date">작성일</th>
+								<th class="no" style="padding-left: 9px;">번호</th>
+								<th class="title" style="padding-left: 80px;">제목</th>
+								<th class="writer" style="padding-left:33px;">작성자</th>
+								<th class="write_date" style="padding-left: 28px;">작성일</th>
 								<th class="read_count">조회수</th>
 							</tr>
 						</thead>
@@ -223,10 +222,6 @@
 						</tfoot>
 					</table>
 				</div>
-
-
-
-
 
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳!!!!end!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 			</div>

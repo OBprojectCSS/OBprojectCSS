@@ -20,35 +20,6 @@
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
 
-<style>
-#bbs_modi table {
-    width:580px;
-    margin-left:10px;
-    border:1px solid black;
-    border-collapse:collapse;
-    font-size:14px;
-}
-#bbs_modi table caption {
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-#bbs_modi table th {
-    text-align:center;
-    border:1px solid black;
-    padding:4px 10px;
-    width: 30%;
-    background-color: lightsteelblue;
-}
-#bbs_modi table td {
-    text-align:left;
-    border:1px solid black;
-    padding:4px 10px;
-}
-#setting {
-	margin-left: 10px;
-}
-</style>
 <script>
 	function save_go() {
 	    frm.action = "controller?type=noticeModi&board_type=1";
@@ -102,7 +73,7 @@
                <%-- 게시글 내용 표시 --%>
                <div id="bbs_modi">
 				<form method="post" name="frm">
-					<table>
+					<table class="table table-striped">
 						<tbody>
 							<tr>
 								<th>제목</th>
@@ -114,8 +85,9 @@
 							</tr>
 							<tr>
 								<th>내용</th>
-								<td><input type="text" name="content" value="${BPVO.content}"
-									style="width:300px; height:50px;"></td>
+								<td><textarea name="content" rows="8" cols="80">${BPVO.content}</textarea></td>
+<%-- 								<td><input type="text" name="content" value="${BPVO.content}" --%>
+<!-- 									style="width:300px; height:50px;"></td> -->
 							</tr>
 						</tbody>
 					</table>

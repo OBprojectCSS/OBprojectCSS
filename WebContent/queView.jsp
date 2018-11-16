@@ -19,6 +19,10 @@
 
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	
+</script>
 
 <style type="text/css">
 #bbs_view table {
@@ -54,6 +58,7 @@
 }
 </style>
 <script>
+<<<<<<< HEAD
       function modify_go(frm) {
          frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
          frm.submit();
@@ -76,8 +81,41 @@
       function sendData_go(frm) {
 			frm.action="controller?type=queComments";
 			frm.submit();
+=======
+	function modify_go() {
+		frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
+		frm.submit();
+>>>>>>> refs/remotes/origin/master
 	}
-      
+	function delete_go() {
+		var isDeleteOk = confirm("정말 삭제하시겠습니까?");
+
+		if (isDeleteOk) {
+			frm.action = "controller?type=noticeDel&board_type=3&id=${Bovo.id}";
+			frm.submit();
+		} else {
+			alert("취소되었습니다.");
+		}
+	}
+	function list_go() {
+		frm.action = "controller?type=notice&board_type=1";
+		frm.submit();
+	}
+
+	function sendData_go(frm) {
+		frm.action = "controller?type=queComments";
+		frm.submit();
+	}
+	function reply_update_go(frm) {
+		frm.action = "controller?type=reply_update_delete&chk=1";
+		frm.submit();
+	}
+
+	function reply_delete_go(frm) {
+		frm.action = "controller?type=reply_update_delete&chk=2";
+		frm.submit();
+	}
+	
 </script>
 </head>
 
@@ -120,71 +158,87 @@
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳! start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 
-<div id="bbs_view">
-				<form method="post">
-					<table>
-						<tbody>
-							<tr>
-								<th>제목</th>
-								<td>${Bovo.title }</td>
-							</tr>
-							<tr>
-								<th>작성자</th>
-								<td>${Bovo.nickname}</td>
-							</tr>
-							<tr>
-								<th>전화번호</th>
-								<td>${Bovo.tel}</td>
-							</tr>
-							<tr>
-								<th>이메일</th>
-								<td>${Bovo.email}</td>
-							</tr>
-							<tr>
-								<th>내용</th>
-								<td><pre>${Bovo.content}</pre></td>
-							</tr>
-							<tr>
-								<td colspan="5">
-		                        <input type="button" value="수  정" onclick="modify_go(this.form)"> 
-		                        <input type="button" value="삭  제" onclick="delete_go(this.form)"> 
-		                        <input type="button" value="목  록" onclick="view_go(this.form)">
-		                        <input type="hidden" name="delete_chk" value="chk">
-	                        	<input type="hidden" name="delete_id" value="${Bovo.id}">
-                        	</td>
-                        	</tr>
-						</tbody>
-					</table>
-				</form>
-				<hr>
-				<%-- 댓글입력 폼 --%>
-				
-				 <c:if test="${not empty uservo}">
-				<form method="post">
-					<p>작성자 : ${uservo.nickname }(${uservo.account })
-					</p>
-					<p>내용 : <textarea name="content" rows="4" cols="55"></textarea>
-					<input type="submit" value="댓글저장" onclick= "sendData_go(this.form)">				
-					<input type="hidden" name="board_id" value="${Bovo.id}"> 
-					<input type="hidden" name="user_id" value="${uservo.id}"> 
-					<input type="hidden" name="writer" value="${uservo.account}"> 
-					<input type="hidden" name="quePage" value="${quePage}"> 
-				</form>
-				</c:if>
-				<hr>
-				
-				<%-- 댓글창 출력 --%>
-				<c:forEach var="c" items="${c_list}">
+				<div id="bbs_view">
 					<form method="post">
-						<p>작성자: ${c.writer }</p>
-						<p>내용: ${c.content }</p>
-						<p>쓴날짜: ${c.write_date }</p>
-						<input type="button" value="수  정" onclick="reply_modify_go(this.form)">
-						<input type="button" value="삭  제" onclick="reply_delete_go(this.form)">
+						<table>
+							<tbody>
+								<tr>
+									<th>제목</th>
+									<td>${Bovo.title }</td>
+								</tr>
+								<tr>
+									<th>작성자</th>
+									<td>${Bovo.nickname}</td>
+								</tr>
+								<tr>
+									<th>전화번호</th>
+									<td>${Bovo.tel}</td>
+								</tr>
+								<tr>
+									<th>이메일</th>
+									<td>${Bovo.email}</td>
+								</tr>
+								<tr>
+									<th>내용</th>
+									<td><pre>${Bovo.content}</pre></td>
+								</tr>
+								<tr>
+
+
+
+									<td colspan="5"><input type="button" value="수  정"
+										onclick="modify_go(this.form)"> <input type="button"
+										value="삭  제" onclick="delete_go(this.form)"> <input
+										type="button" value="목  록" onclick="view_go(this.form)">
+										<input type="hidden" name="delete_chk" value="chk"> <input
+										type="hidden" name="delete_id" value="${Bovo.id}"></td>
+								</tr>
+							</tbody>
+						</table>
 					</form>
-				</c:forEach>
-			
-</div>
+					<hr>
+					<%-- 댓글입력 폼 --%>
+
+					<c:if test="${not empty uservo}">
+						<form method="post">
+							<p>작성자 : ${uservo.nickname }(${uservo.account })</p>
+							<p>
+								내용 :
+								<textarea name="content" rows="4" cols="55"></textarea>
+								<input type="submit" value="댓글저장"
+									onclick="sendData_go(this.form)"> <input type="hidden"
+									name="board_id" value="${Bovo.id}"> <input
+									type="hidden" name="user_id" value="${uservo.id}"> <input
+									type="hidden" name="writer" value="${uservo.nickname }(${uservo.account })">
+								<input type="hidden" name="quePage" value="${quePage}">
+						</form>
+					</c:if>
+					<hr>
+
+					<%-- 댓글창 출력 --%>
+					<c:forEach var="c" items="${c_list}">
+						<form method="post">
+							<p>작성자: ${c.writer }</p>
+							<p>내용: ${c.content }</p>
+							<p>쓴날짜: ${c.write_date }</p>
+
+							<input type="hidden" name="comm_id" value="${c.id}"> <input
+								type="hidden" name="comm_board_id" value="${c.board_id}">
+							<input type="hidden" name="comm_user_id" value="${c.user_id}">
+								<input type="hidden" name="comm_content" value="${c.content}">
+							<input type="hidden" name="quePage" value="${quePage}"> <input
+								type="button" value="수  정" onclick="reply_update_go(this.form)">
+
+
+							<input type="button" value="삭  제"
+								onclick="reply_delete_go(this.form)">
+
+
+						</form>
+						<hr>
+					</c:forEach>
+
+				</div>
 
 
 

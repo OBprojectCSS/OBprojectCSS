@@ -34,13 +34,13 @@
    text-decoration: none;
    display: block;
    padding: 3px 7px;
-   border: 1px solid #00B3DC;
+   border: 1px solid #dc3454;
    font-weight: bold;
    color: black;
 }
 
 .paging li a:hover {
-   background-color: #00B3DC;
+   background-color: #dc3454;
    color: white;
 }
 
@@ -52,8 +52,8 @@
 
 .paging .now {
    padding: 3px 7px;
-   border: 1px solid #ff4aa5;
-   background-color: #ff4aa5;
+   border: 1px solid #dc3454;
+   background-color: #dc3454;
    color: white;
    font-weight: bold;
 }
@@ -102,10 +102,10 @@
                <table class="table table-striped">
                   <thead>
                      <tr class="title">
-                        <th class="no">번호</th>
-                        <th colspan="2" class="title">제목</th>
-                        <th class="writer">작성자</th>
-                        <th class="write_date">작성일</th>
+                        <th class="no" style="padding-left: 9px;">번호</th>
+                        <th colspan="2" class="title" style="padding-left: 80px;">제목</th>
+                        <th class="writer" style="padding-left:33px;">작성자</th>
+                        <th class="write_date" style="padding-left: 28px;">작성일</th>
                      </tr>
                   </thead>
                   <tbody>
