@@ -17,39 +17,74 @@ import com.ob.dao.DAO;
 import com.ob.vo.ReservationVO;
 import com.ob.vo.RoomTABLEVO;
 import com.ob.vo.RoomVO;
+import com.ob.vo.RoomfileVO;
 import com.ob.vo.UserVO;
 
 public class ReservationCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String room_id = request.getParameter("room_id"); // RoomVO 에서 id에 해당
+		System.out.println("************ReservationCommand.java 페이지**************");
+
+		/* ************************************************************/
+		
+		//예약하기 상세 페이지용  파라미터
+		String room_id = request.getParameter("room_id");
+		String filename = request.getParameter("filename");
+		String room_name = request.getParameter("room_name");
+		String room_address1 = request.getParameter("room_address1");
+		String room_address2 = request.getParameter("room_address2");
+		String room_num = request.getParameter("room_num");
+		String room_type_id = request.getParameter("room_type_id");
+		String room_type = request.getParameter("room_type");
+		String cost = request.getParameter("cost");
+		String max_pax = request.getParameter("max_pax");
+		String room_content = request.getParameter("room_content");
+		String room_theme = request.getParameter("room_theme");
+		
 		System.out.println("room_id : " + room_id);
+		System.out.println("filename : " + filename);
+		System.out.println("room_name : " + room_name);
+		System.out.println("room_address1 : " + room_address1);
+		System.out.println("room_address2 : " + room_address2);
+		System.out.println("room_num : " + room_num);
+		System.out.println("room_type_id : " + room_type_id);
+		System.out.println("room_type : " + room_type);
+		System.out.println("cost : " + cost);
+		System.out.println("max_pax : " + max_pax);
+		System.out.println("room_content : " + room_content);
+		System.out.println("room_theme : " + room_theme);
+		
+		request.setAttribute("room_id", room_id);
+		request.setAttribute("filename", filename);
+		request.setAttribute("room_name", room_name);
+		request.setAttribute("room_address1", room_address1);
+		request.setAttribute("room_address2", room_address2);
+		request.setAttribute("room_num", room_num);
+		request.setAttribute("room_type_id", room_type_id);
+		request.setAttribute("room_type", room_type);
+		request.setAttribute("cost", cost);
+		request.setAttribute("max_pax", max_pax);
+		request.setAttribute("room_content", room_content);
+		request.setAttribute("room_theme", room_theme);
+		
+		/* ************************************************************/
+		
+		//예약하기 상세 페이지에서 뿌려줄 이미지 일람
+		List<RoomfileVO> rfList = (List<RoomfileVO>)request.getSession().getAttribute("rfList");
+		System.out.println("rfList : " + rfList);
+		List<String> filenameList = new ArrayList();
+		for(RoomfileVO rfvo : rfList) {
+			if(rfvo.getRoom_id().equals(room_id)){
+				filenameList.add(rfvo.getFilename());
+			}
+		}
+		request.setAttribute("filenameList", filenameList);
+				
+		/* ************************************************************/
+		
 		RoomTABLEVO roomTable= DAO.getRoomTableByRid(room_id);
 		List<ReservationVO> list = DAO.getResByRid(room_id);
-		
-		/* *************************************************************
-        final String DATE_PATTERN = "yyyy-MM-dd";
-        String inputStartDate = "2018-11-10";
-        String inputEndDate = "2018-12-27";
-        
-        SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
-        
-        Date startDate = sdf.parse(inputStartDate);
-        Date endDate = sdf.parse(inputEndDate);
-        
-        ArrayList<String> dates = new ArrayList<String>();
-        
-        Date currentDate = startDate;
-        
-        while (currentDate.compareTo(endDate) <= 0) {
-            dates.add(sdf.format(currentDate));
-            Calendar c = Calendar.getInstance();
-            c.setTime(currentDate);
-            c.add(Calendar.DAY_OF_MONTH, 1);
-            currentDate = c.getTime();
-        }
-         *************************************************************/
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -61,7 +96,7 @@ public class ReservationCommand implements Command {
 		Calendar cal = Calendar.getInstance();
 		
 		Map<String, Date> resDateMap = new HashMap<>();
-		List<String> dates = new ArrayList<String>();
+		List<String> enableDates = new ArrayList<String>();
 		
 		if(!list.isEmpty()) {
 			for(ReservationVO resvo : list) {
@@ -75,7 +110,7 @@ public class ReservationCommand implements Command {
 				}
 			        
 		        while (s_date.compareTo(e_date) <= 0) {
-		            dates.add(format.format(s_date));
+		            enableDates.add(format.format(s_date));
 		            cal.setTime(s_date);
 		            cal.add(Calendar.DAY_OF_MONTH, 1);
 		            s_date = cal.getTime();
@@ -83,8 +118,8 @@ public class ReservationCommand implements Command {
 			}
 		}
 		
-		System.out.println("dates : " + dates);
-		request.setAttribute("dates", dates);
+		System.out.println("enableDates : " + enableDates);
+		request.setAttribute("enableDates", enableDates);
 		request.setAttribute("roomTable", roomTable);
 		System.out.println("roomTable : " + roomTable);
 		
@@ -93,7 +128,7 @@ public class ReservationCommand implements Command {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal2 = Calendar.getInstance();
 		String nowDate="";
-		List<String> enableDates = new ArrayList<>(); 
+		List<String> ableDates = new ArrayList<>(); 
 				
 		//이번달
 		int year = cal2.get(Calendar.YEAR);
@@ -117,21 +152,21 @@ public class ReservationCommand implements Command {
 	    //이번달 처리
 	    for(int i=startDate; i<=lastday; i++){
         	nowDate = year + "-" + mon + "-" + i;
-        	if(!dates.contains(nowDate)){
-        		enableDates.add(nowDate);
+        	if(!enableDates.contains(nowDate)){
+        		ableDates.add(nowDate);
      	  	};
         };
         
         //다음달 처리
         for(int i=firstday; i<=lastday2; i++){
         	nowDate = year2 + "-" + mon2 + "-" + i;
-        	if(!dates.contains(nowDate)){
-        		enableDates.add(nowDate);
+        	if(!enableDates.contains(nowDate)){
+        		ableDates.add(nowDate);
      	  	};
         };
         
-        System.out.println("enableDates: " + enableDates);
-        request.setAttribute("enableDates", enableDates);
+        System.out.println("ableDates: " + ableDates);
+        request.setAttribute("ableDates", ableDates);
         
 		return "reservation.jsp";
 	}

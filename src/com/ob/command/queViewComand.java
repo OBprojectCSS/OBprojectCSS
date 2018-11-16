@@ -1,9 +1,11 @@
 package com.ob.command;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
-import javax.servlet.http.HttpServletRequest; 
 import javax.servlet.http.HttpServletResponse;
 
 import com.ob.dao.DAO;
+import com.ob.vo.BoardreplyVO;
 import com.ob.vo.DaehoonVO;
 
 public class queViewComand implements Command {

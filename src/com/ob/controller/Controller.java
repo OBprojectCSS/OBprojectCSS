@@ -1,6 +1,6 @@
 package com.ob.controller;
 
-import java.io.IOException;
+import java.io.IOException; 
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +37,7 @@ import com.ob.command.PremiumOneCommand;
 import com.ob.command.PremiumWriteCommand;
 import com.ob.command.PremiumWriteRightChkCommand;
 import com.ob.command.QueCommand;
+import com.ob.command.QueCommentCommand;
 import com.ob.command.QueWriteCommand;
 import com.ob.command.ReservationCommand;
 import com.ob.command.ReservationListCommand;
@@ -165,6 +166,8 @@ public class Controller extends HttpServlet {
 			comm = new queDelCommand();
 		} else if (type.equals("queWrite")) {
 			comm = new QueWriteCommand();
+		} else if (type.equals("queComments")) {
+			comm =new QueCommentCommand();
 		}
 
 

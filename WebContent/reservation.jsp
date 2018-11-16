@@ -26,6 +26,12 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+<style>
+img#room_image{
+	width:30%;
+}
+
+</style>
 <script>
 	//이번달 변수
 	var today = new Date();
@@ -45,15 +51,22 @@
 	function reserveOk(frm) {
 		var ok = confirm("예약하시겠습니까?");
 		if (ok == true) {
+			if("${uservo}"=="") {
+				alert("회원만 예약이 가능합니다.\n로그인 해 주십시오.");
+				location.href="login.jsp";
+			}
+			else{
 			frm.action = "controller?type=reservationOk";
 			frm.submit();
+			}
 		} else {
 			return;
 		}
 	}
 	function toDate(dateStr) {
-		var parts = dateStr.split("-")
-		return new Date(parts[2], parts[1] - 1, parts[0])
+		var parts = dateStr.split("-");
+		var toDate = new Date(parts[0], parts[1] - 1, parts[2]);
+		return toDate;
 	}
 	function dateDiff(_date1, _date2) {
 		var diffDate_1 = _date1 instanceof Date ? _date1 : new Date(_date1);
@@ -75,12 +88,12 @@
 		var nsd = new Date();
 		var ned = new Date();
 		temp += '<select id="e_date" onchange="setVal2(this.value)"  name="e_date">';
-		//temp += '<c:forEach var="ed" items="${enableDates}">';
+		//temp += '<c:forEach var="ed" items="${ableDates}">';
 		//temp += '<c:if test="${ed>=sd}">';
 		//temp += '<option>${ed }1</option>';
 		//temp += '</c:if>';
 		//temp += '</c:forEach>';
-		<c:forEach var = "ed" items = "${enableDates}">
+		<c:forEach var = "ed" items = "${ableDates}">
 		var date = "${ed}";
 
 		console.log("sd : " + sd + "date : " + date);
@@ -88,7 +101,7 @@
 		nsd = toDate(sd);
 		ned = toDate(date);
 		console.log("nsd : " + nsd + "ned : " + ned);
-		if (nsd <= ned) {
+		if (nsd < ned) {
 			temp += '<option>${ed}</option>';
 		}
 		</c:forEach>
@@ -99,15 +112,16 @@
 	}
 	function setVal2(val) {
 		var diff = dateDiff(sd, val);
-		var cost = diff * $
-		{
-			roomTable.cost * 1000
-		}
-		;
+		var cost = diff * ${cost*1000};
 		var temp2 = cost + '원';
 		document.getElementById("cost").innerHTML = temp2;
 		document.getElementById("total_cost").value = cost;
-	}
+		console.log("cost : " + cost);
+	} 
+</script>
+<script>
+	$(function(){
+	})
 </script>
 </head>
 
@@ -134,8 +148,11 @@
 
 			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 			<!-- Image Header -->
-			<img class="img-fluid rounded mb-4" src="imgs/${roomTable.filename}"
-				alt="${roomTable.room_name }">
+			<c:forEach var="img" items="${filenameList}">
+				<img class="img-fluid rounded mb-4" id="room_image" src="imgs/${img}"
+				alt="${room_name } 사진">
+			</c:forEach>
+			
 
 			<!-- Marketing Icons Section -->
 			<div class="row">
@@ -143,20 +160,20 @@
 					<div class="card h-100">
 						<h4 class="card-header">숙소명</h4>
 						<div class="card-body">
-							<p class="card-text">${roomTable.room_name }</p>
+							<p class="card-text">${room_name }</p>
 						</div>
 						<h4 class="card-header">주소</h4>
 						<div class="card-body">
-							<p class="card-text">${roomTable.room_address1 }&nbsp;
-								${roomTable.room_address2 }</p>
+							<p class="card-text">${room_address1 }&nbsp;
+								${room_address2 }</p>
 						</div>
 						<h4 class="card-header">호실</h4>
 						<div class="card-body">
-							<p class="card-text">${roomTable.room_num }</p>
+							<p class="card-text">${room_num }</p>
 						</div>
 						<h4 class="card-header">타입</h4>
 						<div class="card-body">
-							<p class="card-text">${roomTable.room_type }</p>
+							<p class="card-text">${room_type }</p>
 						</div>
 					</div>
 				</div>
@@ -164,19 +181,19 @@
 					<div class="card h-100">
 						<h4 class="card-header">숙박가격(1일)</h4>
 						<div class="card-body">
-							<p class="card-text">${roomTable.cost * 1000 }원</p>
+							<p class="card-text">${cost*1000 }원</p>
 						</div>
 						<h4 class="card-header">최대인원</h4>
 						<div class="card-body">
-							<p class="card-text">${roomTable.max_pax }명</p>
+							<p class="card-text">${max_pax }명</p>
 						</div>
 						<h4 class="card-header">테마</h4>
 						<div class="card-body">
-							<p class="card-text">${roomTable.room_theme }</p>
+							<p class="card-text">${room_theme }</p>
 						</div>
 						<h4 class="card-header">숙소설명</h4>
 						<div class="card-body">
-							<p class="card-text">${roomTable.room_content }</p>
+							<p class="card-text">${room_content }</p>
 						</div>
 
 					</div>
@@ -188,14 +205,13 @@
 							<font>체크인</font>
 							<div id="checkin" class="card-text">
 								<select id="s_date" onchange="setVal(this.value)" name="s_date">
-									<c:forEach var="ed" items="${enableDates}">
+									<c:forEach var="ed" items="${ableDates}">
 										<option>${ed }</option>
 									</c:forEach>
 								</select>
 							</div>
 							<!--
-			체크아웃 날짜는 체크인 날짜 이후여야 하고
-			체크아웃 날짜는 예약이 가능해야 하지만 아직 구현되지 않음
+			체크아웃 날짜는 이미 예약된 날 이전이어야 하지만 아직 구현되지 않음
 			-->
 							<div id="checkout"></div>
 						</div>
@@ -203,15 +219,15 @@
 						<div class="card-body">
 							<p class="card-text">
 								<input type="number" name="pax" min="1"
-									max="${roomTable.max_pax }" value="1"><br> (최대인원 :
-								${roomTable.max_pax }명)
+									max="${max_pax }" value="1"><br> (최대인원 :
+								${max_pax }명)
 							</p>
 						</div>
 						<h4 class="card-header">숙박료</h4>
 						<div class="card-body">
 							<div id="cost" class="card-text"></div>
-							<input type="text" id="total_cost" name="total_cost" value="0">
-
+							<input type="hidden" id="total_cost" name="total_cost" value="1000">
+							<input type="hidden" name="room_id" value="${room_id}">
 						</div>
 
 

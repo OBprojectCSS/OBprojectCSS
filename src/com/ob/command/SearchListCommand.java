@@ -1,5 +1,6 @@
 package com.ob.command;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,12 +12,13 @@ import javax.servlet.http.HttpSession;
 import com.ob.dao.DAO;
 import com.ob.mybatis.PagingNotice;
 import com.ob.vo.RoomTABLEVO;
+import com.ob.vo.RoomfileVO;
 
 public class SearchListCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("SearchListCommand.java 페이지~~");
+		System.out.println("************SearchListCommand.java 페이지**************");
 		String chk_si = request.getParameter("chk_si");
 		String chk_gu = request.getParameter("chk_gu");
 		
@@ -34,18 +36,19 @@ public class SearchListCommand implements Command {
 
 		// 페이징 처리를 위한 객체 생성
 		PagingNotice p = new PagingNotice();
-		p.setNumPerPage(3);// 페이지당 6개
+		p.setNumPerPage(3);// 페이지당 3개
 		// p.setPagePerBlock(5); //블록에 몇개 표시할지
 
-		Map<String, String> map5 = new HashMap<>();
+		Map<String, String> locMap = new HashMap<>();
 
-		/*map5.put("chk_si", "서울시");
-		map5.put("chk_gu", "마포구");*/
-		map5.put("chk_si", String.valueOf(chk_si));
-		map5.put("chk_gu", String.valueOf(chk_gu));
-		System.out.println(DAO.siguCount(map5));
+		/*locMap.put("chk_si", "서울시");
+		locMap.put("chk_gu", "마포구");*/
+		locMap.put("chk_si", chk_si);
+		locMap.put("chk_gu", chk_gu);
+		
+		System.out.println("DAO.siguCount(locMap) : " + DAO.siguCount(locMap));
 
-		p.setTotalRecord(DAO.siguCount(map5));
+		p.setTotalRecord(DAO.siguCount(locMap));
 		p.setTotalPage();// 전체 페이지 갯수 구하기
 
 		// 2. 현재 페이지 구하기 (디폴트 값 1)
@@ -79,8 +82,32 @@ public class SearchListCommand implements Command {
 		map.put("chk_si", String.valueOf(chk_si));
 		map.put("chk_gu", String.valueOf(chk_gu));
 		System.out.println(map);
-		List<RoomTABLEVO> list = DAO.getROOMALL(map);
+
+		/* *****************************************************************/
+		//list에 (시/구 해당되는) 방 목록을 페이지별로 담음
+		List<RoomTABLEVO> list = DAO.get_room(map);
+		
+		//전체 파일 담기
+		List<RoomfileVO> rfList = DAO.get_room_file();
+		System.out.println("rfList : " + rfList);
+		request.getSession().setAttribute("rfList", rfList);
+		
+		for (RoomTABLEVO rvo : list) {
+			String rid = rvo.getRoom_id();
+			List<String> rfidList = new ArrayList();
+			List<String> rfnameList = new ArrayList();
+			for (RoomfileVO rfvo : rfList) {
+				if(rid.equals(rfvo.getRoom_id())){
+					rfidList.add(rfvo.getRoom_file_id());
+					rfnameList.add(rfvo.getFilename());
+				}
+			}
+			rvo.setFile_id(rfidList.get(0));
+			rvo.setFilename(rfnameList.get(0));
+		}
 		System.out.println(list);
+		/* *****************************************************************/
+		
 		// request.getSession().setAttribute("getRoomimp", list);
 		request.setAttribute("pvo", p);
 		request.setAttribute("getRoomimp", list);

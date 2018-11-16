@@ -73,6 +73,11 @@
          frm.submit();
       }
       
+      function sendData_go(frm) {
+			frm.action="controller?type=queComments";
+			frm.submit();
+	}
+      
 </script>
 </head>
 
@@ -118,7 +123,6 @@
 <div id="bbs_view">
 				<form method="post">
 					<table>
-						<caption>문의사항 상세보기</caption>
 						<tbody>
 							<tr>
 								<th>제목</th>
@@ -141,7 +145,7 @@
 								<td><pre>${Bovo.content}</pre></td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td colspan="5">
 		                        <input type="button" value="수  정" onclick="modify_go(this.form)"> 
 		                        <input type="button" value="삭  제" onclick="delete_go(this.form)"> 
 		                        <input type="button" value="목  록" onclick="view_go(this.form)">
@@ -154,25 +158,33 @@
 				</form>
 				<hr>
 				<%-- 댓글입력 폼 --%>
-				<form method="post">
-					<p>작성자 : ${uservo.nickname }(${uservo.account })</p>
-					<p>내용 : <textarea name="content" rows="4" cols="55"></textarea>
-					<input type="submit" value="댓글저장" onclick= "sendData_go(this.form)">
-					<input type="hidden" name="writer" id="chk"> 
-				</form>
 				
+				 <c:if test="${not empty uservo}">
+				<form method="post">
+					<p>작성자 : ${uservo.nickname }(${uservo.account })
+					</p>
+					<p>내용 : <textarea name="content" rows="4" cols="55"></textarea>
+					<input type="submit" value="댓글저장" onclick= "sendData_go(this.form)">				
+					<input type="hidden" name="board_id" value="${Bovo.id}"> 
+					<input type="hidden" name="user_id" value="${uservo.id}"> 
+					<input type="hidden" name="writer" value="${uservo.account}"> 
+					<input type="hidden" name="quePage" value="${quePage}"> 
+				</form>
+				</c:if>
 				<hr>
 				
 				<%-- 댓글창 출력 --%>
-				<c:forEach var="BoardreplyVO" items="id">
+				<c:forEach var="c" items="${c_list}">
 					<form method="post">
-						<p>작성자: ${account }</p>
-						<p>내용: ${vo.content }</p>
+						<p>작성자: ${c.writer }</p>
+						<p>내용: ${c.content }</p>
+						<p>쓴날짜: ${c.write_date }</p>
 						<input type="button" value="수  정" onclick="reply_modify_go(this.form)">
 						<input type="button" value="삭  제" onclick="reply_delete_go(this.form)">
 					</form>
 				</c:forEach>
-				</div>
+			
+</div>
 
 
 

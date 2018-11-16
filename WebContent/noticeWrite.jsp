@@ -21,23 +21,9 @@
 <link href="css/modern-business.css" rel="stylesheet">
 
 <script>
-// 	function sendData() {
-// 		var firstForm = document.forms[0];
-// 		for (var i = 0; i < firstForm.elements.length; i++) {
-// 			if (firstForm.elements[i].value.trim() == "") {
-// 				if (i == 3)
-// 					continue;
-// 				alert(firstForm.elements[i].title + " 입력하세요.");
-// 				firstForm.element[i].focus();
-// 				return;
-// 			}
-// 		}
-// 		firstForm.submit();
+// 	function notice_go() {
+// 		location.href = "controller?type=notice&board_type=1";
 // 	}
-
-	function notice_go() {
-		location.href = "controller?type=notice&board_type=1";
-	}
 </script>
 </head>
 
@@ -100,10 +86,11 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2" style="padding-right: 0px; padding-left: 470px;">
-								<input class="btn btn-default" type="submit" value="저장" onclick="sendData()">
-								<input class="btn btn-default" type="reset" value="다시작성">
-								<input class="btn btn-default" type="button" value="목록" onclick="notice_go()">
+								<td colspan="2" style="padding-right: 0px; padding-left: 535px;">
+<!-- 								<input class="btn btn-default" type="reset" value="다시작성"> -->
+								<button type="submit" class="btn btn-danger" onclick="sendData()">저장</button>
+<!-- 								<input class="btn btn-default" type="submit" value="저장" onclick="sendData()"> -->
+<!-- 								<input class="btn btn-default" type="button" value="목록" onclick="notice_go()"> -->
 								
 								
 								<input type="hidden" name="write_chk" value="chk"> 

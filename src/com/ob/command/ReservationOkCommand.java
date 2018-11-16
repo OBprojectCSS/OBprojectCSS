@@ -9,22 +9,25 @@ import javax.servlet.http.HttpServletResponse;
 import com.ob.dao.DAO;
 import com.ob.vo.ReservationVO;
 import com.ob.vo.RoomTABLEVO;
+import com.ob.vo.RoomfileVO;
 import com.ob.vo.UserVO;
 
 public class ReservationOkCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("************ReservationOkCommand.java 페이지**************");
+
 		UserVO uvo = (UserVO)request.getSession().getAttribute("uservo");
 		System.out.println("uvo : " + uvo);
 		String user_id = uvo.getId();
 		System.out.println("user_id : " + user_id);
 		
-		RoomTABLEVO rvo = (RoomTABLEVO)request.getSession().getAttribute("roomTable");
-		request.getSession().removeAttribute("roomTable");
-		System.out.println("rvo : " + rvo);
+//		RoomTABLEVO rvo = (RoomTABLEVO)request.getSession().getAttribute("roomTable");
+//		request.getSession().removeAttribute("roomTable");
+//		System.out.println("rvo : " + rvo);
 		
-		String room_id = rvo.getRoom_id();
+		String room_id = request.getParameter("room_id");
 		System.out.println("room_id : " + room_id);
 		
 		String s_date = request.getParameter("s_date");
