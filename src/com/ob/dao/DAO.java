@@ -182,6 +182,10 @@ public class DAO {
 		return getSql().selectOne("getDeatil", b_id);
 	}
 
+	/* ****************************************************************/
+	
+	/* ***전체검색(지역별) ********************/
+	
 	// 김재현 전체검석 지역 시 받아오기
 	public static List<String> getsi() {
 		return getSql().selectList("getsi");
@@ -199,13 +203,18 @@ public class DAO {
 
 	}
 	
+	public static List<Si_GuVO> getAddress() {
+		
+		return getSql().selectList("get_Address");
+	}
+	
 	public static int siguCount(Map<String, String> map5) {
 		int siguCount = getSql().selectOne("siguCount", map5);
 		return siguCount;
 	}
 
-	/* ****************************************************************/
-	//방 전체검색 출력용(전체방 리스트 & 파일)
+	//*********************************
+	//방 전체검색(지역별) 출력용(전체방 리스트 & 파일)
 	public static List<RoomTABLEVO> get_room(Map<String, String> map) {
 		return getSql().selectList("get_room", map);
 	}
@@ -214,23 +223,24 @@ public class DAO {
 		return getSql().selectList("get_room_file");
 	}
 	/* ****************************************************************/
-	
+
+	/* ***전체검색(테마별) ********************/
+	//테마 받아오기
 	public static List<String> gettheme() {
 		return getSql().selectList("gettheme");
 	}
 
+	//테마별 숙소 카운트
 	public static int themeCount(String chk_theme) {
 		return getSql().selectOne("themeCount",chk_theme);
 	}
+	
+	//테마별 숙소 전체 조회
 	public static List<RoomTABLEVO> getRoomTheme(Map<String, String> map) {
-
 		return getSql().selectList("get_Roomtheme", map);
 	}
-
-	public static List<Si_GuVO> getAddress() {
-
-		return getSql().selectList("get_Address");
-	}
+	
+	/* ****************************************************************/
 	
 	//(예약용) room_id로 예약조회
 	public static List<ReservationVO> getResByRid(String room_id) {

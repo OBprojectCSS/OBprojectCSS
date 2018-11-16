@@ -340,116 +340,139 @@
 
 	</select>
 
-	<select id="getsi" resultType="String">
-		SELECT DISTINCT ROOM_ADDRESS1
-		FROM
-		OBHOTEL_ROOM
-
-	</select>
-	<select id="getgu" resultType="String">
-		SELECT DISTINCT ROOM_ADDRESS2
-		FROM
-		OBHOTEL_ROOM
-
-	</select>
-
-	<select id="getgu2" resultType="String">
-		select DISTINCT room_address2
-		from OBHOTEL_ROOM where room_address1= #{name}
-
-	</select>
-
-	<select id="siguCount" resultType="int" parameterType="map">
-    	select count(*)
-          from obhotel_room r, obhotel_room_type t
-		 where r.room_type_id = t.id
-           and room_address1 like '%'||#{chk_si}||'%'
-           and room_address2 like '%'||#{chk_gu}||'%'
-
-	</select>
-
-<!-- <select id="get_room" resultType="com.ob.vo.RoomTABLEVO"
-		parameterType="map">
-		select *
-		  from (select rownum r_num,r.id room_id, r.room_type_id
-		              ,room_name,room_num,room_content ,room_address1,room_address2
-		              ,room_theme,filename,room_type,max_pax,cost
-		          from obhotel_room r
-		              ,obhotel_room_file f
-		              ,obhotel_room_type t
-		         where r.room_type_id = t.id
-		           and f.room_type_id = t.id
-		           and room_address1 like '%'||#{chk_si}||'%'
-		           and room_address2 like '%'||#{chk_gu}||'%')
-		 where r_num between #{begin} and #{end}
-	</select> -->
-	
 	<!-- ********************************************************************************* -->
-	<!-- 방 중복 조회를 피하기 위해 파일이외의 정보와 파일정보를 따로받음 -->
-	<select id="get_room" resultType="com.ob.vo.RoomTABLEVO"
-		parameterType="map">
-		select *
-		  from (select rownum r_num,r.id room_id, r.room_type_id
-		              ,room_name,room_num,room_content ,room_address1,room_address2
-		              ,room_theme,room_type,max_pax,cost
-		          from obhotel_room r
-		              ,obhotel_room_type t
-		         where r.room_type_id = t.id
-		           and room_address1 like '%'||#{chk_si}||'%'
-		           and room_address2 like '%'||#{chk_gu}||'%')
-		 where r_num between #{begin} and #{end}
-	</select>
+		<!-- 전체검색(지역별) -->
 	
-	<select id="get_room_file" resultType="com.ob.vo.RoomfileVO">
-		select r.id room_id, rf.id room_file_id, rf.room_type_id room_type_id, rf.filename filename
-		  from obhotel_room_file rf,
-		       obhotel_room r
-		 where rf.room_type_id = r.room_type_id
-		 order by room_id , room_file_id
-	</select>
+		<!-- 주소 받아오기 -->
+		<select id="get_Address" resultType="com.ob.vo.Si_GuVO"
+			parameterType="map">
+			select distinct room_address1, room_address2 from
+			obhotel_room order by room_address1
+		</select>
+		
+		<select id="getsi" resultType="String">
+			SELECT DISTINCT ROOM_ADDRESS1
+			FROM
+			OBHOTEL_ROOM
+	
+		</select>
+		<select id="getgu" resultType="String">
+			SELECT DISTINCT ROOM_ADDRESS2
+			FROM
+			OBHOTEL_ROOM
+	
+		</select>
+	
+		<select id="getgu2" resultType="String">
+			select DISTINCT room_address2
+			from OBHOTEL_ROOM where room_address1= #{name}
+	
+		</select>
+	
+		<!-- siguCount 수정(이미지 갯수에 따른 중복조회 없도록) -->
+		<select id="siguCount" resultType="int" parameterType="map">
+	    	select count(*)
+	          from obhotel_room r, obhotel_room_type t
+			 where r.room_type_id = t.id
+	           and room_address1 like '%'||#{chk_si}||'%'
+	           and room_address2 like '%'||#{chk_gu}||'%'
+	
+		</select>
+	
+	<!-- <select id="get_room" resultType="com.ob.vo.RoomTABLEVO"
+			parameterType="map">
+			select *
+			  from (select rownum r_num,r.id room_id, r.room_type_id
+			              ,room_name,room_num,room_content ,room_address1,room_address2
+			              ,room_theme,filename,room_type,max_pax,cost
+			          from obhotel_room r
+			              ,obhotel_room_file f
+			              ,obhotel_room_type t
+			         where r.room_type_id = t.id
+			           and f.room_type_id = t.id
+			           and room_address1 like '%'||#{chk_si}||'%'
+			           and room_address2 like '%'||#{chk_gu}||'%')
+			 where r_num between #{begin} and #{end}
+		</select> -->
+		
+		<!-- 방 목록 검색(지역별) -->
+		<!-- 방 중복 조회를 피하기 위해 파일이외의 정보와 파일정보를 따로받음 -->
+		<select id="get_room" resultType="com.ob.vo.RoomTABLEVO"
+			parameterType="map">
+			SELECT *
+			  FROM (SELECT ROWNUM R_NUM,R.ID ROOM_ID, R.ROOM_TYPE_ID
+			              ,ROOM_NAME,ROOM_NUM,ROOM_CONTENT ,ROOM_ADDRESS1,ROOM_ADDRESS2
+			              ,ROOM_THEME,ROOM_TYPE,MAX_PAX,COST
+			          FROM OBHOTEL_ROOM R
+			              ,OBHOTEL_ROOM_TYPE T
+			         WHERE R.ROOM_TYPE_ID = T.ID
+			           AND ROOM_ADDRESS1 LIKE '%'||#{chk_si}||'%'
+			           AND ROOM_ADDRESS2 LIKE '%'||#{chk_gu}||'%')
+			 WHERE R_NUM BETWEEN #{begin} AND #{end}
+		</select>
 	<!-- ********************************************************************************* -->
-
-	<select id="gettheme" resultType="String">
-		SELECT DISTINCT ROOM_THEME
-		FROM
-		OBHOTEL_ROOM
-
-	</select>
-
-	<select id="themeCount" resultType="int" parameterType="String">
-		select
-		count(*) from obhotel_room r ,obhotel_room_file f , obhotel_room_type
-		t
-		where r.room_type_id = t.id and f.room_type_id = t.id and
-		room_theme =
-		#{chk_theme}
-	</select>
-
-	<select id="get_Roomtheme" resultType="com.ob.vo.RoomTABLEVO"
-		parameterType="map">
-		select * from (select ROWNUM R_NUM,r.id room_id,
-		r.room_type_id
-		,room_name,room_num,room_content
-		,room_address1,room_address2,
-		room_theme,
-		filename,room_type,max_pax,cost from obhotel_room r
-		,obhotel_room_file
-		f , obhotel_room_type t
-		where r.room_type_id = t.id
-		and f.room_type_id
-		=
-		t.id and room_theme = #{chk_theme})
-		where r_num
-		between #{begin} and
-		#{end}
-	</select>
-
-
-	<select id="get_Address" resultType="com.ob.vo.Si_GuVO"
-		parameterType="map">
-		select distinct room_address1, room_address2 from
-		obhotel_room order by room_address1
-	</select>
+		
+		<!-- 전체검색(테마별) -->
+		
+		<!-- 테마 받아오기 -->
+		<select id="gettheme" resultType="String">
+			SELECT DISTINCT ROOM_THEME
+			FROM OBHOTEL_ROOM
+		</select>
+	
+		<!-- themeCount 수정(이미지 갯수에 따른 중복조회 없도록) -->
+		<select id="themeCount" resultType="int" parameterType="String">
+			SELECT COUNT(*)
+			  FROM OBHOTEL_ROOM R
+			  	 , OBHOTEL_ROOM_TYPE T
+			WHERE R.ROOM_TYPE_ID = T.ID
+			  AND ROOM_THEME = #{chk_theme}
+		</select>
+	
+		<!-- 방 목록 검색(테마별) -->
+		<!-- 방 중복 조회를 피하기 위해 파일이외의 정보와 파일정보를 따로받음 -->
+		<select id="get_Roomtheme" resultType="com.ob.vo.RoomTABLEVO"
+			parameterType="map">
+			SELECT *
+			  FROM (SELECT ROWNUM R_NUM,R.ID ROOM_ID, R.ROOM_TYPE_ID
+			              ,ROOM_NAME, ROOM_NUM, ROOM_CONTENT, ROOM_ADDRESS1, ROOM_ADDRESS2
+			              ,ROOM_THEME, ROOM_TYPE, MAX_PAX, COST
+			          FROM OBHOTEL_ROOM R
+			              ,OBHOTEL_ROOM_TYPE T
+			         WHERE R.ROOM_TYPE_ID = T.ID
+			           AND ROOM_THEME = #{chk_theme} )
+			 WHERE R_NUM BETWEEN #{begin} AND #{end}
+		</select>
+		<!-- <select id="get_Roomtheme" resultType="com.ob.vo.RoomTABLEVO"
+			parameterType="map">
+			select *
+			  from (select ROWNUM R_NUM,r.id room_id, r.room_type_id
+			,room_name,room_num,room_content
+			,room_address1,room_address2,
+			room_theme,
+			filename,room_type,max_pax,cost from obhotel_room r
+			,obhotel_room_file
+			f , obhotel_room_type t
+			where r.room_type_id = t.id
+			and f.room_type_id
+			=
+			t.id and room_theme = #{chk_theme})
+			where r_num
+			between #{begin} and
+			#{end}
+		</select> -->
+			
+		<!-- 방 중복 조회를 피하기 위해 파일이외의 정보와 파일정보를 따로받음 -->
+		<select id="get_room_file" resultType="com.ob.vo.RoomfileVO">
+			SELECT R.ID ROOM_ID, RF.ID ROOM_FILE_ID, RF.ROOM_TYPE_ID ROOM_TYPE_ID, RF.FILENAME FILENAME
+			  FROM OBHOTEL_ROOM_FILE RF,
+			       OBHOTEL_ROOM R
+			 WHERE RF.ROOM_TYPE_ID = R.ROOM_TYPE_ID
+			 ORDER BY ROOM_ID , ROOM_FILE_ID
+		</select>
+		
+	<!-- ********************************************************************************* -->
+	
 
 	<!-- (예약용) room_id로 reservation 조회 -->
 	<select id="getResByRid" resultType="com.ob.vo.ReservationVO"

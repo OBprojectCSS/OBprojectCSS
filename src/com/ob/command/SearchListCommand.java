@@ -27,24 +27,22 @@ public class SearchListCommand implements Command {
 			HttpSession session = request.getSession();
 			chk_si = (String) session.getAttribute("chk_si");
 			chk_gu = (String) session.getAttribute("chk_gu");
-			}
+		}
 		
 		System.out.println("받은 chk_si : " + chk_si);
 		System.out.println("받은 chk_gu : " + chk_gu);
 
-		//////////
-
-		// 페이징 처리를 위한 객체 생성
-		PagingNotice p = new PagingNotice();
-		p.setNumPerPage(3);// 페이지당 3개
-		// p.setPagePerBlock(5); //블록에 몇개 표시할지
-
 		Map<String, String> locMap = new HashMap<>();
-
+		
 		/*locMap.put("chk_si", "서울시");
 		locMap.put("chk_gu", "마포구");*/
 		locMap.put("chk_si", chk_si);
 		locMap.put("chk_gu", chk_gu);
+		
+		// 페이징 처리를 위한 객체 생성
+		PagingNotice p = new PagingNotice();
+		p.setNumPerPage(3);// 페이지당 3개
+		// p.setPagePerBlock(5); //블록에 몇개 표시할지
 		
 		System.out.println("DAO.siguCount(locMap) : " + DAO.siguCount(locMap));
 
@@ -70,13 +68,13 @@ public class SearchListCommand implements Command {
 		if (p.getEndPage() > p.getTotalPage()) {
 			p.setEndPage(p.getTotalPage());
 		}
-		/////
+		
 		Map<String, String> map = new HashMap<>();
 		// map.put("chk_si", chk_si);
 		// map.put("chk_gu", chk_gu);
 		map.put("begin", String.valueOf(p.getBegin()));
 		map.put("end", String.valueOf(p.getEnd()));
-
+		
 		/*map.put("chk_si", "서울시");
 		map.put("chk_gu", "마포구");*/
 		map.put("chk_si", String.valueOf(chk_si));
@@ -87,10 +85,13 @@ public class SearchListCommand implements Command {
 		//list에 (시/구 해당되는) 방 목록을 페이지별로 담음
 		List<RoomTABLEVO> list = DAO.get_room(map);
 		
+		/* 테마별 검색에서도 쓸 수 있도록 SearchCommand로 옮김
 		//전체 파일 담기
 		List<RoomfileVO> rfList = DAO.get_room_file();
 		System.out.println("rfList : " + rfList);
 		request.getSession().setAttribute("rfList", rfList);
+		*/
+		List<RoomfileVO> rfList = (List<RoomfileVO>)request.getSession().getAttribute("rfList");
 		
 		for (RoomTABLEVO rvo : list) {
 			String rid = rvo.getRoom_id();
@@ -114,7 +115,6 @@ public class SearchListCommand implements Command {
 		request.setAttribute("cPage", cPage);
 		request.getSession().setAttribute("chk_si", chk_si);
 		request.getSession().setAttribute("chk_gu", chk_gu);
-		/*request.getSession().setAttribute("getRoomthemeimp", list);*/
 		request.getSession().removeAttribute("getRoomthemeimp");
 		return "search_main.jsp";
 		
