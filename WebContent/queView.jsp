@@ -23,6 +23,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".hhhh").click(function() {
+
 			/* $("#new").css("display", "block");
 			$("#ori").css("display", "none"); */
 
@@ -73,40 +74,51 @@
 }
 </style>
 <script>
+	function modify_go(frm) {
+		frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
+		frm.submit();
+	}
 
-      function modify_go(frm) {
-         frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
-         frm.submit();
-      }
-      
-      function delete_go(frm) {
-         var isDeleteOk = confirm("정말 삭제하시겠습니까?");
-         
-         if (isDeleteOk) {
-            frm.action = "controller?type=queDel&board_type=3&id=${Bovo.id}";
-            frm.submit();
-         } else {
-            alert("취소되었습니다.");
-         }
-      } 
-      
-      function view_go(frm) {
-         frm.action = "controller?type=que&board_type=3";
-         frm.submit();
-      }
+	function delete_go(frm) {
+		var isDeleteOk = confirm("정말 삭제하시겠습니까?");
+
+		if (isDeleteOk) {
+			frm.action = "controller?type=queDel&board_type=3&id=${Bovo.id}";
+			frm.submit();
+		} else {
+			alert("취소되었습니다.");
+		}
+	}
+
+	function view_go(frm) {
+		frm.action = "controller?type=que&board_type=3";
+		frm.submit();
+	}
 
 	function sendData_go(frm) {
 		frm.action = "controller?type=queComments";
 		frm.submit();
 	}
 	function reply_update_go(frm) {
-		frm.action = "controller?type=reply_update_delete&chk=1";
-		frm.submit();
+		var answer = confirm("댓글을 수정 하시겠습니까?");
+
+		if (answer) {
+			frm.action = "controller?type=reply_update_delete&chk=1";
+			frm.submit();
+		} else {
+
+		}
+
 	}
 
 	function reply_delete_go(frm) {
-		frm.action = "controller?type=reply_update_delete&chk=2";
-		frm.submit();
+		var answer = confirm("댓글을 삭제 하시겠습니까?");
+		if (answer) {
+			frm.action = "controller?type=reply_update_delete&chk=2";
+			frm.submit();
+		} else {
+		}
+
 	}
 </script>
 </head>
@@ -196,7 +208,7 @@
 							<p>작성자 : ${uservo.nickname }(${uservo.account })</p>
 							<p>
 								내용 :
-								<textarea name="content" rows="4" cols="55"></textarea>
+								<textarea name="content" rows="4" cols="50"></textarea>
 								<input type="submit" value="댓글저장"
 									onclick="sendData_go(this.form)"> <input type="hidden"
 									name="board_id" value="${Bovo.id}"> <input
