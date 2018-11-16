@@ -41,6 +41,7 @@ import com.ob.command.QueCommentCommand;
 import com.ob.command.Reply_UpdateANDdeleteCommand;
 import com.ob.command.QueWriteCommand;
 import com.ob.command.ReservationCommand;
+import com.ob.command.ReservationDeleteCommand;
 import com.ob.command.ReservationListCommand;
 import com.ob.command.ReservationOkCommand;
 import com.ob.command.SearchCommand;
@@ -162,6 +163,8 @@ public class Controller extends HttpServlet {
 			comm =new ReservationListCommand();
 		} else if (type.equals("reservationOk")) {
 			comm =new ReservationOkCommand();
+		} else if (type.equals("reservationDelete")) {
+			comm =new ReservationDeleteCommand();
 		} else if (type.equals("queComments")) {
 			comm =new QueCommentCommand();
 		}else if (type.equals("reply_update_delete")) {

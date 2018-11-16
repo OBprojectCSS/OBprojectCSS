@@ -37,6 +37,11 @@ public class DAO {
 		return getSql().selectList("getUserReservation", uvo);
 	}
 	
+	//유저 - 마이페이지 - 예약취소
+	public static int deleteReservation(String id) {
+		return getSql().delete("deleteReservation", id);
+	}
+	
 	// 회원가입 insert
 	public static int checkJoin(UserVO vo) {
 		return getSql().insert("checkJoin", vo);
@@ -267,6 +272,7 @@ public class DAO {
 		return result;
 		
 	}
+
 	
 	
 //-----------------------
