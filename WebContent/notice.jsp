@@ -104,7 +104,7 @@
                      <tr class="title">
                         <th class="no" style="padding-left: 9px;">번호</th>
                         <th colspan="2" class="title" style="padding-left: 80px;">제목</th>
-                        <th class="writer" style="padding-left:33px;">작성자</th>
+                        <th class="writer" style="padding-left:12px;">작성자</th>
                         <th class="write_date" style="padding-left: 28px;">작성일</th>
                      </tr>
                   </thead>
@@ -123,7 +123,7 @@
                                  <td>${vo.id}</td>
                                  <td colspan="2"><a
                                     href="controller?type=noticeView&board_type=1&id=${vo.id}&cNoticePage=${noticePvo.nowPage}">${vo.title}</a></td>
-                                 <td><b>관리자(admin)</b></td>
+                                 <td><b>관리자</b></td>
                                  <td>${vo.write_date.substring(0, 10)}</td>
                               </tr>
                            </c:forEach>
@@ -181,9 +181,9 @@
                              </ol>	
                          </td>
                            <c:if test="${sessionScope.uservo.getAccount() == 'admin' }">
-                           <td style="padding-right: 0px; padding-left: 10px;
+                           <td style="padding-right: 0px; padding-left: 25px;
 ">
-                              <button type="button" class="btn btn-danger" onclick="javascript:location.href='controller?type=noticeWrite&board_type=1'">작성하기</button>
+                              <button type="button" class="btn btn-danger" onclick="javascript:location.href='controller?type=noticeWrite&board_type=1'">작성</button>
 <!--                          <input type="button" value="작성하기" onclick="javascript:location.href='controller?type=noticeWrite&board_type=1'"> -->
                            </td>
                            </c:if> 

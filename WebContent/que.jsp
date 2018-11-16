@@ -102,8 +102,8 @@
 								<th class="no" style="padding-left: 9px;">번호</th>
 								<th class="title" style="padding-left: 50px;">제목</th>
 								<th class="writer" style="padding-left:12px;">작성자</th>
-								<th class="write_date">작성일</th>
-								<th class="read_count">조회수</th>
+								<th class="write_date" style="padding-left: 30px;">작성일</th>
+								<th class="read_count" style="padding-left: 0px;">조회수</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -179,8 +179,8 @@
 									</ol>
 								</td>
 								<c:if test="${not empty uservo}">
-									<td><input type="button" value="작성하기"
-										onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'"></td>
+									<td style="padding-left: 0px;"><button type="submit" class="btn btn-danger" onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'">작성</button></td>
+<%-- 									<td><input type="button" value="작성하기" onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'"></td> --%>
 								</c:if>
 							</tr>
 						</tfoot>

@@ -45,8 +45,13 @@ img#room_image{
 	var lastday = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
 	var sd = "";
+	
+	var costPerDay = ${cost*1000};
 </script>
-
+<script>
+	$(function(){
+	})
+</script>
 <script>
 	function reserveOk(frm) {
 		var ok = confirm("예약하시겠습니까?");
@@ -87,6 +92,8 @@ img#room_image{
 		var temp = '<span>체크아웃<br></span>';
 		var nsd = new Date();
 		var ned = new Date();
+		document.getElementById("cost").innerHTML = costPerDay + '원';
+		document.getElementById("total_cost").value = costPerDay;
 		temp += '<select id="e_date" onchange="setVal2(this.value)"  name="e_date">';
 		//temp += '<c:forEach var="ed" items="${ableDates}">';
 		//temp += '<c:if test="${ed>=sd}">';
@@ -204,7 +211,7 @@ img#room_image{
 						<div class="card-body">
 							<font>체크인</font>
 							<div id="checkin" class="card-text">
-								<select id="s_date" onchange="setVal(this.value)" name="s_date">
+								<select id="s_date" onfocus="setVal(this.value)" onchange="setVal(this.value)" name="s_date">
 									<c:forEach var="ed" items="${ableDates}">
 										<option>${ed }</option>
 									</c:forEach>
@@ -225,8 +232,8 @@ img#room_image{
 						</div>
 						<h4 class="card-header">숙박료</h4>
 						<div class="card-body">
-							<div id="cost" class="card-text"></div>
-							<input type="hidden" id="total_cost" name="total_cost" value="1000">
+							<div id="cost" class="card-text">${cost*1000 }원</div>
+							<input type="hidden" id="total_cost" name="total_cost" value="${cost*1000 }">
 							<input type="hidden" name="room_id" value="${room_id}">
 						</div>
 

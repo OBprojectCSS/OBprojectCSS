@@ -91,16 +91,20 @@
 							</tr>
 						</tbody>
 					</table>
-						<div id="setting">
-						<br>
-								<input type="button" value="수  정" onclick="save_go()">
-								<input type="reset" value="초 기 화">
-								<input type="button" value="목  록" onclick="list_go()">
+				</form>
+						<div id="setting" style="padding-left: 300px;">
+						
+								<button type="submit" class="btn btn-danger" onclick="save_go()">저장</button>
+								<button type="submit" class="btn btn-danger" onclick="list_go()">취소</button>
+								
+								
+<!-- 								<input type="button" value="수  정" onclick="save_go()"> -->
+<!-- 								<input type="reset" value="초 기 화"> -->
+<!-- 								<input type="button" value="목  록" onclick="list_go()"> -->
 								
 								<input type="hidden" name="update_id" value="${BPVO.id}">
 								<input type="hidden" name="update_chk" value="chk">
 						</div>		
-					</form>
 				</div>
 
 

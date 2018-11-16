@@ -91,7 +91,7 @@
                         </tr>
                         <tr>
                            <th>작성자</th>
-                           <td><b>관리자(admin)</b></td>
+                           <td><b>관리자</b></td>
                         </tr>
                         <tr>
                            <th>내용</th>
@@ -99,7 +99,7 @@
                         </tr>
                      </tbody>
                   </table>
-                  <div id="setting" style="padding-left:330px;">
+                  <div id="setting" style="padding-left:300px;">
                      <c:if test="${sessionScope.uservo.getAccount() == 'admin' }">
                      <button type="submit" class="btn btn-danger" onclick="modify_go()">수정</button>
                      <button type="submit" class="btn btn-danger" onclick="delete_go()">삭제</button>

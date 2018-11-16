@@ -83,13 +83,12 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 col-sm-6 portfolio-item">
 				<c:forEach var="roomlist" items="${getRoomthemeimp }">
+					<div class="col-lg-4 col-sm-6 portfolio-item">
 					<form id="hidden" method="post" action="controller">
 					<button type="submit" id="buttonbox">
 						<div class="card h-100">
@@ -166,8 +165,8 @@
 						</div>
 					</button>
 					</form>
+					</div>
 				</c:forEach>
-			</div>
 		</div>
 
 		<!-- Pagination -->

@@ -24,22 +24,23 @@
 </head>
 <style>
 .btn-group .button {
-	background-color: #4CAF50; /* Green */ /* #dc3545 */
-	border: 1px solid green;
+	background-color: #dc3544; /* Green */ /* #dc3545 */
+	border: 1px solid white;
 	color: white;
-	padding: 15px 32px;
+    margin-left:33%; 
+ 	padding: 50px 100px 50px 100px ; 
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 30px;
 	cursor: pointer;
 	float: left;
-	width: 50%;
-	height: 150px;
+	
 }
 
 .btn-group .button:hover {
-	background-color: #3e8e41;
+	background-color: #a71d29;/* #3e8e41 */ 
+	border-color: white;
 }
 </style>
 
@@ -59,14 +60,14 @@
 			$("#one").css("display", "block");
 			$("#two").css("display", "none");
 
-			$("#one").css("background-color", "red");
-			$("#show1").css("background-color", "red");
+			$("#one").css("background-color", "#e04b58");//빨
+			$("#show1").css("background-color", "#e04b58");//빨
 		});
 		$("#show2").click(function() {
 			$("#two").css("display", "block");
 			$("#one").css("display", "none");
-			$("#two").css("background-color", "blue");
-			$("#show2").css("background-color", "blue");
+			$("#two").css("background-color", "#e04b58");//피
+			$("#show2").css("background-color", "#e04b58");//파
 
 		});
 
@@ -110,7 +111,7 @@
   <br>
   
 	<!-- Page Content -->
-	<div class="container">
+	<div class="wwrap" style="margin:3% 1% 20% ;">
 
 		<!------------------------------------------------------------------  -->
 
@@ -119,24 +120,24 @@
 			<button class="button" id="show2">테마별</button>
 		</div>
 		<form method="post">
-			<div id="one" style="display: none;">
+			<div id="one" style="display: none;margin:0% 15%;color: white">
 				<c:forEach var="si" items="${si}">
-					<input type="radio" name="chk_si" value="${si }"
-						onclick="showSecond(this)">${si }						
+					<input type="radio" name="chk_si" value="${si }" 
+						onclick="showSecond(this)">${si }	&nbsp;					
 			</c:forEach>
 				<hr>
-				<div id="secondRadio"></div>
+				<div id="secondRadio" style="color: white;"></div>
 
 				<input type="button" value="조 회" onclick="search_go(this.form)">
 			</div>
 		</form>
 
-
 		<form method="post">
-			<div id="two" style="display: none;">
+			<div id="two" style="display: none ;margin:0% 15%;color: white;" >
 				<c:forEach var="theme" items="${theme}">
 					<input type="radio" id="chk_theme" name="chk_theme"
-						value="${theme }">${theme }				
+						value="${theme }">${theme }		
+						&nbsp; 
 			</c:forEach>
 				<input type="button" value="조 회" onclick="search_theme(this.form)">
 			</div>
@@ -160,7 +161,7 @@
 	<!-- /.container -->
 
 	<!-- Footer -->
-	 <jsp:include page="footer.jsp"></jsp:include>
+
 	 
 
 	<!-- Bootstrap core JavaScript -->

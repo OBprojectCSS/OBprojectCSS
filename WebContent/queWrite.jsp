@@ -25,8 +25,9 @@
 		frm.action = "controller?type=queWrite&board_type=3";
 		frm.submit();
 	}
-	function que_go() {
-		location.href = "controller?type=que&board_type=3";
+	function que_go(frm) {
+		frm.action = "controller?type=que&board_type=3";
+		frm.submit();
 	}
 </script>
 </head>
@@ -85,11 +86,13 @@
 											name="content" rows="10" cols="50"></textarea></td>
 								</tr>
 								<tr>
-									<td colspan="2"><input type="button" value="저 장"
-										onclick="sendData(this.form)"> <input type="reset"
-										value="다시작성"> <input type="button" value="돌아가기"
-										onclick="que_go(this.form)"> <input type="hidden"
-										name="write_chk" id="chk"></td>
+									<td colspan="2" style="padding-left:330px;">
+									<button type="submit" class="btn btn-danger" onclick="sendData(this.form)">저장</button>
+									<button type="submit" class="btn btn-danger" onclick="que_go(this.form)">취소</button>
+<!-- 									<input type="button" value="저 장" onclick="sendData(this.form)">  -->
+<!-- 									<input type="reset" value="다시작성">  -->
+<!-- 									<input type="button" value="돌아가기" onclick="que_go(this.form)">  -->
+									<input type="hidden" name="write_chk" id="chk"></td>
 								</tr>
 							</tbody>
 						</table>

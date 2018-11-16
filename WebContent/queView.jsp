@@ -127,8 +127,8 @@
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳! start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 
-				<div id="bbs_view">=
-					<form method="post" name = "frm">
+				<div id="bbs_view">
+					<form method="post" name="frm">
 
 						<table class="table table-striped">
 							<tbody>
@@ -153,12 +153,14 @@
 									<td><pre>${Bovo.content}</pre></td>
 								</tr>
 								<tr>
-									<td colspan="5">
+									<td colspan="5" style="padding-left: 320px;">
 									<c:if test="${writer_chk==1}">
-									<input type="button" value="수  정" onclick="modify_go(this.form)"> 
-									<input type="button" value="삭  제" onclick="delete_go(this.form)"> 
+									<button type="submit" class="btn btn-danger" onclick="modify_go(this.form)">수정</button>
+									<button type="submit" class="btn btn-danger" onclick="delete_go(this.form)">삭제</button>
+<!-- 									<input type="button" value="수  정" onclick="modify_go(this.form)">  -->
+<!-- 									<input type="button" value="삭  제" onclick="delete_go(this.form)">  -->
 									</c:if>
-									<input type="button" value="목  록" onclick="view_go(this.form)">
+<!-- 									<input type="button" value="목  록" onclick="view_go(this.form)"> -->
 									<input type="hidden" name="delete_chk" value="chk"> 
 									<input type="hidden" name="delete_id" value="${Bovo.id}"></td>
 								</tr>
@@ -173,14 +175,17 @@
 							<p>작성자 : ${uservo.nickname }(${uservo.account })</p>
 							<p>
 								내용 :
-								<textarea name="content" rows="4" cols="50"></textarea>
-								<input type="submit" value="댓글저장"
-									onclick="sendData_go(this.form)"> <input type="hidden"
-									name="board_id" value="${Bovo.id}"> <input
-									type="hidden" name="user_id" value="${uservo.id}"> <input
-									type="hidden" name="writer"
-									value="${uservo.nickname }(${uservo.account })"> <input
-									type="hidden" name="quePage" value="${quePage}">
+								<textarea class="form-control" name="content" rows="2" cols="50" placeholder="댓글쓰기"></textarea>
+								<div>
+								<button type="submit" class="btn btn-danger btn-lg btn-block" onclick="sendData_go(this.form)">저장</button>
+<!-- 								<button type="submit" class="btn btn-danger" onclick="sendData_go(this.form)">저장하기</button> -->
+<!-- 								<input type="submit" value="댓글저장" onclick="sendData_go(this.form)">  -->
+								
+								<input type="hidden" name="board_id" value="${Bovo.id}"> 
+								<input type="hidden" name="user_id" value="${uservo.id}"> 
+								<input type="hidden" name="writer" value="${uservo.nickname }(${uservo.account })">
+								<input type="hidden" name="quePage" value="${quePage}">
+								</div>
 						</form>
 					</c:if>
 					<hr>
@@ -194,15 +199,14 @@
 								<p>작성자: ${c.writer }</p>
 
 								<p class="ori">내용: ${c.content }</p>
-								<p class="new" style="display: none">
-									내용:<br>
+								<p class="new" style="display: none">내용:<br>
 									<textarea name="comm_content" rows="2" cols="50"
 										placeholder="${c.content }"></textarea>
 									<input type="button" value="고치기"
 										onclick="reply_update_go(this.form)">
 
 								</p>
-								<p>쓴날짜: ${c.write_date }</p>
+								<p>작성일: ${c.write_date }</p>
 							</div>
 
 
@@ -214,6 +218,7 @@
 							<!-- <input type="button" value="수  정" onclick="reply_update_go(this.form)"> -->
 
 							<c:if test="${uservo.id == c.user_id }">
+								
 								<input type="button" value="수  정" class="hhhh">
 								<input type="button" value="삭  제"
 									onclick="reply_delete_go(this.form)">
@@ -224,10 +229,6 @@
 					</c:forEach>
 
 				</div>
-
-
-
-
 
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳!!!!end!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 			</div>

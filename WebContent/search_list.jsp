@@ -84,18 +84,14 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 col-sm-6 portfolio-item">
 				<c:forEach var="roomlist" items="${getRoomimp }">
+					<div class="col-lg-4 col-sm-6 portfolio-item">
 					<form id="hidden" method="post" action="controller">
-					<!-- <a href='javascript:reservationGo($("form#hidden"))'> -->
-					<%-- <a href='javascript:reservationGo(${roomlist})'> --%>
 					<button type="submit" id="buttonbox">
-					<!--<a href='#' onclick="reservationGo(this.form)"> -->
 						<div class="card h-100">
 							<img class="card-img-top" src="imgs/${roomlist.filename}"
 								id="imgsize" alt="이미지사진">
@@ -167,12 +163,10 @@
 								</div>
 							</div>
 						</div>
-					<!-- </a> -->
 					</button>
-					<!-- </a> -->
 					</form>
+					</div>
 				</c:forEach>
-			</div>
 		</div>
 	
 		<!-- Pagination -->

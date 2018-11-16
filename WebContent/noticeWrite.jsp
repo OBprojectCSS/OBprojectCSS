@@ -21,9 +21,10 @@
 <link href="css/modern-business.css" rel="stylesheet">
 
 <script>
-// 	function notice_go() {
-// 		location.href = "controller?type=notice&board_type=1";
-// 	}
+	function noticeGo(frm) {
+		frm.action = "controller?type=notice&board_type=1";
+		frm.submit();
+	}
 </script>
 </head>
 
@@ -67,8 +68,8 @@
            
            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
            <div id="write">
-				<form method="POST">
-					<table  class="table table-striped">
+				<form method="POST" name="frm">
+					<table class="table table-striped">
 						<tbody>
 							<tr>
 								<th>제목</th>
@@ -88,7 +89,8 @@
 							<tr>
 								<td colspan="2" style="padding-left:330px;">
 <!-- 								<input class="btn btn-default" type="reset" value="다시작성"> -->
-								<button type="submit" class="btn btn-danger" onclick="sendData()">저장</button>
+								<button type="submit" class="btn btn-danger" onclick="sendData(this.form)">저장</button>
+								<button type="submit" class="btn btn-danger" onclick="noticeGo(this.form)">취소</button>
 <!-- 								<input class="btn btn-default" type="submit" value="저장" onclick="sendData()"> -->
 <!-- 								<input class="btn btn-default" type="button" value="목록" onclick="notice_go()"> -->
 								
