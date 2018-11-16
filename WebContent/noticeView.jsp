@@ -59,7 +59,7 @@
       </ol>
 
       <!-- Content Row -->
-      <div class="row">
+      <div class="row" style="margin-bottom: 100px;">
          <!-- Sidebar Column -->
          <div class="col-lg-3 mb-4">
             <div class="list-group">

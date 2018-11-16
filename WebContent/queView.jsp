@@ -40,10 +40,6 @@
 
 	});
 </script>
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
 <script>
 	function modify_go(frm) {
 		frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
@@ -91,9 +87,6 @@
 			return;
 		}
 	}	
-
-
-
 
 </script>
 </head>
@@ -160,21 +153,12 @@
 									<td><pre>${Bovo.content}</pre></td>
 								</tr>
 								<tr>
-<<<<<<< HEAD
-									<td colspan="5"><input type="button" value="수  정"
-										onclick="modify_go(this.form)"> <input type="button"
-										value="삭  제" onclick="delete_go(this.form)"> <input
-										type="button" value="목  록" onclick="view_go(this.form)">
-										<input type="hidden" name="delete_chk" value="chk"> <input
-										type="hidden" name="delete_id" value="${Bovo.id}"></td>
-=======
 									<td colspan="5">
 									<input type="button" value="수  정" onclick="modify_go(this.form)"> 
 									<input type="button" value="삭  제" onclick="delete_go(this.form)"> 
 									<input type="button" value="목  록" onclick="view_go(this.form)">
 									<input type="hidden" name="delete_chk" value="chk"> 
 									<input type="hidden" name="delete_id" value="${Bovo.id}"></td>
->>>>>>> refs/remotes/origin/master
 								</tr>
 							</tbody>
 						</table>
