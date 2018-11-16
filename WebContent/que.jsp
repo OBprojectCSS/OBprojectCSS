@@ -19,77 +19,44 @@
 
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
-
 <style type="text/css">
-#bbs_view table {
-	width: 580px;
-	margin-left: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	font-size: 14px;
-}
-
-#bbs_view table caption {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#bbs_view table th {
-	text-align: center;
-	border: 1px solid black;
-	padding: 4px 10px;
-	width: 30%;
-	background-color: lightsteelblue;
-}
-
-#bbs_view table td {
-	text-align: left;
-	border: 1px solid black;
-	padding: 4px 10px;
-}
-
-#setting {
-	margin-left: 10px;
-}
 .paging {
-	list-style: none;
+   list-style: none;
 }
 
 .paging li {
-	float: left;
-	margin-right: 8px;
+   float: left;
+   margin-right: 8px;
 }
 
 .paging li a {
-	text-decoration: none;
-	display: block;
-	padding: 3px 7px;
-	border: 1px solid #00B3DC;
-	font-weight: bold;
-	color: black;
+   text-decoration: none;
+   display: block;
+   padding: 3px 7px;
+   border: 1px solid #dc3454;
+   font-weight: bold;
+   color: black;
 }
 
 .paging li a:hover {
-	background-color: #00B3DC;
-	color: white;
+   background-color: #dc3454;
+   color: white;
 }
 
 .paging .disable {
-	padding: 3px 7px;
-	border: 1px solid silver;
-	color: silver;
+   padding: 3px 7px;
+   border: 1px solid silver;
+   color: silver;
 }
 
 .paging .now {
-	padding: 3px 7px;
-	border: 1px solid #ff4aa5;
-	background-color: #ff4aa5;
-	color: white;
-	font-weight: bold;
+   padding: 3px 7px;
+   border: 1px solid #dc3454;
+   background-color: #dc3454;
+   color: white;
+   font-weight: bold;
 }
 </style>
-
 </head>
 
 <body>
@@ -132,13 +99,12 @@
 				<div id="bbs_view">
 
 					<table class="table table-striped">
-					
 						<thead>
 							<tr class="title">
 								<th class="no" style="padding-left: 9px;">번호</th>
-								<th class="title" style="padding-left: 80px;">제목</th>
-								<th class="writer" style="padding-left:33px;">작성자</th>
-								<th class="write_date" style="padding-left: 28px;">작성일</th>
+								<th class="title" style="padding-left: 50px;">제목</th>
+								<th class="writer" style="padding-left:12px;">작성자</th>
+								<th class="write_date">작성일</th>
 								<th class="read_count">조회수</th>
 							</tr>
 						</thead>
@@ -167,19 +133,19 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="5">
+								<td colspan="4" style="padding-left: 150px;">
 									<ol class="paging">
 										<%-- [이전으로]에 대한 사용 여부를 처리 --%>
 										<c:choose>
 											<%-- 사용불가(disable): 첫번째 블록인 경우에만 --%>
 											<c:when test="${quePvo.beginPage < quePvo.pagePerBlock }">
 												<%-- <c:when test="${quePvo.beginPage != 1}"> 같은 의미--%>
-												<li class="disable">이전으로</li>
+												<li class="disable">Previous</li>
 											</c:when>
 											<%-- 사용가능(enable): 두번재 블록 이상(첫번째만 아닌 경우) --%>
 											<c:otherwise>
 												<li><a
-													href="controller?type=que&board_type=3&quePage=${quePvo.beginPage - 1 }">이전으로</a>
+													href="controller?type=que&board_type=3&quePage=${quePvo.beginPage - 1 }">Previous</a>
 												</li>
 											</c:otherwise>
 										</c:choose>
@@ -203,12 +169,12 @@
 										<c:choose>
 											<%-- 사용불가(disable): 끝 페이지(endPage) 수가 전체 페이지(totalPage) 수 보다  크거나 같은 경우 --%>
 											<c:when test="${quePvo.endPage >= quePvo.totalPage }">
-												<li class="disable">다음으로</li>
+												<li class="disable">Next</li>
 											</c:when>
 											<%-- 사용가능(enable) --%>
 											<c:otherwise>
 												<li><a
-													href="controller?type=que&board_type=3&quePage=${quePvo.endPage + 1 }">다음으로</a>
+													href="controller?type=que&board_type=3&quePage=${quePvo.endPage + 1 }">Next</a>
 												</li>
 											</c:otherwise>
 										</c:choose>

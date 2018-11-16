@@ -39,40 +39,6 @@
 
 	});
 </script>
-
-<style type="text/css">
-#bbs_view table {
-	width: 580px;
-	margin-left: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	font-size: 14px;
-}
-
-#bbs_view table caption {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#bbs_view table th {
-	text-align: center;
-	border: 1px solid black;
-	padding: 4px 10px;
-	width: 30%;
-	background-color: lightsteelblue;
-}
-
-#bbs_view table td {
-	text-align: left;
-	border: 1px solid black;
-	padding: 4px 10px;
-}
-
-#setting {
-	margin-left: 10px;
-}
-</style>
 <script>
 	function modify_go(frm) {
 		frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
@@ -152,8 +118,6 @@
 						class="list-group-item">프리미엄 후기</a> <a
 						href="controller?type=agree" class="list-group-item">약관 및 동의
 						사항</a>
-
-
 				</div>
 			</div>
 			<!-- Content Column -->
@@ -164,7 +128,7 @@
 
 				<div id="bbs_view">
 					<form method="post">
-						<table>
+						<table class="table table-striped">
 							<tbody>
 								<tr>
 									<th>제목</th>
@@ -187,9 +151,6 @@
 									<td><pre>${Bovo.content}</pre></td>
 								</tr>
 								<tr>
-
-
-
 									<td colspan="5"><input type="button" value="수  정"
 										onclick="modify_go(this.form)"> <input type="button"
 										value="삭  제" onclick="delete_go(this.form)"> <input
