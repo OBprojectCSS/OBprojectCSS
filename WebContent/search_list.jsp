@@ -84,7 +84,6 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
 	<div class="container">
