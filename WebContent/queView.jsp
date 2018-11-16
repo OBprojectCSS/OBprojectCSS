@@ -12,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>공지사항</title>
+<title>문의사항</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,23 @@
 <link href="css/modern-business.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function() {
+		$(".hhhh").click(function() {
+
+			/* $("#new").css("display", "block");
+			$("#ori").css("display", "none"); */
+
+			var myparent = $(this).parent();
+			$(".ori", myparent).each(function() {
+				$(this).css("display", "none");
+			});
+			$(".new", myparent).each(function() {
+				$(this).css("display", "block");
+			});
+
+		});
+
+	});
 </script>
 
 <style type="text/css">
@@ -58,22 +74,24 @@
 }
 </style>
 <script>
-	function modify_go() {
+	function modify_go(frm) {
 		frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
 		frm.submit();
 	}
-	function delete_go() {
+
+	function delete_go(frm) {
 		var isDeleteOk = confirm("정말 삭제하시겠습니까?");
 
 		if (isDeleteOk) {
-			frm.action = "controller?type=noticeDel&board_type=3&id=${Bovo.id}";
+			frm.action = "controller?type=queDel&board_type=3&id=${Bovo.id}";
 			frm.submit();
 		} else {
 			alert("취소되었습니다.");
 		}
 	}
-	function list_go() {
-		frm.action = "controller?type=notice&board_type=1";
+
+	function view_go(frm) {
+		frm.action = "controller?type=que&board_type=3";
 		frm.submit();
 	}
 
@@ -82,15 +100,26 @@
 		frm.submit();
 	}
 	function reply_update_go(frm) {
-		frm.action = "controller?type=reply_update_delete&chk=1";
-		frm.submit();
+		var answer = confirm("댓글을 수정 하시겠습니까?");
+
+		if (answer) {
+			frm.action = "controller?type=reply_update_delete&chk=1";
+			frm.submit();
+		} else {
+
+		}
+
 	}
 
 	function reply_delete_go(frm) {
-		frm.action = "controller?type=reply_update_delete&chk=2";
-		frm.submit();
+		var answer = confirm("댓글을 삭제 하시겠습니까?");
+		if (answer) {
+			frm.action = "controller?type=reply_update_delete&chk=2";
+			frm.submit();
+		} else {
+		}
+
 	}
-	
 </script>
 </head>
 
@@ -179,13 +208,14 @@
 							<p>작성자 : ${uservo.nickname }(${uservo.account })</p>
 							<p>
 								내용 :
-								<textarea name="content" rows="4" cols="55"></textarea>
+								<textarea name="content" rows="4" cols="50"></textarea>
 								<input type="submit" value="댓글저장"
 									onclick="sendData_go(this.form)"> <input type="hidden"
 									name="board_id" value="${Bovo.id}"> <input
 									type="hidden" name="user_id" value="${uservo.id}"> <input
-									type="hidden" name="writer" value="${uservo.nickname }(${uservo.account })">
-								<input type="hidden" name="quePage" value="${quePage}">
+									type="hidden" name="writer"
+									value="${uservo.nickname }(${uservo.account })"> <input
+									type="hidden" name="quePage" value="${quePage}">
 						</form>
 					</c:if>
 					<hr>
@@ -193,21 +223,36 @@
 					<%-- 댓글창 출력 --%>
 					<c:forEach var="c" items="${c_list}">
 						<form method="post">
-							<p>작성자: ${c.writer }</p>
-							<p>내용: ${c.content }</p>
-							<p>쓴날짜: ${c.write_date }</p>
+
+
+							<div class="one">
+								<p>작성자: ${c.writer }</p>
+
+								<p class="ori">내용: ${c.content }</p>
+								<p class="new" style="display: none">
+									내용:<br>
+									<textarea name="comm_content" rows="2" cols="50"
+										placeholder="${c.content }"></textarea>
+									<input type="button" value="고치기"
+										onclick="reply_update_go(this.form)">
+
+								</p>
+								<p>쓴날짜: ${c.write_date }</p>
+							</div>
+
+
 
 							<input type="hidden" name="comm_id" value="${c.id}"> <input
 								type="hidden" name="comm_board_id" value="${c.board_id}">
 							<input type="hidden" name="comm_user_id" value="${c.user_id}">
-								<input type="hidden" name="comm_content" value="${c.content}">
-							<input type="hidden" name="quePage" value="${quePage}"> <input
-								type="button" value="수  정" onclick="reply_update_go(this.form)">
+							<input type="hidden" name="quePage" value="${quePage}">
+							<!-- <input type="button" value="수  정" onclick="reply_update_go(this.form)"> -->
 
-
-							<input type="button" value="삭  제"
-								onclick="reply_delete_go(this.form)">
-
+							<c:if test="${uservo.id == c.user_id }">
+								<input type="button" value="수  정" class="hhhh">
+								<input type="button" value="삭  제"
+									onclick="reply_delete_go(this.form)">
+							</c:if>
 
 						</form>
 						<hr>

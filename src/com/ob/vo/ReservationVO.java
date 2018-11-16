@@ -6,6 +6,7 @@ public class ReservationVO {
 		  ,room_name, room_type_id, room_type, filename
 		  ,room_num, room_content, room_address1, room_address2, room_theme
 		  ,max_pax, cost, total_cost;
+	int day_chk;
 	
 	public ReservationVO() {
 		super();
@@ -96,6 +97,16 @@ public class ReservationVO {
 	}
 	
 	
+	public int getDay_chk() {
+		return day_chk;
+	}
+
+
+	public void setDay_chk(int day_chk) {
+		this.day_chk = day_chk;
+	}
+
+
 	public String getTotal_cost() {
 		return total_cost;
 	}
@@ -272,6 +283,7 @@ public class ReservationVO {
 		this.cost = cost;
 	}
 
+
 	@Override
 	public String toString() {
 		return "ReservationVO [id=" + id + ", user_id=" + user_id + ", room_id=" + room_id + ", s_date=" + s_date
@@ -279,7 +291,9 @@ public class ReservationVO {
 				+ ", account=" + account + ", nickname=" + nickname + ", room_name=" + room_name + ", room_type_id="
 				+ room_type_id + ", room_type=" + room_type + ", filename=" + filename + ", room_num=" + room_num
 				+ ", room_content=" + room_content + ", room_address1=" + room_address1 + ", room_address2="
-				+ room_address2 + ", room_theme=" + room_theme + ", max_pax=" + max_pax + ", cost=" + cost + "]";
+				+ room_address2 + ", room_theme=" + room_theme + ", max_pax=" + max_pax + ", cost=" + cost
+				+ ", total_cost=" + total_cost + ", day_chk=" + day_chk + "]";
 	}
+
 	
 }

@@ -53,8 +53,10 @@ public class ReservationOkCommand implements Command {
 		System.out.println(resvo);
 		
 		int result = DAO.insertReservation(resvo);
-		List userResList = DAO.getUserReservation(uvo);
-		request.getSession().setAttribute("userReservationvo", userResList);
+
+//		//ReservationListCommand로 옮김
+//		List userResList = DAO.getUserReservation(uvo);
+//		request.getSession().setAttribute("userReservationvo", userResList);
 		
 //		response.setContentType("text/html; charset=UTF-8");
 //		 
@@ -64,7 +66,7 @@ public class ReservationOkCommand implements Command {
 //		out.flush();
 		
 
-		return "revList.jsp";
+		return "controller?type=revList";
 	}
 
 }
