@@ -7,11 +7,12 @@ public class DaehoonVO {
 		super();
 	}
 
-	public DaehoonVO(String r_num, String id, String board_type, String title, String content, String nickname,
-			String email, String tel, String write_date, String read_count) {
+	public DaehoonVO(String r_num, String id, String user_id, String board_type, String title, String content,
+			String nickname, String email, String tel, String write_date, String read_count) {
 		super();
 		this.r_num = r_num;
 		this.id = id;
+		this.user_id = user_id;
 		this.board_type = board_type;
 		this.title = title;
 		this.content = content;
@@ -21,6 +22,21 @@ public class DaehoonVO {
 		this.write_date = write_date;
 		this.read_count = read_count;
 	}
+
+//	public DaehoonVO(String r_num, String id, String board_type, String title, String content, String nickname,
+//			String email, String tel, String write_date, String read_count) {
+//		super();
+//		this.r_num = r_num;
+//		this.id = id;
+//		this.board_type = board_type;
+//		this.title = title;
+//		this.content = content;
+//		this.nickname = nickname;
+//		this.email = email;
+//		this.tel = tel;
+//		this.write_date = write_date;
+//		this.read_count = read_count;
+//	}
 
 	public String getUser_id() {
 		return user_id;
@@ -112,12 +128,10 @@ public class DaehoonVO {
 
 	@Override
 	public String toString() {
-		return "DaehoonVO [r_num=" + r_num + ", id=" + id + ", board_type=" + board_type + ", title=" + title
-				+ ", content=" + content + ", nickname=" + nickname + ", email=" + email + ", tel=" + tel
-				+ ", write_date=" + write_date + ", read_count=" + read_count + "]";
+		return "DaehoonVO [r_num=" + r_num + ", id=" + id + ", user_id=" + user_id + ", board_type=" + board_type
+				+ ", title=" + title + ", content=" + content + ", nickname=" + nickname + ", email=" + email + ", tel="
+				+ tel + ", write_date=" + write_date + ", read_count=" + read_count + "]";
 	}
-	
-	
 	
 
 }

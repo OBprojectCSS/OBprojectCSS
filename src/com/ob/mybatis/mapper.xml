@@ -233,16 +233,15 @@
 	<select id="queSelOne" resultType="com.ob.vo.DaehoonVO">
 		SELECT *
 		FROM (SELECT ROWNUM R_NUM, h.*
-		FROM (SELECT B.ID, b.board_type,
-		B.TITLE,B.CONTENT, U.NICKNAME,U.EMAIL, U.TEL, B.WRITE_DATE,
-		B.READ_COUNT
-		FROM OBHOTEL_BOARD B,
-		OBHOTEL_USER U
-		WHERE B.USER_ID = U.ID AND
-		B.id = #{id}
-		ORDER BY b.ID DESC
-		) h
-		)
+				FROM (SELECT B.ID, b.user_id, b.board_type,
+							 B.TITLE,B.CONTENT, U.NICKNAME,U.EMAIL, U.TEL, B.WRITE_DATE,
+							 B.READ_COUNT
+						FROM OBHOTEL_BOARD B,
+							 OBHOTEL_USER U
+					   WHERE B.USER_ID = U.ID
+					     AND B.id = #{id}
+					   ORDER BY b.ID DESC) h
+			 )
 	</select>
 	
 	<insert id="queInsert" parameterType="com.ob.vo.DaehoonVO">
