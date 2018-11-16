@@ -12,14 +12,16 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title></title>
+<title>약관 및 동의사항</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 <script>
 	$(document).ready(function() {
 		$(".card-header").click(function() {
@@ -30,12 +32,7 @@
 		});
 	});
 </script>
-<style type="text/css">
-button {
-	border: 0;
-	outline: 0;
-}
-</style>
+
 </head>
 
 <body>
@@ -43,20 +40,46 @@ button {
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
-
-
-	<!-- Page Content -->
 	<div class="container">
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">
-			자주 묻는 질문 
-		</h1>
+		<h1 class="mt-4 mb-3">자주 묻는 질문</h1>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="main.jsp">Home</a></li>
 			<li class="breadcrumb-item active">자주 묻는 질문</li>
 		</ol>
+
+		<!-- Content Row -->
+		<div class="row">
+			<!-- Sidebar Column -->
+			<div class="col-lg-3 mb-4">
+				<div class="list-group">
+					<a href="main.jsp" class="list-group-item">Home</a> <a
+						href="controller?type=notice&board_type=1"
+						class="list-group-item ">공지사항</a> <a
+						href="controller?type=moreQue" class="list-group-item active">자주 묻는
+						질문</a> <a href="controller?type=que&board_type=3"
+						class="list-group-item">문의사항</a> <a
+						href="controller?type=premium&board_type=4"
+						class="list-group-item">프리미엄 후기</a> <a
+						href="controller?type=agree" class="list-group-item">약관
+						및 동의 사항</a>
+
+
+				</div>
+			</div>
+			<!-- Content Column -->
+			<div class="col-lg-9 mb-4">
+				<h4>자주 묻는 질문</h4>
+				<!-- -------------------------------------------------------------------- -->
+
+
+	<div class="container">
+
+		
+
+		
 
 		<div class="mb-4" id="accordion" role="tablist"
 			aria-multiselectable="true">
@@ -134,8 +157,37 @@ button {
 	</div>
 	<!-- /.container -->
 
+
+
+
+
+
+
+
+
+			<!-- // 본문 콘텐츠-->
+
+
+
+
+
+
+
+
+
+
+
+				<!-- -------------------------------------------------------------------- -->
+			</div>
+		</div>
+		<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+
 	<!-- Footer -->
 	<jsp:include page="footer.jsp"></jsp:include>
+
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
