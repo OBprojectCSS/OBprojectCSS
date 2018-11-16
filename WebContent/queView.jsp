@@ -21,7 +21,22 @@
 <link href="css/modern-business.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function() {
+		$(".hhhh").click(function() {
+			/* $("#new").css("display", "block");
+			$("#ori").css("display", "none"); */
+
+			var myparent = $(this).parent();
+			$(".ori", myparent).each(function() {
+				$(this).css("display", "none");
+			});
+			$(".new", myparent).each(function() {
+				$(this).css("display", "block");
+			});
+
+		});
+
+	});
 </script>
 
 <style type="text/css">
@@ -90,7 +105,6 @@
 		frm.action = "controller?type=reply_update_delete&chk=2";
 		frm.submit();
 	}
-	
 </script>
 </head>
 
@@ -184,8 +198,9 @@
 									onclick="sendData_go(this.form)"> <input type="hidden"
 									name="board_id" value="${Bovo.id}"> <input
 									type="hidden" name="user_id" value="${uservo.id}"> <input
-									type="hidden" name="writer" value="${uservo.nickname }(${uservo.account })">
-								<input type="hidden" name="quePage" value="${quePage}">
+									type="hidden" name="writer"
+									value="${uservo.nickname }(${uservo.account })"> <input
+									type="hidden" name="quePage" value="${quePage}">
 						</form>
 					</c:if>
 					<hr>
@@ -193,21 +208,36 @@
 					<%-- 댓글창 출력 --%>
 					<c:forEach var="c" items="${c_list}">
 						<form method="post">
-							<p>작성자: ${c.writer }</p>
-							<p>내용: ${c.content }</p>
-							<p>쓴날짜: ${c.write_date }</p>
+
+
+							<div class="one">
+								<p>작성자: ${c.writer }</p>
+
+								<p class="ori">내용: ${c.content }</p>
+								<p class="new" style="display: none">
+									내용:<br>
+									<textarea name="comm_content" rows="2" cols="50"
+										placeholder="${c.content }"></textarea>
+									<input type="button" value="고치기"
+										onclick="reply_update_go(this.form)">
+
+								</p>
+								<p>쓴날짜: ${c.write_date }</p>
+							</div>
+
+
 
 							<input type="hidden" name="comm_id" value="${c.id}"> <input
 								type="hidden" name="comm_board_id" value="${c.board_id}">
 							<input type="hidden" name="comm_user_id" value="${c.user_id}">
-								<input type="hidden" name="comm_content" value="${c.content}">
-							<input type="hidden" name="quePage" value="${quePage}"> <input
-								type="button" value="수  정" onclick="reply_update_go(this.form)">
+							<input type="hidden" name="quePage" value="${quePage}">
+							<!-- <input type="button" value="수  정" onclick="reply_update_go(this.form)"> -->
 
-
-							<input type="button" value="삭  제"
-								onclick="reply_delete_go(this.form)">
-
+							<c:if test="${uservo.id == c.user_id }">
+								<input type="button" value="수  정" class="hhhh">
+								<input type="button" value="삭  제"
+									onclick="reply_delete_go(this.form)">
+							</c:if>
 
 						</form>
 						<hr>
