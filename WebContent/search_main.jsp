@@ -25,18 +25,16 @@
 <style>
 .btn-group .button {
 	background-color: #dc3544; /* Green */ /* #dc3545 */
-	border: 0px solid white;
+	border: 1px solid white;
 	color: white;
-	margin-left:110px;
-	padding: 100px 100px;
+    margin-left:33%; 
+ 	padding: 50px 100px 50px 100px ; 
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 30px;
 	cursor: pointer;
 	float: left;
-	width: 100%;
-	height: 300px;
 	
 }
 
@@ -62,14 +60,14 @@
 			$("#one").css("display", "block");
 			$("#two").css("display", "none");
 
-			$("#one").css("background-color", "#661219");//빨
-			$("#show1").css("background-color", "#661219");//빨
+			$("#one").css("background-color", "#e04b58");//빨
+			$("#show1").css("background-color", "#e04b58");//빨
 		});
 		$("#show2").click(function() {
 			$("#two").css("display", "block");
 			$("#one").css("display", "none");
-			$("#two").css("background-color", "#1d6ea7");//피
-			$("#show2").css("background-color", "#1d6ea7");//파
+			$("#two").css("background-color", "#e04b58");//피
+			$("#show2").css("background-color", "#e04b58");//파
 
 		});
 
@@ -113,7 +111,7 @@
   <br>
   
 	<!-- Page Content -->
-	<div class="container">
+	<div class="wwrap" style="margin:3% 1% 20% ;">
 
 		<!------------------------------------------------------------------  -->
 
@@ -122,24 +120,24 @@
 			<button class="button" id="show2">테마별</button>
 		</div>
 		<form method="post">
-			<div id="one" style="display: none;">
+			<div id="one" style="display: none;margin:0% 15%;color: white">
 				<c:forEach var="si" items="${si}">
-					<input type="radio" name="chk_si" value="${si }"
-						onclick="showSecond(this)">${si }						
+					<input type="radio" name="chk_si" value="${si }" 
+						onclick="showSecond(this)">${si }	&nbsp;					
 			</c:forEach>
 				<hr>
-				<div id="secondRadio"></div>
+				<div id="secondRadio" style="color: white;"></div>
 
 				<input type="button" value="조 회" onclick="search_go(this.form)">
 			</div>
 		</form>
-<hr>
 
 		<form method="post">
-			<div id="two" style="display: none;">
+			<div id="two" style="display: none ;margin:0% 15%;color: white;" >
 				<c:forEach var="theme" items="${theme}">
 					<input type="radio" id="chk_theme" name="chk_theme"
-						value="${theme }">${theme }				
+						value="${theme }">${theme }		
+						&nbsp; 
 			</c:forEach>
 				<input type="button" value="조 회" onclick="search_theme(this.form)">
 			</div>
