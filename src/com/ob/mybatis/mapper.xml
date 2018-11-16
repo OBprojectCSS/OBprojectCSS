@@ -154,7 +154,11 @@
 		AND R.ROOM_TYPE_ID = RT.ID
 		AND R.ROOM_TYPE_ID = RF.ID
 	</select>
-
+	
+	<!-- 로그인 후 - 마이페이지 - 예약기록 - 예약취소 -->
+	<delete id="deleteReservation" parameterType="String">
+		DELETE FROM OBHOTEL_RESERVATION WHERE ID=#{id}
+	</delete>
 	<!-- 회원 정보 변경 -->
 	<update id="mypageUP" parameterType="com.ob.vo.UserVO">
 		UPDATE OBHOTEL_USER
