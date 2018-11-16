@@ -21,72 +21,41 @@
 <link href="css/modern-business.css" rel="stylesheet">
 
 <style type="text/css">
-#bbs_view table {
-	width: 580px;
-	margin-left: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	font-size: 14px;
-}
-
-#bbs_view table caption {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#bbs_view table th {
-	text-align: center;
-	border: 1px solid black;
-	padding: 4px 10px;
-	width: 30%;
-	background-color: lightsteelblue;
-}
-
-#bbs_view table td {
-	text-align: left;
-	border: 1px solid black;
-	padding: 4px 10px;
-}
-
-#setting {
-	margin-left: 10px;
-}
 .paging {
-	list-style: none;
+   list-style: none;
 }
 
 .paging li {
-	float: left;
-	margin-right: 8px;
+   float: left;
+   margin-right: 8px;
 }
 
 .paging li a {
-	text-decoration: none;
-	display: block;
-	padding: 3px 7px;
-	border: 1px solid #00B3DC;
-	font-weight: bold;
-	color: black;
+   text-decoration: none;
+   display: block;
+   padding: 3px 7px;
+   border: 1px solid #dc3454;
+   font-weight: bold;
+   color: black;
 }
 
 .paging li a:hover {
-	background-color: #00B3DC;
-	color: white;
+   background-color: #dc3454;
+   color: white;
 }
 
 .paging .disable {
-	padding: 3px 7px;
-	border: 1px solid silver;
-	color: silver;
+   padding: 3px 7px;
+   border: 1px solid silver;
+   color: silver;
 }
 
 .paging .now {
-	padding: 3px 7px;
-	border: 1px solid #ff4aa5;
-	background-color: #ff4aa5;
-	color: white;
-	font-weight: bold;
+   padding: 3px 7px;
+   border: 1px solid #dc3454;
+   background-color: #dc3454;
+   color: white;
+   font-weight: bold;
 }
 </style>
 

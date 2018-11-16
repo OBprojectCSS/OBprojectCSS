@@ -19,44 +19,9 @@
 
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-	
-</script>
-
-<style type="text/css">
-#bbs_view table {
-	width: 580px;
-	margin-left: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	font-size: 14px;
-}
-
-#bbs_view table caption {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#bbs_view table th {
-	text-align: center;
-	border: 1px solid black;
-	padding: 4px 10px;
-	width: 30%;
-	background-color: lightsteelblue;
-}
-
-#bbs_view table td {
-	text-align: left;
-	border: 1px solid black;
-	padding: 4px 10px;
-}
-
-#setting {
-	margin-left: 10px;
-}
-</style>
+<script type="text/javascript">	</script>
 <script>
 
       function modify_go(frm) {
@@ -92,8 +57,7 @@
 	function reply_delete_go(frm) {
 		frm.action = "controller?type=reply_update_delete&chk=2";
 		frm.submit();
-	}
-	
+	}	
 </script>
 </head>
 
@@ -132,13 +96,13 @@
 			</div>
 			<!-- Content Column -->
 			<div class="col-lg-9 mb-4">
-				<h4>문의 사항</h4>
+				<h4>문의사항</h4>
 				<!--@@@@@@@@@@@@@@@@@@@@@ 내용 쓰는 곳! start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!입력하세요 @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 
 				<div id="bbs_view">
-					<form method="post">
-						<table>
+					<form method="post" name = "frm">
+						<table class="table table-striped">
 							<tbody>
 								<tr>
 									<th>제목</th>
