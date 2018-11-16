@@ -43,7 +43,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><c:if test="${not empty uservo}">
-							<a class="nav-link" href="#">${uservo.nickname}님 환영합니다.</a>
+							<a class="nav-link">${uservo.nickname}님 환영합니다.</a>
 						</c:if></li>
 					<li class="nav-item"><a class="nav-link"
 						href="controller?type=search">전체검색</a></li>

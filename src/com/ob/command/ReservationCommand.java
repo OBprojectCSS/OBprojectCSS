@@ -108,7 +108,7 @@ public class ReservationCommand implements Command {
 					e_date = format.parse(e_dateString);
 				} catch (ParseException e) {
 				}
-			        
+			       
 		        while (s_date.compareTo(e_date) <= 0) {
 		            enableDates.add(format.format(s_date));
 		            cal.setTime(s_date);
@@ -120,8 +120,8 @@ public class ReservationCommand implements Command {
 		
 		System.out.println("enableDates : " + enableDates);
 		request.setAttribute("enableDates", enableDates);
-		request.setAttribute("roomTable", roomTable);
 		System.out.println("roomTable : " + roomTable);
+		request.setAttribute("roomTable", roomTable);
 		
 		/* **********************************************************/
 		
