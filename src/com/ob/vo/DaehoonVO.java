@@ -1,7 +1,7 @@
 package com.ob.vo;
 
 public class DaehoonVO {
-	String r_num, id, board_type, title, content,nickname,email,tel, write_date, read_count;
+	String r_num, id, user_id, board_type, title, content, nickname, email, tel, write_date, read_count;
 
 	public DaehoonVO() {
 		super();
@@ -20,6 +20,14 @@ public class DaehoonVO {
 		this.tel = tel;
 		this.write_date = write_date;
 		this.read_count = read_count;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getR_num() {

@@ -1,6 +1,6 @@
 package com.ob.controller;
 
-import java.io.IOException;
+import java.io.IOException; 
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,6 +48,7 @@ import com.ob.command.SearchListCommand;
 import com.ob.command.SearchThemeCommand;
 import com.ob.command.Test1Command;
 import com.ob.command.Test2Command;
+import com.ob.command.queDelCommand;
 import com.ob.command.queModiCommand;
 import com.ob.command.queViewComand;
 
@@ -162,6 +163,10 @@ public class Controller extends HttpServlet {
 			comm =new ReservationListCommand();
 		} else if (type.equals("reservationOk")) {
 			comm =new ReservationOkCommand();
+		} else if (type.equals("queDel")) {
+			comm = new queDelCommand();
+		} else if (type.equals("queWrite")) {
+			comm = new QueWriteCommand();
 		} else if (type.equals("queComments")) {
 			comm =new QueCommentCommand();
 		}else if (type.equals("reply_update_delete")) {

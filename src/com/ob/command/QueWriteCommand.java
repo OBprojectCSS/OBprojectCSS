@@ -1,20 +1,19 @@
 package com.ob.command;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest; 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ob.dao.DAO;
-import com.ob.vo.BoardplusVO;
+import com.ob.vo.DaehoonVO;
 import com.ob.vo.UserVO;
 
 public class QueWriteCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String chk = request.getParameter("write_chk");
-//		String uId = request.getParameter("user_id");
 		HttpSession session = request.getSession();
+		String chk = request.getParameter("write_chk");
 		UserVO uvo = (UserVO)session.getAttribute("uservo");
 		String uId1 = uvo.getId();
 		String bType = request.getParameter("board_type");
@@ -31,7 +30,7 @@ public class QueWriteCommand implements Command {
 		if (chk == null) {
 			path = "queWrite.jsp";
 		} else {
-			BoardplusVO vo = new BoardplusVO();
+			DaehoonVO vo = new DaehoonVO();
 			
 			vo.setUser_id(uId1);
 			vo.setBoard_type(bType);
@@ -40,7 +39,7 @@ public class QueWriteCommand implements Command {
 			vo.setWrite_date(date);
 			vo.setRead_count(count);
 			
-			DAO.noticeInsert(vo);
+			DAO.queInsert(vo);
 			
 			path = "controller?type=que&board_type=3";
 		}
