@@ -51,16 +51,12 @@
 			<!-- Sidebar Column -->
 			<div class="col-lg-3 mb-4">
 				<div class="list-group">
-					<a href="main.jsp" class="list-group-item">Home</a> <a
-						href="controller?type=notice&board_type=1"
-						class="list-group-item active">공지사항</a> <a
-						href="controller?type=moreQue" class="list-group-item">자주 묻는
-						질문</a> <a href="controller?type=que&board_type=3"
-						class="list-group-item">문의사항</a> <a
-						href="controller?type=premium&board_type=4"
-						class="list-group-item">프리미엄 후기</a> <a
-						href="controller?type=agree" class="list-group-item">약관 및 동의
-						사항</a>
+					<a href="main.jsp" class="list-group-item">Home</a> 
+					<a href="controller?type=notice&board_type=1" class="list-group-item">공지사항</a>
+					<a href="controller?type=moreQue" class="list-group-item">자주 묻는 질문</a> 
+					<a href="controller?type=que&board_type=3" class="list-group-item active">문의사항</a>
+					<a href="controller?type=premium&board_type=4" class="list-group-item">프리미엄 후기</a> 
+					<a href="controller?type=agree" class="list-group-item">약관 및 동의 사항</a>
 
 				</div>
 			</div>

@@ -28,9 +28,6 @@
 	$(document).ready(function() {
 		$(".hhhh").click(function() {
 
-			/* $("#new").css("display", "block");
-			$("#ori").css("display", "none"); */
-
 			var myparent = $(this).parent();
 			$(".ori", myparent).each(function() {
 				$(this).css("display", "none");
@@ -44,39 +41,6 @@
 	});
 </script>
 
-<style type="text/css">
-#bbs_view table {
-	width: 580px;
-	margin-left: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	font-size: 14px;
-}
-
-#bbs_view table caption {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#bbs_view table th {
-	text-align: center;
-	border: 1px solid black;
-	padding: 4px 10px;
-	width: 30%;
-	background-color: lightsteelblue;
-}
-
-#bbs_view table td {
-	text-align: left;
-	border: 1px solid black;
-	padding: 4px 10px;
-}
-
-#setting {
-	margin-left: 10px;
-}
-</style>
 <script>
 	function modify_go(frm) {
 		frm.action = "controller?type=queModi&board_type=3&id=${Bovo.id}";
@@ -103,9 +67,9 @@
 		frm.action = "controller?type=queComments";
 		frm.submit();
 	}
+	
 	function reply_update_go(frm) {
 		var answer = confirm("댓글을 수정 하시겠습니까?");
-
 		if (answer) {
 			frm.action = "controller?type=reply_update_delete&chk=1";
 			frm.submit();
@@ -116,25 +80,22 @@
 	}
 
 	function reply_delete_go(frm) {
-
-		frm.action = "controller?type=reply_update_delete&chk=2";
-		frm.submit();
-	}	
-
 		var answer = confirm("댓글을 삭제 하시겠습니까?");
 		if (answer) {
 			frm.action = "controller?type=reply_update_delete&chk=2";
 			frm.submit();
 		} else {
+			return;
 		}
+	}	
 
-	}
+
+
 
 </script>
 </head>
 
 <body>
-
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
@@ -197,15 +158,12 @@
 									<td><pre>${Bovo.content}</pre></td>
 								</tr>
 								<tr>
-
-
-
-									<td colspan="5"><input type="button" value="수  정"
-										onclick="modify_go(this.form)"> <input type="button"
-										value="삭  제" onclick="delete_go(this.form)"> <input
-										type="button" value="목  록" onclick="view_go(this.form)">
-										<input type="hidden" name="delete_chk" value="chk"> <input
-										type="hidden" name="delete_id" value="${Bovo.id}"></td>
+									<td colspan="5">
+									<input type="button" value="수  정" onclick="modify_go(this.form)"> 
+									<input type="button" value="삭  제" onclick="delete_go(this.form)"> 
+									<input type="button" value="목  록" onclick="view_go(this.form)">
+									<input type="hidden" name="delete_chk" value="chk"> 
+									<input type="hidden" name="delete_id" value="${Bovo.id}"></td>
 								</tr>
 							</tbody>
 						</table>
