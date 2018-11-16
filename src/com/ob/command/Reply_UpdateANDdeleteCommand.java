@@ -23,13 +23,15 @@ public class Reply_UpdateANDdeleteCommand implements Command {
 		String quePage = request.getParameter("quePage");
 		String path = "";
 		
+		System.out.println("chk : " + chk +" comm_id : "+comm_id + " comm_board_id : " + "comm_user_id :"+ comm_user_id + " comm_content : " +  comm_content );
+		
 		BoardreplyVO replyVO = new BoardreplyVO();
 		
 		
 		switch (chk) {
 		case "1":
 			replyVO.setId(comm_id);
-			replyVO.setContent(comm_content);			
+			replyVO.setContent(comm_content);	
 			int result1 = DAO.replyUpdate(replyVO);
 			if(result1>=1) {
 				System.out.println("코멘트 테이블 업데이트가 정상적으로 됨!!!!!!!");
