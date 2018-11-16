@@ -24,22 +24,25 @@
 </head>
 <style>
 .btn-group .button {
-	background-color: #4CAF50; /* Green */ /* #dc3545 */
-	border: 1px solid green;
+	background-color: #dc3544; /* Green */ /* #dc3545 */
+	border: 0px solid white;
 	color: white;
-	padding: 15px 32px;
+	margin-left:110px;
+	padding: 100px 100px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 30px;
 	cursor: pointer;
 	float: left;
-	width: 50%;
-	height: 150px;
+	width: 100%;
+	height: 300px;
+	
 }
 
 .btn-group .button:hover {
-	background-color: #3e8e41;
+	background-color: #a71d29;/* #3e8e41 */ 
+	border-color: white;
 }
 </style>
 
@@ -59,14 +62,14 @@
 			$("#one").css("display", "block");
 			$("#two").css("display", "none");
 
-			$("#one").css("background-color", "red");
-			$("#show1").css("background-color", "red");
+			$("#one").css("background-color", "#661219");//빨
+			$("#show1").css("background-color", "#661219");//빨
 		});
 		$("#show2").click(function() {
 			$("#two").css("display", "block");
 			$("#one").css("display", "none");
-			$("#two").css("background-color", "blue");
-			$("#show2").css("background-color", "blue");
+			$("#two").css("background-color", "#1d6ea7");//피
+			$("#show2").css("background-color", "#1d6ea7");//파
 
 		});
 
@@ -130,7 +133,7 @@
 				<input type="button" value="조 회" onclick="search_go(this.form)">
 			</div>
 		</form>
-
+<hr>
 
 		<form method="post">
 			<div id="two" style="display: none;">
@@ -160,7 +163,7 @@
 	<!-- /.container -->
 
 	<!-- Footer -->
-	 <jsp:include page="footer.jsp"></jsp:include>
+
 	 
 
 	<!-- Bootstrap core JavaScript -->
