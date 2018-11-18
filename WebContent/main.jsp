@@ -152,7 +152,7 @@
  
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-60">
-            <a href="#"><img class="card-img-top" src="imgs/workout.jpg" alt=""></a>
+            <a href="controller?type=search"><img class="card-img-top" src="imgs/workout.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#">#운동</a>
@@ -163,7 +163,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-60">
-            <a href="#"><img class="card-img-top" src="imgs/love.jpg" alt=""></a>
+            <a href="controller?type=search"><img class="card-img-top" src="imgs/love.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#">#사랑</a>
@@ -174,7 +174,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-60">
-            <a href="#"><img class="card-img-top" src="imgs/healing.jpg" alt=""></a>
+            <a href="controller?type=search"><img class="card-img-top" src="imgs/healing.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#">#힐링</a>
