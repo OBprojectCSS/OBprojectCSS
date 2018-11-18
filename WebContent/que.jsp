@@ -57,6 +57,18 @@
    font-weight: bold;
 }
 </style>
+<script>
+function queOk(frm) {
+		if("${uservo}"=="") {
+			alert("문의글 작성은 회원만 가능합니다.\n로그인 해 주십시오.");
+			location.href="login.jsp";
+		}
+		else{
+		location.href = "controller?type=queWrite&board_type=3&user_id=${uservo.id}";
+		}
+}
+
+</script>
 </head>
 
 <body>
@@ -178,10 +190,13 @@
 										</c:choose>
 									</ol>
 								</td>
-								<c:if test="${not empty uservo}">
-									<td style="padding-left: 0px;"><button type="submit" class="btn btn-danger" onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'">작성</button></td>
+								<%-- <c:if test="${not empty uservo}"> --%>
+									<td style="padding-left: 0px;">
+										<%-- <button type="submit" class="btn btn-danger" onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'">문의글 작성</button></td> --%>
+										<button type="submit" class="btn btn-danger"
+											onclick="queOk(this.form)">문의글 작성</button>
 <%-- 									<td><input type="button" value="작성하기" onclick="javascript:location.href='controller?type=queWrite&board_type=3&user_id=${uservo.id}'"></td> --%>
-								</c:if>
+								<%-- </c:if> --%>
 							</tr>
 						</tfoot>
 					</table>

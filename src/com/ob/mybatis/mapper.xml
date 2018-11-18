@@ -61,18 +61,18 @@
 		parameterType="String">
 		SELECT *
 		FROM (SELECT ROWNUM R_NUM, BR.*, U.ACCOUNT, U.NICKNAME
-		FROM (SELECT B.*, R.ID RID, R.ROOM_ID, R.S_DATE, R.E_DATE, R.R_DATE,
-		R.PAX, R.REVIEW_ID
-		FROM (SELECT ID, USER_ID, BOARD_TYPE, TITLE, CONTENT,
-		SUBSTR(WRITE_DATE,1,10) WRITE_DATE, READ_COUNT
-		FROM OBHOTEL_BOARD) B,
-		(SELECT ID, USER_ID, ROOM_ID, SUBSTR(S_DATE,1,10) S_DATE, SUBSTR(E_DATE,1,10)
-		E_DATE, R_DATE, PAX, REVIEW_ID
-		FROM OBHOTEL_RESERVATION) R
-		WHERE R.REVIEW_ID = B.ID ORDER BY B.ID DESC) BR,
-		(SELECT ID, ACCOUNT, NICKNAME
-		FROM OBHOTEL_USER) U
-		WHERE U.ID = BR.USER_ID)
+				FROM (SELECT B.*, R.ID RID, R.ROOM_ID, R.S_DATE, R.E_DATE, R.R_DATE,
+							 R.PAX, R.REVIEW_ID
+						FROM (SELECT ID, USER_ID, BOARD_TYPE, TITLE, CONTENT,
+									 SUBSTR(WRITE_DATE,1,10) WRITE_DATE, READ_COUNT
+								FROM OBHOTEL_BOARD) B,
+							 (SELECT ID, USER_ID, ROOM_ID, SUBSTR(S_DATE,1,10) S_DATE,
+							 		 SUBSTR(E_DATE,1,10) E_DATE, R_DATE, PAX, REVIEW_ID
+								FROM OBHOTEL_RESERVATION) R
+						WHERE R.REVIEW_ID = B.ID ORDER BY B.ID DESC) BR,
+					  (SELECT ID, ACCOUNT, NICKNAME
+						 FROM OBHOTEL_USER) U
+			   WHERE U.ID = BR.USER_ID)
 		WHERE ID=#{pId}
 	</select>
 
@@ -96,20 +96,21 @@
 	<select id="getUsedResDetail"
 		resultType="com.ob.vo.ReservationVO" parameterType="com.ob.vo.UserVO">
 		SELECT RES.ID ID, SUBSTR(S_DATE,1,10) S_DATE, SUBSTR(E_DATE,1,10) E_DATE
-		, U.ID USER_ID, ACCOUNT, NICKNAME
-		,R.ID ROOM_ID, ROOM_NAME, R.ROOM_TYPE_ID ROOM_TYPE_ID
-		,ROOM_TYPE, R.ROOM_NUM ROOM_NUM, ROOM_CONTENT
-		,R.ROOM_ADDRESS1 ROOM_ADDRESS1, R.ROOM_ADDRESS2 ROOM_ADDRESS2, R.ROOM_THEME ROOM_THEME
-		,RES.PAX PAX, RT.MAX_PAX MAX_PAX, COST, REVIEW_ID
-		FROM OBHOTEL_RESERVATION RES,
-		OBHOTEL_USER U,
-		OBHOTEL_ROOM R,
-		OBHOTEL_ROOM_TYPE RT
-		WHERE USER_ID = #{id}
-		AND RES.USER_ID = U.ID
-		AND RES.ROOM_ID = R.ID
-		AND R.ROOM_TYPE_ID = RT.ID
-		AND RES.E_DATE &lt; SYSDATE
+			 , U.ID USER_ID, ACCOUNT, NICKNAME
+			 , R.ID ROOM_ID, ROOM_NAME, R.ROOM_TYPE_ID ROOM_TYPE_ID
+			 , ROOM_TYPE, R.ROOM_NUM ROOM_NUM, ROOM_CONTENT
+			 , R.ROOM_ADDRESS1 ROOM_ADDRESS1, R.ROOM_ADDRESS2 ROOM_ADDRESS2
+			 , R.ROOM_THEME ROOM_THEME
+			 , RES.PAX PAX, RT.MAX_PAX MAX_PAX, COST, REVIEW_ID
+		  FROM OBHOTEL_RESERVATION RES,
+			   OBHOTEL_USER U,
+			   OBHOTEL_ROOM R,
+			   OBHOTEL_ROOM_TYPE RT
+		 WHERE USER_ID = #{id}
+	       AND RES.USER_ID = U.ID
+		   AND RES.ROOM_ID = R.ID
+		   AND R.ROOM_TYPE_ID = RT.ID
+		   AND RES.E_DATE &lt; SYSDATE
 	</select>
 
 	<!-- ****** 로그인 아이디체크 ******************************************** -->
@@ -290,19 +291,15 @@
 	<!-- 두테이블 아웃 조인 로우럼 셀렉문 -->
 	<select id="getEventALLcol" resultType="com.ob.vo.BoardplusVO"
 		parameterType="Map">
-		select* FROM (select ROWNUM R_NUM, H.* FROM
-		(SELECT b.id,
-		user_id, board_type, title, content, write_date, read_count,
-		board_id,
-		filename,
-		saved_filename,
-		filesize
-		FROM obhotel_board b LEFT OUTER JOIN
-		obhotel_board_file f ON b.id =
-		f.board_id WHERE board_type =
-		#{board_type} order by id desc)H)WHERE R_NUM BETWEEN
-		#{begin} AND
-		#{end}
+		SELECT*
+		  FROM (SELECT ROWNUM R_NUM, H.*
+				  FROM (SELECT B.ID, USER_ID, BOARD_TYPE, TITLE,
+					    	   CONTENT, WRITE_DATE, READ_COUNT, BOARD_ID,
+						 	   FILENAME, SAVED_FILENAME, FILESIZE
+						  FROM OBHOTEL_BOARD B LEFT OUTER JOIN
+							   OBHOTEL_BOARD_FILE F ON B.ID = F.BOARD_ID
+					     WHERE BOARD_TYPE = #{board_type} order by id desc) H)
+				 WHERE R_NUM BETWEEN #{begin} AND #{end}
 	</select>
 
 	<select id="getUserBoardTotalList" parameterType="String"

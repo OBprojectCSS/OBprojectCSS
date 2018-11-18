@@ -239,8 +239,8 @@ img#room_image{
 
 
 						<div class="card-footer">
-							<a href="#" class="btn btn-primary"><input type="button"
-								onclick="reserveOk(this.form)" value="예약하기"></a>
+							<button type="submit" class="btn btn-danger"
+											onclick="reserveOk(this.form)">예약하기</button>
 						</div>
 					</div>
 				</div>
