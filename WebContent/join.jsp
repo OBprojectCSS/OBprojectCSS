@@ -25,54 +25,54 @@
 <script>
 	// 다시 중복체크 가능해짐
 	function inputIdChk() {
-		document.formm.reid.value = "idUncheck";
+		document.form.reid.value = "idUncheck";
 	}
 	
 	function go_save() {
-		if (document.formm.id.value == "") {
+		if (document.form.id.value == "") {
 			alert("아이디를 입력해 주세요.");
-			document.formm.id.focus();
+			document.form.id.focus();
 		} 
-// 		else if (document.formm.id.value != document.formm.reid.value) {
+// 		else if (document.form.id.value != document.form.reid.value) {
 // 			alert("중복확인을 클릭해 주세요.");
-// 			document.formm.id.focus();
+// 			document.form.id.focus();
 // 		} 
-		else if (document.formm.pwd.value == "") {
+		else if (document.form.pwd.value == "") {
 			alert("비밀번호를 입력해 주세요.");
-			document.formm.pwd.focus();
-		} else if (document.formm.name.value == "") {
+			document.form.pwd.focus();
+		} else if (document.form.name.value == "") {
 			alert("이름을 입력해 주세요.");
-			document.formm.name.focus();
-		} else if(isNaN(document.formm.tel.value)){
+			document.form.name.focus();
+		} else if(isNaN(document.form.tel.value)){
             alert("전화번호는 - 제외한 숫자만 입력해 주세요.");
-            document.formm.tel.focus();
+            document.form.tel.focus();
             return false;
-  		} else if (document.formm.zipcode.value == "") {
+  		} else if (document.form.zipcode.value == "") {
 			alert("주소를 입력해 주세요.");	
-			document.formm.zipcode.focus();
-		} else if (document.formm.address.value == "") {
+			document.form.zipcode.focus();
+		} else if (document.form.address.value == "") {
 			alert("주소를 입력해 주세요.");	
-			document.formm.address.focus();
-		} else if (document.formm.detail.value == "") {
+			document.form.address.focus();
+		} else if (document.form.detail.value == "") {
 			alert("주소를 입력해 주세요.");	
-			document.formm.detail.focus();
-		} else if (document.formm.email.value == "") {
+			document.form.detail.focus();
+		} else if (document.form.email.value == "") {
 			alert("이메일을 입력해 주세요.");	
-			document.formm.email.focus();
-		} else if (document.formm.birthday.value == "") {
+			document.form.email.focus();
+		} else if (document.form.birthday.value == "") {
 			alert("생년월일을 입력해 주세요.");	
-			document.formm.birthday.focus();
+			document.form.birthday.focus();
 		} else {
-			document.formm.action = "controller?type=joincheck";
-			document.formm.submit();
+			document.form.action = "controller?type=joincheck";
+			document.form.submit();
 		}
 	}
 	
 	function idCheck() {
-		var inputId = document.formm.id.value;
+		var inputId = document.form.id.value;
 		if (inputId == "" || inputId.length == 0){
 			alert("중복 체크할 아이디를 먼저 입력하세요.")
-			document.formm.id.focus();
+			document.form.id.focus();
 			return;
 		}
 		var account = document.getElementById('account').value;
@@ -83,8 +83,8 @@
          var isCancelOk = confirm("정말 취소하시겠습니까?");
          
          if (isCancelOk) {
-            formm.action = "controller?type=main";
-            formm.submit();
+            form.action = "controller?type=main";
+            form.submit();
          } else {
             alert("취소되었습니다.");
          }
@@ -103,44 +103,53 @@
 		<p>약관동의>><b>회원가입</b></p>
 		</div>
 
-			<form id="join" method="POST" name="formm">
+			<form id="join" method="POST" name="form">
 				<fieldset>
 					<legend>회원가입</legend>
+					<div class="control-group form-group">
+             		<div class="controls">
+						<label style="width:20%;">아이디</label>
+						<input type="text" class="form-control2" id="account" name="id" placeholder="회원아이디" size="22" onkeydown="inputIdChk()">
+						<input type="hidden" name="reid" value="idUncheck">
+						<input type="button" value="중복확인" class="btn btn-danger" onclick="idCheck()"><br><br>
+					</div>
+					</div>
+					<div class="control-group form-group">
+             		<div class="controls">
+						<label style="width:20%;">비밀번호</label>
+						<input type="password" class="form-control2" name="pwd" placeholder="비밀번호"><br><br>
+					</div>
+					</div>
 					
-					<label>아이디</label>
-					<input type="text" id="account" name="id" placeholder="회원아이디" size="22" onkeydown="inputIdChk()">
-					<input type="hidden" name="reid" value="idUncheck">
-					<input type="button" value="중복확인" class="dup" onclick="idCheck()"><br><br>
+					<label style="width:20%;">이름</label>
+					<input type="text" name="name" class="form-control2" placeholder="이름"><br><br>
 					
-					<label>비밀번호</label>
-					<input type="password" name="pwd" placeholder="비밀번호"><br><br>
+					<label style="width:20%;">휴대폰 번호</label>
+					<input type="text" name="tel" class="form-control2" placeholder="휴대폰번호"><br><br>
 					
-					<label>이름</label>
-					<input type="text" name="name" placeholder="이름"><br><br>
+					<label style="width:20%;">주소</label>
+						<input type="text" name="zipcode" class="form-control2" id="zipcode" placeholder="우편번호" maxlength="6"><br>
+					<label style="width:20%;"></label>
+						<input type="text" name="address" id="roadaddress" placeholder="예) 서울특별시"><br>
+					<label style="width:20%;"></label>
+						<input type="text" name="detail" placeholder="예) 마포구 백범로..."><br><br>
+						
+					<label style="width:20%;">E-Mail</label>
+					<input type="text" name="email" class="form-control2" placeholder="이메일"><br><br>
 					
-					<label>휴대폰 번호</label>
-					<input type="text" name="tel" placeholder="휴대폰번호"><br><br>
-					
-					<label>주소</label>
-					<input type="text" name="zipcode" id="zipcode" placeholder="우편번호" maxlength="6"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" id="roadaddress" placeholder="예) 서울특별시"><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="detail" placeholder="예) 마포구 백범로..."><br><br>		
-					
-					<label>E-Mail</label>
-					<input type="text" name="email" placeholder="이메일"><br><br>
-					
-					<label>생년월일</label>
-					<input type="text" name="birthday" placeholder="예) 90/01/01"><br><br>
+					<label style="width:20%;">생년월일</label>
+					<input type="text" name="birthday" class="form-control2"  placeholder="예) 90/01/01"><br><br>
 													
-					<label>광고 수신 동의</label>
+					<label style="width:20%;">광고 수신 동의</label>
 					<input type="radio" name="e_confirm" value="0" checked>동의함&nbsp;&nbsp;&nbsp;
 					<input type="radio" name="e_confirm" value="1">동의안함 <br>
 				</fieldset>
 				<br>
 				<br>
 				<div>
-					<input type="button" value="회원가입" class="submit" onclick="go_save()">
-					<input type="button" value="취소" class="cancels" onclick="go_main()">
+					<input type="button" value="회원가입" class="btn btn-danger submit" onclick="go_save()">
+					<input type="button" value="취소" class="btn btn-danger cancels" onclick="go_main()">
+					<br><br>
 				</div>
 			</form>
 			

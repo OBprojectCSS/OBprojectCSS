@@ -60,9 +60,9 @@
 								href="controller?type=notice&board_type=1">공지 사항</a> <a
 								class="dropdown-item" href="controller?type=moreQue">자주 묻는
 								질문</a> <a class="dropdown-item"
-								href="controller?type=que&board_type=3">문의 사항</a> <a
+								href="controller?type=que&board_type=3">문의 사항</a> <!-- <a
 								class="dropdown-item"
-								href="controller?type=premium&board_type=4">프리미엄 후기</a> <a
+								href="controller?type=premium&board_type=4">프리미엄 후기</a> --> <a
 								class="dropdown-item" href="controller?type=agree">약관 및 동의사항</a>
 						</div></li>
 					<!--  -->
