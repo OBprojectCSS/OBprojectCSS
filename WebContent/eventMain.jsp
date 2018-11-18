@@ -21,42 +21,42 @@
 <link href="css/modern-business.css" rel="stylesheet">
 
 </head>
-<style>
+<style type="text/css">
 .paging {
-	list-style: none;
+   list-style: none;
 }
 
 .paging li {
-	float: left;
-	margin-right: 8px;
+   float: left;
+   margin-right: 8px;
 }
 
 .paging li a {
-	text-decoration: none;
-	display: block;
-	padding: 3px 7px;
-	border: 1px solid #00B3DC;
-	font-weight: bold;
-	color: black;
+   text-decoration: none;
+   display: block;
+   padding: 3px 7px;
+   border: 1px solid #dc3454;
+   font-weight: bold;
+   color: black;
 }
 
 .paging li a:hover {
-	background-color: #00B3DC;
-	color: white;
+   background-color: #dc3454;
+   color: white;
 }
 
 .paging .disable {
-	padding: 3px 7px;
-	border: 1px solid silver;
-	color: silver;
+   padding: 3px 7px;
+   border: 1px solid silver;
+   color: silver;
 }
 
 .paging .now {
-	padding: 3px 7px;
-	border: 1px solid #ff4aa5;
-	background-color: #ff4aa5;
-	color: white;
-	font-weight: bold;
+   padding: 3px 7px;
+   border: 1px solid #dc3454;
+   background-color: #dc3454;
+   color: white;
+   font-weight: bold;
 }
 #imgsize {
 	width: 350px;
@@ -95,7 +95,7 @@
 							<h2 class="card-title">${vo.title }</h2>
 							<p class="card-text">${vo.content }</p>
 							<a href="controller?type=event_detail&b_id=${vo.id }"
-								class="btn btn-primary">상세보기 &rarr;</a>
+								class="btn btn-danger">상세보기 &rarr;</a>
 						</div>
 					</div>
 				</div>
@@ -114,12 +114,12 @@
 							<c:choose>
 								<%-- 사용불가(disable) : 첫번째 블록인 경우 --%>
 								<c:when test="${pvo.beginPage == 1 }">
-									<li class="disable">이전으로</li>
+									<li class="disable">Previous</li>
 								</c:when>
 								<%--사용가능(enable) : 두번째 이상(첫번째 아닌경우) --%>
 								<c:otherwise>
 									<li><a
-										href="controller?type=event_roomALL&board_type=2&cPage=${pvo.beginPage - 1 }">이전으로</a>
+										href="controller?type=event_roomALL&board_type=2&cPage=${pvo.beginPage - 1 }">Previous</a>
 									</li>
 								</c:otherwise>
 							</c:choose>
@@ -142,12 +142,12 @@
 							<c:choose>
 								<%--사용불가(disable) : endPage가 전체페이지수 보다 크거나 같으면 --%>
 								<c:when test="${pvo.endPage >= pvo.totalPage }">
-									<li class="disable">다음으로</li>
+									<li class="disable">Next</li>
 								</c:when>
 								<%--사용가능(enable) --%>
 								<c:otherwise>
 									<li><a
-										href="controller?type=event_roomALL&board_type=2&cPage=${pvo.endPage + 1 }">다음으로</a>
+										href="controller?type=event_roomALL&board_type=2&cPage=${pvo.endPage + 1 }">Next</a>
 									</li>
 								</c:otherwise>
 							</c:choose>

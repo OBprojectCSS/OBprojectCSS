@@ -78,11 +78,19 @@
 		var account = document.getElementById('account').value;
 		window.open("controller?type=idCheck&id="+account, "chkForm", "width=350, height=300, resizable=no, scrollbars=no");
 	}
+	
+	 function go_main() {
+         var isCancelOk = confirm("정말 취소하시겠습니까?");
+         
+         if (isCancelOk) {
+            formm.action = "controller?type=main";
+            formm.submit();
+         } else {
+            alert("취소되었습니다.");
+         }
+      } 
 </script>
-
 </head>
-
-
 <body>
 
 	<jsp:include page="header.jsp"></jsp:include>
@@ -95,20 +103,14 @@
 		<p>약관동의>><b>회원가입</b></p>
 		</div>
 
-			<form class="form-horizontal" id="join" method="POST" name="formm">
-				<div class="form-group">
-			    <label for="account" class="col-sm-2 control-label">아이디</label>
-			    <div class="col-sm-3">
-			    <input type="text" id="account" name="id" class="form-control" placeholder="아이디" onkeydown="inputIdChk()">
-				<input type="hidden" name="reid" value="idUncheck">
-				<input type="button" value="중복확인" class="dup" onclick="idCheck()">
-			    </div>
-				</div>
+			<form id="join" method="POST" name="formm">
+				<fieldset>
+					<legend>회원가입</legend>
 					
-					
-					
-					
-<!-- 					<input type="text" id="account" name="id" placeholder="회원아이디" size="22" onkeydown="inputIdChk()"> -->
+					<label>아이디</label>
+					<input type="text" id="account" name="id" placeholder="회원아이디" size="22" onkeydown="inputIdChk()">
+					<input type="hidden" name="reid" value="idUncheck">
+					<input type="button" value="중복확인" class="dup" onclick="idCheck()"><br><br>
 					
 					<label>비밀번호</label>
 					<input type="password" name="pwd" placeholder="비밀번호"><br><br>
@@ -138,22 +140,10 @@
 				<br>
 				<div>
 					<input type="button" value="회원가입" class="submit" onclick="go_save()">
-					<input type="reset" value="취소" class="cancels">
+					<input type="button" value="취소" class="cancels" onclick="go_main()">
 				</div>
 			</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
+			
 		<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	</div>
 	<!-- /.container -->

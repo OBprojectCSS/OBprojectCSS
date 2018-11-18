@@ -29,6 +29,10 @@
 	<!-- Footer -->
 	<footer class="py-5 bg-danger">
 		<div class="container">
+			<p class="m-0 text-center text-white">(주)나랑놀자</p>
+			<p class="m-0 text-center text-white">고객행복센터 1234-5678</p>
+			<p class="m-0 text-center text-white">운영시간: 오전 9시 - 새벽 1시, 점심시간: 오후 12시 - 오후 1시</p>
+			<p class="m-0 text-center text-white">주소: 비트캠프 서울시 서초구 서초동 1327-15 비트아카데미빌딩｜ 사업자등록번호 : 000-00-0000</p>
 			<p class="m-0 text-center text-white">Copyright &copy; GONSFAMILY Corp. All rights reserved.</p>
 		</div>
 		<!-- /.container -->

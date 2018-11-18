@@ -21,13 +21,13 @@
 <link href="css/modern-business.css" rel="stylesheet">
 
 <script>
-	function save_go() {
-	    frm.action = "controller?type=noticeModi&board_type=1";
+	function saveGo(frm) {
+	   	frm.action = "controller?type=noticeModi&board_type=1";
 	    frm.submit();
 	 }
-	function list_go() {
-	    frm.action = "controller?type=notice&board_type=1";
-	    frm.submit();
+	function listGo(frm) {
+		frm.action = "controller?type=notice&board_type=1";
+		frm.submit();
 	 }
 </script>
 </head>
@@ -77,7 +77,7 @@
 						<tbody>
 							<tr>
 								<th>제목</th>
-								<td><input type="text" name="title" value="${BPVO.title }"></td>
+								<td><input type="text" name="title" value="${BPVO.title}"></td>
 							</tr>
 							<tr>
 								<th>작성자</th>
@@ -94,8 +94,8 @@
 				</form>
 						<div id="setting" style="padding-left: 300px;">
 						
-								<button type="submit" class="btn btn-danger" onclick="save_go()">저장</button>
-								<button type="submit" class="btn btn-danger" onclick="list_go()">취소</button>
+								<button type="submit" class="btn btn-danger" onclick="saveGo()">저장</button>
+								<button type="submit" class="btn btn-danger" onclick="listGo()">취소</button>
 								
 								
 <!-- 								<input type="button" value="수  정" onclick="save_go()"> -->

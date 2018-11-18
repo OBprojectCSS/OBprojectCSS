@@ -57,7 +57,7 @@
 		</ol>
 
 		<!-- Content Row -->
-		<div class="row">
+		<div class="row" style="padding-bottom: 120px;">
 			<!-- Sidebar Column -->
 			<div class="col-lg-3 mb-4">
 				<div class="list-group">

@@ -51,7 +51,7 @@
 		</ol>
 
 		<!-- Content Row -->
-		<div class="row">
+		<div class="row" style="padding-bottom: 120px;">
 			<!-- Sidebar Column -->
 			<div class="col-lg-3 mb-4">
 				<div class="list-group">
@@ -181,7 +181,7 @@ Step4. 회원가입 폼 작성 후 로그인
 					aria-labelledby="headingFive">
 					<div class="card-body" style="display: none">
 <pre>
-당일 예약만 아니라면 모든 호텔 및 모텔의 예약 서비스를 이용하실 수 있습니다.
+당일 예약뿐만 아니라 모든 호텔 및 모텔의 예약 서비스를 이용하실 수 있습니다.
 급하게 당일 예약이 필요하시다면 고객행복센터 02)1234-5678로 연락 주시면 친절히 안내해 드리겠습니다. 
 </pre>
 					</div>

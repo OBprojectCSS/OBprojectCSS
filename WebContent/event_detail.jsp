@@ -37,7 +37,7 @@
 
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
-			Event <small>detail</small>
+			Event <small>상세페이지</small>
 		</h1>
 
 		<ol class="breadcrumb">

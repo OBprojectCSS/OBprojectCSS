@@ -96,19 +96,21 @@
 
 <!--    </div> -->
    <!-- /.row -->
-   
+   		
    <div class="container">
    <div class="innerContainer">
-   <form class="form-signin" method="POST" name="frm">
-   <img class="mb-4" src="imgs/loginlogo.png">
+   <form class="form-signin" method="POST" name="frm" style="margin-bottom: 200px;">
+   <img class="mb-4" src="imgs/loginlogo.png" style="padding-left: 100px;">
       <h1 class="h3 mb-3 font-weight-normal" style="text-align:center">회원 로그인</h1>
+      <br>
       
       <label for="inputId" class="sr-only">아이디</label>
       <input type="text" name="id" id="inputId" class="form-control" placeholder="아이디" required autofocus>
-      
+      <br>
       <label for="inputPassword" class="sr-only">비밀번호</label>
       <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="비밀번호" required>
-      
+      <br>
+      <br>
       <button class="btn btn-lg btn-danger btn-block" type="submit" class="submit" onclick="login_go(this.form)">로그인</button>
       <button class="btn btn-lg btn-danger btn-block" type="submit" class="submit" onclick="join_go(this.form)">회원가입</button>
       

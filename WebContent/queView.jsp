@@ -219,9 +219,10 @@
 
 							<c:if test="${uservo.id == c.user_id }">
 								
-								<input type="button" value="수  정" class="hhhh">
-								<input type="button" value="삭  제"
-									onclick="reply_delete_go(this.form)">
+								<button type="submit" class="btn btn-danger" onclick="reply_update_go(this.form)">수정</button>
+								<button type="submit" class="btn btn-danger" onclick="reply_delete_go(this.form)">삭제</button>
+<!--  								<input type="button" value="수  정" class="hhhh"> -->
+<!--  								<input type="button" value="삭  제" onclick="reply_delete_go(this.form)"> -->
 							</c:if>
 
 						</form>

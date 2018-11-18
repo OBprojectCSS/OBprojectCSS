@@ -72,113 +72,114 @@
     <!-- Page Content 페이지 영역  main화면에서 보여줄것 -->
     <div class="container">
 
-      <h1 class="my-4">Welcome to Modern Business</h1>
+<!--       <h1 class="my-4">Welcome to Modern Business</h1> -->
 
-      <!-- Marketing Icons Section -->
-      <div class="row">
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Card Title</h4>
-            <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Card Title</h4>
-            <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Card Title</h4>
-            <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
+<!--       Marketing Icons Section -->
+<!--       <div class="row"> -->
+<!--         <div class="col-lg-4 mb-4"> -->
+<!--           <div class="card h-100"> -->
+<!--             <h4 class="card-header">Card Title</h4> -->
+<!--             <div class="card-body"> -->
+<!--               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p> -->
+<!--             </div> -->
+<!--             <div class="card-footer"> -->
+<!--               <a href="#" class="btn btn-primary">Learn More</a> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--         <div class="col-lg-4 mb-4"> -->
+<!--           <div class="card h-100"> -->
+<!--             <h4 class="card-header">Card Title</h4> -->
+<!--             <div class="card-body"> -->
+<!--               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p> -->
+<!--             </div> -->
+<!--             <div class="card-footer"> -->
+<!--               <a href="#" class="btn btn-primary">Learn More</a> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--         <div class="col-lg-4 mb-4"> -->
+<!--           <div class="card h-100"> -->
+<!--             <h4 class="card-header">Card Title</h4> -->
+<!--             <div class="card-body"> -->
+<!--               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p> -->
+<!--             </div> -->
+<!--             <div class="card-footer"> -->
+<!--               <a href="#" class="btn btn-primary">Learn More</a> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--       </div> -->
       <!-- /.row -->
 
       <!-- Portfolio Section -->
-      <h2>Portfolio Heading</h2>
+      <h2 style="padding-top: 80px;">지역 및 테마 검색</h2>
 
       <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card h-60">
+            <a href="controller?type=search"><img class="card-img-top" src="imgs/seoul.jpg" alt=""></a>
             <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project One</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+              <h3 class="card-title">
+                <a href="controller?type=search">서울(SEOUL)</a>
+              </h3>
+              <p class="card-text">세계의 중심지이자 대한민국의 수도인 역사와 현재가 공존하는 서울! 호텔 모텔 검색은 역시 나랑놀자</p>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card h-60">
+            <a href="controller?type=search"><img class="card-img-top" src="imgs/incheon.jpg" alt=""></a>
             <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Two</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+              <h3 class="card-title">
+                <a href="controller?type=search">인천(INCHEON)</a>
+              </h3>
+              <p class="card-text">세계와 연결되는 인천국제공항과 인천신항 및 무한한 관광 자원을 지닌 관광도시 인천! 호텔 모텔 검색은 역시 나랑놀자</p>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card h-60">
+            <a href="controller?type=search"><img class="card-img-top" src="imgs/busan.jpg" alt=""></a>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="controller?type=search">부산(BUSAN)</a>
+              </h3>
+              <p class="card-text">대한민국의 해양수도이자 동남권 관광 중심지인 매력이 넘치는 천혜의 관광지 부산! 호텔 모텔 검색은 역시 나랑놀자</p>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-60">
+            <a href="#"><img class="card-img-top" src="imgs/workout.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project Three</a>
+                <a href="#">#운동</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+              <p class="card-text">현대인들의 최대 관심사 건강! 나랑놀자가 추천해 드리는 건강 테마에 적한합 곳을 소개해 드립니다 #호텔 모텔 검색은 역시 나랑놀자</p>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card h-60">
+            <a href="#"><img class="card-img-top" src="imgs/love.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project Four</a>
+                <a href="#">#사랑</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+              <p class="card-text">연인 혹은 가족과 사랑과 행복을 느끼고 싶으세요? 나랑놀자가 추천해 드리는 사랑 테마에 적합한 곳을 소개해 드립니다 #호텔 모텔 검색은 역시 나랑놀자</p>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card h-60">
+            <a href="#"><img class="card-img-top" src="imgs/healing.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Project Five</a>
+                <a href="#">#힐링</a>
               </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Six</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+              <p class="card-text">하루하루 정신적 스트레스에 지친 분들 여기여기 모여라! 나랑놀자가 추천해 드리는 힐링 테마에 맞는 곳을 소개해 드립니다 #호텔 모텔 검색은 역시 나랑놀자</p>
             </div>
           </div>
         </div>
@@ -187,39 +188,40 @@
 
       <!-- Features Section -->
       <div class="row">
-        <div class="col-lg-6">
-          <h2>Modern Business Features</h2>
-          <p>The Modern Business template by Start Bootstrap includes:</p>
-          <ul>
-            <li>
-              <strong>Bootstrap v4</strong>
-            </li>
-            <li>jQuery</li>
-            <li>Font Awesome</li>
-            <li>Working contact form with validation</li>
-            <li>Unstyled page elements for easy customization</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-        </div>
-        <div class="col-lg-6">
-          <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+<!--         <div class="col-lg-6"> -->
+<!--           <h2>Modern Business Features</h2> -->
+<!--           <p>The Modern Business template by Start Bootstrap includes:</p> -->
+<!--           <ul> -->
+<!--             <li> -->
+<!--               <strong>Bootstrap v4</strong> -->
+<!--             </li> -->
+<!--             <li>jQuery</li> -->
+<!--             <li>Font Awesome</li> -->
+<!--             <li>Working contact form with validation</li> -->
+<!--             <li>Unstyled page elements for easy customization</li> -->
+<!--           </ul> -->
+<!--           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p> -->
+<!--         </div> -->
+        <div class="col-lg-18" style="padding-left: 70px; padding-top: 50px; padding-bottom: 100px;">
+          <img class="img-fluid rounded" src="imgs/bar.jpg" alt="">
         </div>
       </div>
       <!-- /.row -->
 
-      <hr>
 
       <!-- Call to Action Section -->
-      <div class="row mb-4">
-        <div class="col-md-8">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-        </div>
-        <div class="col-md-4">
-          <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
-        </div>
-      </div>
+<!--       <div class="row mb-4"> -->
+<!--         <div class="col-md-8"> -->
+<!--           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p> -->
+<!--         </div> -->
+<!--         <div class="col-md-4"> -->
+<!--           <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a> -->
+<!--         </div> -->
+<!--       </div> -->
 
     </div>
+
+
     <!-- /.container -->
 
     <!-- Footer -->
