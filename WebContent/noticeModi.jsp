@@ -21,11 +21,11 @@
 <link href="css/modern-business.css" rel="stylesheet">
 
 <script>
-	function saveGo(frm) {
+	function saveGo() {
 	   	frm.action = "controller?type=noticeModi&board_type=1";
 	    frm.submit();
 	 }
-	function listGo(frm) {
+	function listGo() {
 		frm.action = "controller?type=notice&board_type=1";
 		frm.submit();
 	 }
