@@ -90,6 +90,7 @@ function cancel(frm) {
 					
 					<input type="hidden" name="chk" value="chk">
 					<input type="hidden" name="idx" value="${uservo.getId()}">
+					<input type="hidden" name="id" value="${uservo.getAccount()}">
 				</div>
 			</form>
 	

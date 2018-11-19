@@ -40,23 +40,22 @@ public class MypageModiActCommand implements Command {
 			path = "myPageModi.jsp";
 		} else {
 			
-			UserVO vo = new UserVO();
 			
-			vo.setId(id);
-			vo.setAccount(account);
-			vo.setPassword(password);
-			vo.setNickname(nickname);
-			vo.setBirthday(birthday);
-			vo.setZipcode(zipcode);
-			vo.setAddress1(address1);
-			vo.setAddress2(address2);
-			vo.setEmail(email);
-			vo.setE_confirm(e_confirm);
-			vo.setTel(tel);
+			uvo.setId(id);
+			uvo.setAccount(account);
+			uvo.setPassword(password);
+			uvo.setNickname(nickname);
+			uvo.setBirthday(birthday);
+			uvo.setZipcode(zipcode);
+			uvo.setAddress1(address1);
+			uvo.setAddress2(address2);
+			uvo.setEmail(email);
+			uvo.setE_confirm(e_confirm);
+			uvo.setTel(tel);
 			
-			DAO.mypageUP(vo);
+			DAO.mypageUP(uvo);
 		
-			request.getSession().setAttribute("uVO", vo);
+			request.getSession().setAttribute("uservo", uvo);
 			
 			path = "main.jsp";
 		}
