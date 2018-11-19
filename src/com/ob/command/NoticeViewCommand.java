@@ -16,6 +16,8 @@ public class NoticeViewCommand implements Command {
 		
 		request.getSession().setAttribute("BPVO", vo);
 		
+//		System.out.println("vo.getId: " + vo.geti);
+		
 		String path = "noticeView.jsp";
 	
 		return path;

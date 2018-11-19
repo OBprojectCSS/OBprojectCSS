@@ -38,7 +38,7 @@
 	   <jsp:include page="header.jsp"></jsp:include>
 
 	<!-- Page Content -->
-	<div class="container">
+	<div class="container" style="margin-bottom: 350px; padding-top: 50px;">
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 		<br>
 		<br>
@@ -46,7 +46,7 @@
 	
 	<form method="POST" id="revTable">
 			<div id="revList">
-				<table border="1">
+				<table class="table table-striped">
 				<tbody>
 				
 					<c:if test="${empty userReservationvo}">
@@ -173,7 +173,8 @@
 								<c:if test="${vo.day_chk==1 }">
 									<form method="get">
 									<input type="hidden" name="resId" value="${vo.id}">
-									<input type="button" id="revDel" value="예약취소" onclick="cancelRes(this.form)">
+									<button type="submit" id="revDel" class="btn btn-danger" onclick="cancelRes(this.form)">예약취소</button>
+<!-- 									<input type="button" id="revDel" value="예약취소" onclick="cancelRes(this.form)"> -->
 									</form>
 								</c:if>
 							</td>

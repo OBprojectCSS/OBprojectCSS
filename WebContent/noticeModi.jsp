@@ -21,11 +21,11 @@
 <link href="css/modern-business.css" rel="stylesheet">
 
 <script>
-	function saveGo() {
+	function saveGo(frm) {
 	   	frm.action = "controller?type=noticeModi&board_type=1";
 	    frm.submit();
 	 }
-	function listGo() {
+	function listGo(frm) {
 		frm.action = "controller?type=notice&board_type=1";
 		frm.submit();
 	 }
@@ -97,13 +97,13 @@
 								<button class="btn btn-danger" onclick="listGo(this.form)">취소</button>
 								
 								
+							</form>
 							<!-- <input type="button" value="수  정" onclick="save_go()"> -->
 <!-- 								<input type="reset" value="초 기 화"> -->
 								<!-- <input type="button" value="목  록" onclick="list_go()"> -->
 								
 								<input type="hidden" name="update_id" value="${BPVO.id}">
 								<input type="hidden" name="update_chk" value="chk">
-							</form>
 						</div>		
 				</div>
 
